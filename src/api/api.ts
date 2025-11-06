@@ -1,4 +1,5 @@
 import { axiosApi } from "./axiosApi"
+import qs from "qs";
 
 //функция регистрации пользователя
 export interface LoginData {
@@ -36,7 +37,8 @@ interface HabbitsResponse{
 
 //функция регистрации пользователя
 export const startLogin = async (data: LoginData) => {
-    const res =  await axiosApi.post('/login', data)
+    const res =  await axiosApi.post('/login', qs.stringify(data),
+    {headers: {"Content-Type": "application/x-www-form-urlencoded"}})
     return res.data
 }
 

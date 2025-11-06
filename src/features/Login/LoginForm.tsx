@@ -55,14 +55,14 @@ const AuthentificationForm = () => {
     }
     console.log({username: username, password: password})
     await LoginMutation.mutate({ username, password });
-    router.push("/table")
+    await router.push("/table")
   } 
 
   return (
     <div className={styles.form}>
       <form onSubmit ={e => {
         e.preventDefault();
-        handleSubmit(e.target['login-input'].value, e.target['password-input'].value);
+        handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim());
       }}>
         <div className={styles.formPanel}>
           ВХОД
