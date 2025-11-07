@@ -2,6 +2,8 @@
 import { Button } from '@mui/material'
 import React from 'react'
 import { useHabbits } from '../../api/queries'
+import Habbits from '../../components/Habbits/HabbitsPreview'
+import HabbitsPreview from '../../components/Habbits/HabbitsPreview'
 
 const page = () => {
   const {data: habbitsQuery, isPending} = useHabbits();
@@ -10,7 +12,7 @@ const page = () => {
     <div>
       {isPending && <div>Загрузка</div>}
       
-      { habbitsQuery && <Button variant="outlined"> Отправить запрос </Button>}
+      { habbitsQuery && <HabbitsPreview CurrentHabbits={habbitsQuery.data}/>}
     </div>
   )
 }
