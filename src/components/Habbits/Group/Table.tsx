@@ -6,65 +6,41 @@ interface Date{
     value: string | null,
 }
 const CustomTable = ({habits}) => {
-    const [rows, setRows] = useState([]);
-    // const createData1 = (
-    //     name: string,
-    //     calories: number,
-    //     fat: number,
-    //     carbs: number,
-    //     protein: number,
-    //     ) => {
-    //     return { name, calories, fat, carbs, protein };
-    // }
-
-    const createData = (
-        name: string,
-        records: Date[]
-        ) => {
-        return { name, records};
-    }
-        
-    useEffect(() => {
-       if(!habits) return 
-       const newRows = habits.map((el) => createData(el.name, el.records));
-       setRows(newRows);
-    }, [habits])
-
-
-
   return (
     <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <Table sx={{ minWidth: 650, tableLayout: 'fixed' }} size="small" aria-label="a dense table" >
             <TableHead>
                 <TableRow>
                     <TableCell
                         sx={{
                             position: 'sticky',
+                            width: "100px",
                             left: 0,
                             backgroundColor: 'white', // обязательно задаем фон
                             zIndex: 1, // чтобы не перекрывалась другими ячейками
                         }}>
                         Название
                     </TableCell>
-                    {rows[0]?.records?.map((record) => (
-                        <TableCell>{record.date}</TableCell>
+                    {habits[0]?.records?.map((record, dataKey) => (
+                        <TableCell sx={{width: "75px", textAlign: "center"}} key={`dataKey-${dataKey}`}>{record.date}</TableCell>
                     ))}
                 </TableRow>
             </TableHead>
             <TableBody>
-                {rows?.map((habit)=>(
-                    <TableRow>
+                {habits?.map((habit, rowkey)=>(
+                    <TableRow key={`row-${rowkey}`}>
                         <TableCell
                             sx={{
                                 position: 'sticky',
+                                width: "100px",
                                 left: 0,
                                 backgroundColor: 'white', // обязательно задаем фон
                                 zIndex: 1, // чтобы не перекрывалась другими ячейками
                             }}>
                             {habit?.name}
                         </TableCell>
-                        {habit.records.map((record)=>(
-                            <TableCell>{record?.value != null ? record.value : "нуль"}</TableCell>
+                        {habit.records.map((record, cellKey)=>(
+                            <TableCell sx={{width: "75px", textAlign: "center"}} key={`dataCell-${cellKey}`}>{record?.value != null ? record.value : "нуль"}</TableCell>
                         ))}
                     </TableRow>
                 ))}
