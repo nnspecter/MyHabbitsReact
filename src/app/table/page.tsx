@@ -3,7 +3,7 @@ import { Button } from '@mui/material'
 import React from 'react'
 import { useHabbits } from '../../api/queries'
 import Habbits from '../../components/Habbits/HabbitsPreview'
-import HabbitsPreview from '../../components/Habbits/HabbitsPreview'
+import HabbitsPreview from '../../components/HabitsNew/HabbitsPreview'
 
 const page = () => {
   const {data: habbitsQuery, isPending} = useHabbits();

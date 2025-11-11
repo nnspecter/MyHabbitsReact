@@ -1,0 +1,25 @@
+.group{
+    width: 100%;
+    
+    background-color: rgb(255, 223, 127);
+    border-radius: 10px;
+
+    .groupName{
+        display: flex;
+        justify-content: space-between;
+        .name{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            .color{
+                width: 15px;
+                height: 15px;
+                border-radius: 100%;
+        }
+        }
+        
+    }   
+    .switch{
+
+    } 
+}
