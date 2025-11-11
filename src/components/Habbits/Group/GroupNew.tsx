@@ -13,15 +13,6 @@ const Group = ({group}) => {
   
   return (
     <div className={styles.group}>
-      <div className={styles.groupName}>
-        <div className={styles.name}>
-          <div className={styles.color} style={{backgroundColor: group.color}}></div>
-          <div className="medFont1"> Группа: {group.name}</div>
-        </div>
-        <div className={styles.switch}>
-            Редактирование: <Switch onChange={(e)=> handleChange(e)}></Switch>
-        </div>
-      </div>
       
       {
        <CustomTable habits={group.habits}/> 
