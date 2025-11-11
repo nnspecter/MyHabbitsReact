@@ -1,5 +1,5 @@
 import React from 'react'
-import Group from './Group/GroupNew'
+
 import styles from "./Habbits.module.scss"
 import { useStore } from '../../ZustandStore/store';
 import CustomTable from './Table/Table';
