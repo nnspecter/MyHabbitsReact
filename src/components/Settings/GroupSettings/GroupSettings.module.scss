@@ -1,0 +1,13 @@
+.GroupSettings{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .group{
+        display:flex;
+        align-items: center;
+        gap: 20px;
+        button{
+            padding: 5px;
+        }
+    }
+}
