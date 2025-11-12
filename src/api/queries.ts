@@ -12,6 +12,6 @@ export const useLogin = (username: string, password: string) => {
 export const useHabbits = () => {
     return useQuery({
         queryKey: [queryKeys.login],
-        queryFn: () => getHabbits({startDate: "2023-09-01", endDate: "2023-09-30"}),
+        queryFn: () => getHabbits({startDate: "2025-10-01", endDate: "2025-11-10"}),
     })
 }

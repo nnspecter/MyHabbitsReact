@@ -91,9 +91,13 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
                   {habit.records.map((record, cellKey) => (
                     <TableCell
                       key={`dataCell-${gKey}-${hKey}-${cellKey}`}
-                      sx={{ width: '75px', textAlign: 'center' }}
+                      sx={{ width: '75px', textAlign: 'center', whiteSpace: 'normal', wordBreak: 'break-word' }}
                     >
-                      {record?.value != null ? record.value : 'нуль'}
+                      {(record?.value === null || record?.value === undefined)
+                        ? 'Не задано'
+                        : typeof record?.value === 'boolean'
+                        ? (record.value ? '✔️' : '')
+                        : record.value}
                     </TableCell>
                   ))}
                 </TableRow>
