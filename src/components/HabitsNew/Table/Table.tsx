@@ -56,8 +56,11 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
 
         {/* Тело таблицы */}
         <TableBody>
-          {groups.flatMap((group, gKey) =>
-            group.habits.map((habit, hKey) => (
+          {groups.map((group, gKey) => {
+            // Если у группы нет привычек, создаем "пустой" объект привычки
+            const habits = group.habits.length > 0 ? group.habits : [{ name: 'Пустая группа', records: dates.map(() => ({ value: null })) }];
+
+            return habits.map((habit, hKey) => (
               <React.Fragment key={`habit-${gKey}-${hKey}`}>
                 {/* Название группы как отдельная строка */}
                 {hKey === 0 && (
@@ -69,12 +72,11 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
                         backgroundColor: '#f0f0f0',
                         fontWeight: 'bold',
                         zIndex: 1,
-                      }}>
+                      }}
+                    >
                       {group.name}
                     </TableCell>
-                    <TableCell
-                        colSpan={dates.length + 1} sx={{backgroundColor: '#f0f0f0'}}>
-                    </TableCell>
+                    <TableCell colSpan={dates.length} sx={{ backgroundColor: '#f0f0f0' }} />
                   </TableRow>
                 )}
 
@@ -94,18 +96,21 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
                       key={`dataCell-${gKey}-${hKey}-${cellKey}`}
                       sx={{ width: '75px', textAlign: 'center', whiteSpace: 'normal', wordBreak: 'break-word' }}
                     >
-                      {(record?.value === null || record?.value === undefined)
-                        ? 'Не задано'
+                      {record?.value === null || record?.value === undefined
+                        ? ''
                         : typeof record?.value === 'boolean'
-                        ? (record.value ? '✔️' : '')
+                        ? record.value
+                          ? '✔️'
+                          : ''
                         : record.value}
                     </TableCell>
                   ))}
                 </TableRow>
               </React.Fragment>
-            ))
-          )}
+            ));
+          })}
         </TableBody>
+
       </Table>
     </TableContainer>
   );

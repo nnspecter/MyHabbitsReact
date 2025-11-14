@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from "./Settings.module.scss"
 import MainSettings from './MainSettings/MainSettings'
-import GroupSettings from './GroupSettings/GroupSettings'
+import GroupSettings from './GroupsSettings/GroupSettings'
 const SettingsPreview = ({CurrentHabbits}) => {
   if (!CurrentHabbits) return <div>Loading...</div>;
   return (
     <div className={styles.settings}>
-        Превью настроек
+         <p className="medFont1">Превью настроек</p>
         <MainSettings/>
         <GroupSettings groups={CurrentHabbits.groups}/>
     </div>

@@ -12,28 +12,53 @@ export interface LoginResponse {
 //--------------------------------
 
 
-//функция доступа к привычкам по датам
-interface HabbitsData{
+// функция доступа к привычкам по датам
+interface HabbitsData {
     startDate: string;
     endDate: string;
 }
+
 interface Record {
     date: string;
-    value: string;
+    value: boolean | number | string; // исправлено: value может быть разным типом
 }
-interface Habbit{
+
+interface Habbit {
     id: number;
     name: string;
-    type: string;
-    records: Record[]; 
+    type: "GENERAL" | "NUMBER" | "TEXT"; // исправлено: конкретные типы
+    hidden: boolean;
+    position: number;
+    records: Record[];
 }
-interface HabbitsResponse{
+
+export interface HabbitsGroup { // исправлено название: Group вместо group
     id: number;
     name: string;
     color: string;
-    habbits: Habbit[];
+    hidden: boolean;
+    minimized: boolean;
+    position: number;
+    habits: Habbit[]; // исправлено: habits вместо habbits
 }
-//
+
+interface Data {
+    groups: HabbitsGroup[];
+    dates: string[];
+}
+
+export interface HabbitsResponse {
+    data: Data;
+    meta: { status: string };
+}
+//--------------------------------
+
+//Запросы к группам
+interface GroupRequest {
+    name: string;
+    color: string;
+}
+
 
 //функция регистрации пользователя
 export const startLogin = async (data: LoginData) => {
@@ -48,5 +73,20 @@ export const getHabbits = async (data: HabbitsData) => {
         startDate: data.startDate,
         endDate: data.endDate,
     }})
+    return res.data
+}
+
+//Добавление группы
+export const addGroup = async (data: GroupRequest) => {
+    const res =  await axiosApi.post('/api/groups', {
+        name: data.name,
+        color: data.color,
+    })
+    return res.data
+}
+
+//Удаление группы
+export const deleteGroup = async (id: number) => {
+    const res =  await axiosApi.delete(`/api/groups/${id}`)
     return res.data
 }
