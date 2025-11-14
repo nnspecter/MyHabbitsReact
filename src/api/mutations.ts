@@ -1,16 +1,15 @@
 import { useMutation } from "@tanstack/react-query"
 import { axiosApi } from "./axiosApi"
 import { addGroup, deleteGroup, GroupRequest, LoginData, LoginResponse, startLogin } from "./api";
-import { colors } from "@mui/material";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
 
 
+
 export const useLogin = () => {
   return useMutation <LoginResponse, Error, LoginData>({
-    mutationFn: (data: LoginData) => startLogin(data),
-    
-  });
+    mutationFn: (data: LoginData) => startLogin(data),  
+});
 };
 
 export const useDeleteGroup = () => {
