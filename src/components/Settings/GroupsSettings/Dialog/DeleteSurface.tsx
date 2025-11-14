@@ -26,10 +26,10 @@ const DeleteResponsive = ({groupId}) => {
     <React.Fragment>
         <Button variant="contained" color='error' onClick={handleClickOpen}>Удалить</Button>
       <Dialog
-        fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
+        disableScrollLock
       >
         <DialogTitle id="responsive-dialog-title">
           {"Удалить группу?"}

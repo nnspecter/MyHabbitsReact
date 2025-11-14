@@ -27,10 +27,10 @@ const GroupNameResponsive = () => {
     <React.Fragment>
         <Button variant='contained' sx={{maxWidth: "20px"}} onClick={handleClickOpen}>+</Button>
       <Dialog
-        fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
+        disableScrollLock
       >
         <DialogTitle id="responsive-dialog-title">
           {"Создание новой группы"}
