@@ -54,7 +54,7 @@ export interface HabbitsResponse {
 //--------------------------------
 
 //Запросы к группам
-interface GroupRequest {
+export interface GroupRequest {
     name: string;
     color: string;
 }
