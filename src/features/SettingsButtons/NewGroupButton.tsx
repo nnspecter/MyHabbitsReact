@@ -1,8 +1,8 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
 import React, { use, useEffect, useState } from 'react'
-import { useAddGroup, useDeleteGroup } from '../../../../api/mutations';
+import { useAddGroup, useDeleteGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
-const GroupNameResponsive = () => {
+const NewGroupButton = () => {
     const [color, setColor] = useState("#aabbcc");
     const [groupName, setGroupName] = useState("");
     const [open, setOpen] = React.useState(false);
@@ -52,4 +52,4 @@ const GroupNameResponsive = () => {
   )
 }
 
-export default GroupNameResponsive
+export default NewGroupButton

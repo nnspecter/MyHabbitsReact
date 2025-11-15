@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query"
 import { axiosApi } from "./axiosApi"
-import { addGroup, deleteGroup, GroupRequest, LoginData, LoginResponse, startLogin } from "./api";
+import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, LoginResponse, startLogin, configureGroup } from "./api";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
 
@@ -25,9 +25,19 @@ export const useDeleteGroup = () => {
 export const useAddGroup = () => {
   return useMutation({
     mutationKey: ['groups'],
-    mutationFn: (data: GroupRequest) => addGroup(data),
+    mutationFn: (data: NewGroup) => addGroup(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups] });
     },
   });  
 };
+
+export const useConfigureGroup = () => {
+  return useMutation({
+    mutationKey: ['groups'],
+    mutationFn: (data: ConfigureGroup) => configureGroup(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups] });
+    },
+  });
+}

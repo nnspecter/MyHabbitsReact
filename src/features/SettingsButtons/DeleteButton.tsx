@@ -1,8 +1,8 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React, { use, useEffect } from 'react'
-import { useDeleteGroup } from '../../../../api/mutations';
+import { useDeleteGroup } from '../../api/mutations';
 
-const DeleteResponsive = ({groupId}) => {
+const DeleteButton = ({groupId}) => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -52,4 +52,4 @@ const DeleteResponsive = ({groupId}) => {
   )
 }
 
-export default DeleteResponsive
+export default DeleteButton

@@ -22,7 +22,7 @@ interface GroupType {
 }
 
 interface CustomTableProps {
-  dates: Date[];
+  dates: string[];
   groups: GroupType[];
 }
 
@@ -48,7 +48,7 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
                 sx={{ width: '75px', textAlign: 'center', backgroundColor: 'white' }}
                 key={`dataKey-${dataKey}`}
               >
-                {el.date}
+                {el}
               </TableCell>
             ))}
           </TableRow>

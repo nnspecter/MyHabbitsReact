@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from "./GroupSettings.module.scss"
 import { Button } from '@mui/material'
-import { useDeleteGroup } from '../../../api/mutations'
-import DeleteResponsive from './Dialog/DeleteSurface'
 import { HabbitsGroup } from '../../../api/api'
-import GroupNameResponsive from './Dialog/InputSurface'
+import { useStore } from '../../../ZustandStore/store'
+import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
+import NewGroupButton from '../../../features/SettingsButtons/NewGroupButton'
 
 interface GroupSettingsProps {
   groups: HabbitsGroup[];
@@ -12,7 +12,7 @@ interface GroupSettingsProps {
 
 const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
   const [responsive, setResponsive] = React.useState(false);
-
+  const{selectedGroupId, setSelectedGroupId} = useStore();
   
 
   return (
@@ -25,13 +25,13 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
                      {group.name} 
                 </div>
                 <Button variant="contained">Скрыть</Button>
-                <Button variant="contained">Настройки</Button>
-                <DeleteResponsive groupId={group.id}/>
+                <Button variant="contained" onClick={() => setSelectedGroupId(group.id)}>Настройки</Button>
+                <DeleteButton groupId={group.id}/>
                 
             </div>
         ))}
 
-        <GroupNameResponsive/>
+        <NewGroupButton/>
     </div>
 
   )

@@ -8,7 +8,7 @@ const HabbitsPreview = ({CurrentHabbits}) => {
   return (
     <div className={styles.allHabbits}>
       <div className='medFont2'>Превью всех привычек</div>
-      <CustomTable dates={CurrentHabbits.groups[0].habits[0].records} groups={CurrentHabbits.groups}/>
+      <CustomTable dates={CurrentHabbits.dates} groups={CurrentHabbits.groups}/>
     </div>
   )
 }

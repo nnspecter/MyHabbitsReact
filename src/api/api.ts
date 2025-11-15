@@ -32,14 +32,14 @@ interface Habbit {
     records: Record[];
 }
 
-export interface HabbitsGroup { // исправлено название: Group вместо group
+export interface HabbitsGroup { 
     id: number;
     name: string;
     color: string;
     hidden: boolean;
     minimized: boolean;
     position: number;
-    habits: Habbit[]; // исправлено: habits вместо habbits
+    habits: Habbit[]; 
 }
 
 interface Data {
@@ -53,12 +53,27 @@ export interface HabbitsResponse {
 }
 //--------------------------------
 
-//Запросы к группам
-export interface GroupRequest {
+//Апи для всех групп
+
+
+//--------------------------------
+
+//Новая группа
+export interface NewGroup {
     name: string;
     color: string;
 }
+//--------------------------------
 
+// Конфигурация группы
+export interface ConfigureGroup {
+    groupId: number;
+    name?: string;
+    color?: string;
+    hidden?: boolean;
+    minimized?: boolean;
+}
+ 
 
 //функция регистрации пользователя
 export const startLogin = async (data: LoginData) => {
@@ -76,12 +91,25 @@ export const getHabbits = async (data: HabbitsData) => {
     return res.data
 }
 
+//Апи для настройки всех групп
+export const getAllGroups = async () => {
+    const res =  await axiosApi.get('/api/groups/all');
+    console.log(res.data);
+    return res.data
+}
+
 //Добавление группы
-export const addGroup = async (data: GroupRequest) => {
+export const addGroup = async (data: NewGroup) => {
     const res =  await axiosApi.post('/api/groups', {
         name: data.name,
         color: data.color,
     })
+    return res.data
+}
+
+//Конфигурация группы 
+export const configureGroup = async (data: ConfigureGroup) => {
+    const res =  await axiosApi.post(`/api/groups/configure`, data)
     return res.data
 }
 

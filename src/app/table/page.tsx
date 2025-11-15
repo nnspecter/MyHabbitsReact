@@ -1,21 +1,26 @@
 "use client"
-import { useHabbits } from '../../api/queries'
+import { useAllGroups, useHabbits } from '../../api/queries'
 import HabbitsPreview from '../../components/HabitsNew/HabbitsPreview'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
-import GroupSettings from '../../components/GroupSettings/GroupSettings'
+import GroupSettings from '../../components/CurrentGroupSettings/GroupSettings'
+import { useStore } from '../../ZustandStore/store'
 
 const page = () => {
-  const {data: habbitsQuery, isPending} = useHabbits();
-  if(habbitsQuery) console.log(habbitsQuery);
   
+  const {data: habbitsQuery, isPending} = useHabbits();
+  const allGroupsQuery = useAllGroups();
+
+  const {selectedGroupId} = useStore();
+  const data = habbitsQuery?.data;
+  const group = data?.groups?.find(el => el.id === selectedGroupId);
 
   return ( 
     <div>
       {isPending && <div>Загрузка</div>}
       
-      { habbitsQuery && <HabbitsPreview CurrentHabbits={habbitsQuery.data}/> }
-      { habbitsQuery && <SettingsPreview CurrentHabbits={habbitsQuery.data}/> }
-      { habbitsQuery && <GroupSettings/> }
+      { data && <HabbitsPreview CurrentHabbits={habbitsQuery.data}/> }
+      { data && <SettingsPreview CurrentHabbits={habbitsQuery.data}/> }
+      { group && <GroupSettings group={group}/> }
       
 
     </div>
