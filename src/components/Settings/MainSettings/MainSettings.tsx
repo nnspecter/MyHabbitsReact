@@ -1,10 +1,17 @@
-import { Button } from '@mui/material'
+import { Button, Checkbox } from '@mui/material'
 import React from 'react'
 import styles from  "./MainSettings.module.scss"
-const MainSettings = () => {
+import { useConfigureSettings } from '../../../api/mutations'
+const MainSettings = ({settings}) => {
+  const useConfigureSettingsMutation = useConfigureSettings();
+  
+  const handleShowHidden = (e) => {
+    useConfigureSettingsMutation.mutate({ showHidden: e.target.checked });
+  }
+
   return (
     <div className={styles.mainSettings}>
-        <Button variant='contained'>Показывать скрытые</Button>
+         <div className={styles.HiddenCheckbox}>Показывать скрытые <Checkbox onChange={(e) => handleShowHidden(e)} checked={settings.data.showHidden}/></div>
         <Button variant='contained' color='success'> И так далее </Button>
     </div>
   )

@@ -55,7 +55,6 @@ export interface HabbitsResponse {
 
 //Апи для всех групп
 
-
 //--------------------------------
 
 //Новая группа
@@ -73,14 +72,57 @@ export interface ConfigureGroup {
     hidden?: boolean;
     minimized?: boolean;
 }
- 
 
-//функция регистрации пользователя
+//--------------------------------
+
+//Группы для настроек 
+export interface GroupsSettings{
+    data: HabbitsAllGroups[];
+    meta: { status: string };
+}
+
+interface HabbitsAllGroups { 
+    id: number;
+    name: string;
+    color: string;
+    hidden: boolean;
+    minimized: boolean;
+    position: number; 
+}
+//--------------------------------
+
+//Конфигурация настроек всех групп 
+export interface ConfigureSettings {
+    showHidden: boolean;
+}
+interface SettingsConfigData {
+    showHidden: boolean;
+}
+//данные конфигурации настроек всех групп
+export interface SettingsConfig {
+    data: SettingsConfigData;
+    meta: { status: string };
+}
+
+//--------------------------------
+
+
+
+
+
+//Регистрация------------------------------------------------------------------------------------------
+
+
+//Функция регистрации пользователя
 export const startLogin = async (data: LoginData) => {
     const res =  await axiosApi.post('/login', qs.stringify(data),
     {headers: {"Content-Type": "application/x-www-form-urlencoded"}})
     return res.data
 }
+
+
+//Привычки для таблицы--------------------------------------------------------------------------------
+
 
 //функция доступа к привычкам по датам
 export const getHabbits = async (data: HabbitsData) => {
@@ -91,10 +133,13 @@ export const getHabbits = async (data: HabbitsData) => {
     return res.data
 }
 
-//Апи для настройки всех групп
+
+//Апи для настройки всех групп------------------------------------------------------------------------
+
+
+//Получение всех групп
 export const getAllGroups = async () => {
     const res =  await axiosApi.get('/api/groups/all');
-    console.log(res.data);
     return res.data
 }
 
@@ -112,9 +157,25 @@ export const configureGroup = async (data: ConfigureGroup) => {
     const res =  await axiosApi.post(`/api/groups/configure`, data)
     return res.data
 }
-
 //Удаление группы
 export const deleteGroup = async (id: number) => {
     const res =  await axiosApi.delete(`/api/groups/${id}`)
     return res.data
 }
+
+
+//Конфигурация настроек--------------------------------------------------------------------------------
+
+
+//получение конфигурации настроек всех групп
+export const GetSettingsConfig = async () => {
+    const res =  await axiosApi.get(`/api/user/settings`)
+    return res.data
+}
+
+//Изменение конфигурации настроек всех групп 
+export const configureSettings = async (data: ConfigureSettings) => {
+    const res =  await axiosApi.post(`/api/user/settings`, data)
+    return res.data
+}
+

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
-import { addGroup, getAllGroups, getHabbits, HabbitsResponse, startLogin } from "./api"
+import { getAllGroups, GroupsSettings, getHabbits, HabbitsResponse, startLogin, SettingsConfig, GetSettingsConfig } from "./api"
 interface addGroupParams {
     name: string;
     color: string;
@@ -21,9 +21,16 @@ export const useHabbits = () => {
 }
 
 export const useAllGroups = () => {
-    return useQuery<HabbitsResponse>({
-        queryKey: [queryKeys.groups],
+    return useQuery<GroupsSettings>({
+        queryKey: [queryKeys.GroupSettings],
         queryFn: () => getAllGroups(),
+    })
+}
+
+export const useSettingsConfig = () => {
+    return useQuery<SettingsConfig>({
+        queryKey: [queryKeys.GroupSettingsConfig],
+        queryFn: () => GetSettingsConfig(),
     })
 }
 

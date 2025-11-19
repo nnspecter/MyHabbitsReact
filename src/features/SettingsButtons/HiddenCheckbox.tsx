@@ -4,6 +4,7 @@ import { useConfigureGroup } from '../../api/mutations';
 
 const HiddenCheckbox = ({id, hidden}) => {
     const hiddenMutation = useConfigureGroup();
+    
     const handleChange = (e) => {
         hiddenMutation.mutate({
             groupId: id,
@@ -13,7 +14,7 @@ const HiddenCheckbox = ({id, hidden}) => {
     }
   return (
     <div>
-        <Checkbox onChange={(e)=>handleChange(e)} checked={hidden}  ></Checkbox>
+       Скрыть <Checkbox onChange={(e)=>handleChange(e)} checked={hidden}  ></Checkbox>
     </div>
   )
 }

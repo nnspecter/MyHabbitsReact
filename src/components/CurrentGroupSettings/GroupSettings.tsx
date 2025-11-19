@@ -5,7 +5,6 @@ import HabitSettings from './HabitSettings/HabitSettings'
 import { useStore } from '../../ZustandStore/store'
 const GroupSettings = ({group}) => {
 
-    
   return (
     <div className={styles.GroupSettings}>
       <p className="medFont1">Превью настроек группы: {group.name}</p>

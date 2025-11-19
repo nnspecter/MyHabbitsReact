@@ -1,8 +1,9 @@
 import { useMutation } from "@tanstack/react-query"
 import { axiosApi } from "./axiosApi"
-import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, LoginResponse, startLogin, configureGroup } from "./api";
+import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, LoginResponse, startLogin, configureGroup, configureSettings, ConfigureSettings } from "./api";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
+import { group } from "console";
 
 
 
@@ -14,30 +15,41 @@ export const useLogin = () => {
 
 export const useDeleteGroup = () => {
   return useMutation({
-    mutationKey: ['groups'],
     mutationFn: (id: number) => deleteGroup(id),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [queryKeys.groups] });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
     },
   });  
 };
 
 export const useAddGroup = () => {
   return useMutation({
-    mutationKey: ['groups'],
     mutationFn: (data: NewGroup) => addGroup(data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [queryKeys.groups] });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
     },
   });  
 };
 
 export const useConfigureGroup = () => {
   return useMutation({
-    mutationKey: ['groups'],
     mutationFn: (data: ConfigureGroup) => configureGroup(data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [queryKeys.groups] });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+    },
+  });
+}
+
+export const useConfigureSettings = () => {
+  return useMutation({
+    mutationFn: (data: ConfigureSettings) => configureSettings(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
     },
   });
 }

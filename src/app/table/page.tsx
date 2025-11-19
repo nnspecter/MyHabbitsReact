@@ -1,28 +1,34 @@
 "use client"
-import { useAllGroups, useHabbits } from '../../api/queries'
+import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
 import HabbitsPreview from '../../components/HabitsNew/HabbitsPreview'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
 import GroupSettings from '../../components/CurrentGroupSettings/GroupSettings'
 import { useStore } from '../../ZustandStore/store'
+import { use } from 'react'
 
 const page = () => {
   
   const {data: habbitsQuery, isPending} = useHabbits();
-  const allGroupsQuery = useAllGroups();
+  const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
+  const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
+
+  console.log("", allGroupsQuery);
 
   const {selectedGroupId} = useStore();
-  const data = habbitsQuery?.data;
-  const group = data?.groups?.find(el => el.id === selectedGroupId);
+  const tableData = habbitsQuery?.data;
+  const allGroups = allGroupsQuery?.data;
+  console.log("data", allGroups);
+  const group = allGroups?.find(el => el.id === selectedGroupId);
 
+
+  console.log("GroupSettings group:", group);
   return ( 
     <div>
-      {isPending && <div>Загрузка</div>}
+      {(isPending || isPendingAllGroups) && <div>Загрузка</div>}
       
-      { data && <HabbitsPreview CurrentHabbits={habbitsQuery.data}/> }
-      { data && <SettingsPreview CurrentHabbits={habbitsQuery.data}/> }
-      { group && <GroupSettings group={group}/> }
+      { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data}/> }
+      { !isPendingAllGroups && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery}/> }
       
-
     </div>
   )
 }

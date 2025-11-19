@@ -5,6 +5,7 @@ import { HabbitsGroup } from '../../../api/api'
 import { useStore } from '../../../ZustandStore/store'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import NewGroupButton from '../../../features/SettingsButtons/NewGroupButton'
+import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'
 
 interface GroupSettingsProps {
   groups: HabbitsGroup[];
@@ -19,12 +20,12 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
     <div className={styles.GroupSettings}>
       <p className="medFont1">Настройки групп</p>
       
-        {groups?.map((group, index) => (
+        {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>
                 <div>
                      {group.name} 
                 </div>
-                <Button variant="contained">Скрыть</Button>
+                <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
                 <Button variant="contained" onClick={() => setSelectedGroupId(group.id)}>Настройки</Button>
                 <DeleteButton groupId={group.id}/>
                 
