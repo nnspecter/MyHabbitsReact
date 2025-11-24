@@ -1,0 +1,18 @@
+.habitsSettings{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .name{
+
+    };
+    .habits{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .habit{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        };
+    }
+}

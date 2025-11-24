@@ -2,15 +2,15 @@ import { Button, Checkbox } from '@mui/material'
 import React from 'react'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'
-
+import styles from "./CurrentSettings.module.scss"
+import GroupSetiingsButton from '../../../features/SettingsButtons/GroupSettingsButton'
 const CurrentSettings = ({group}) => {
 
   return (
-    <div>
-      <Button variant='contained'>Цвет группы</Button>
-      <>Скрывать группу <HiddenCheckbox id={group.id} hidden={group.hidden}/></>
+    <div className={styles.CurrentSettings}>
+      <GroupSetiingsButton group={group}/>
       <DeleteButton groupId={group.id}/>
-      
+      <HiddenCheckbox id={group.id} hidden={group.hidden}/>
     </div>
   )
 }

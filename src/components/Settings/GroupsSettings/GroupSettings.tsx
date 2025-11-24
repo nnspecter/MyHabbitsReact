@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./GroupSettings.module.scss"
 import { Button } from '@mui/material'
 import { HabbitsGroup } from '../../../api/api'
@@ -14,7 +14,9 @@ interface GroupSettingsProps {
 const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
   const [responsive, setResponsive] = React.useState(false);
   const{selectedGroupId, setSelectedGroupId} = useStore();
-  
+  useEffect(()=>{
+    
+  }, [selectedGroupId])
 
   return (
     <div className={styles.GroupSettings}>
@@ -28,10 +30,8 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
                 <Button variant="contained" onClick={() => setSelectedGroupId(group.id)}>Настройки</Button>
                 <DeleteButton groupId={group.id}/>
-                
             </div>
         ))}
-
         <NewGroupButton/>
     </div>
 

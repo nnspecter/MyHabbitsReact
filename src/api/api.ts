@@ -106,6 +106,14 @@ export interface SettingsConfig {
 
 //--------------------------------
 
+//Настройка привычек группы
+export interface NewHabbit {
+    groupId: number;
+    name: string;
+    type: "GENERAL" | "NUMBER" | "TEXT" | "TIME";
+    hidden: boolean;
+}
+//--------------------------------
 
 
 
@@ -179,3 +187,17 @@ export const configureSettings = async (data: ConfigureSettings) => {
     return res.data
 }
 
+
+//Настройка привычек группы--------------------------------------------------------------------------------
+
+//Добавление привычки
+export const addHabit = async (data: NewHabbit) => {
+    const res =  await axiosApi.post(`/api/habits`, data);
+    return res.data;
+}
+
+//Удаление привычки
+export const deleteHabit = async (id) => {
+    const res =  await axiosApi.delete(`/api/habits/${id}`);
+    return res.data;
+}

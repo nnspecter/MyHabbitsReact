@@ -7,7 +7,6 @@ import { useStore } from '../../ZustandStore/store'
 import { use } from 'react'
 
 const page = () => {
-  
   const {data: habbitsQuery, isPending} = useHabbits();
   const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
   const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
@@ -28,6 +27,7 @@ const page = () => {
       
       { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data}/> }
       { !isPendingAllGroups && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery}/> }
+      { selectedGroupId && group && <GroupSettings group={group}/> }
       
     </div>
   )

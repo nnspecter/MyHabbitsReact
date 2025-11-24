@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query"
 import { axiosApi } from "./axiosApi"
-import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, LoginResponse, startLogin, configureGroup, configureSettings, ConfigureSettings } from "./api";
+import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, NewHabbit, LoginResponse, startLogin, configureGroup, configureSettings, ConfigureSettings, addHabit, deleteHabit } from "./api";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
 import { group } from "console";
@@ -53,3 +53,26 @@ export const useConfigureSettings = () => {
     },
   });
 }
+
+export const useAddHabit = () => {
+  return useMutation({
+    mutationFn: (data: NewHabbit) => addHabit(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+    },
+  });
+}
+
+export const useDeleteHabit = () => {
+  return useMutation({
+    mutationFn: (id: number) => deleteHabit(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+    },
+  });
+}
+
