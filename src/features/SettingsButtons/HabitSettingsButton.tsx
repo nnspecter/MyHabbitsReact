@@ -26,7 +26,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
       setNewHabit(prev => ({...prev, name: newName}))
     }
 
-    const handleHiddenChange = (newHidden) => {
+    const handleHiddenChange = (newHidden: boolean) => {
       setNewHabit(prev => ({...prev, hidden: newHidden}));
     };
 
@@ -45,7 +45,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
     };
 
     const handleAccept = () => {
-      if(newHabit.name !== habit.name || newHabit.type !== habit.type || newHabit.hidden !== habit.hidden) {
+      if(newHabit.name !== habit.name || newHabit.hidden !== habit.hidden || newHabit.groupId !== groupId) {
         configureMutation.mutate(newHabit);
         setOpen(false);
       }
@@ -72,7 +72,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={groupId}
+              value={newHabit.groupId}
               label="Группа"
               onChange={e => handleGroupChange(e.target.value as number)}
             >
