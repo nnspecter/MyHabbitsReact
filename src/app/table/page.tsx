@@ -11,16 +11,13 @@ const page = () => {
   const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
   const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
 
-  console.log("", allGroupsQuery);
 
   const {selectedGroupId} = useStore();
   const tableData = habbitsQuery?.data;
   const allGroups = allGroupsQuery?.data;
-  console.log("data", allGroups);
   const group = allGroups?.find(el => el.id === selectedGroupId);
 
 
-  console.log("GroupSettings group:", group);
   return ( 
     <div>
       {(isPending || isPendingAllGroups) && <div>Загрузка</div>}

@@ -23,7 +23,7 @@ interface Record {
     value: boolean | number | string; // исправлено: value может быть разным типом
 }
 
-interface Habbit {
+export interface Habbit {
     id: number;
     name: string;
     type: "GENERAL" | "NUMBER" | "TEXT"; // исправлено: конкретные типы
@@ -106,13 +106,23 @@ export interface SettingsConfig {
 
 //--------------------------------
 
-//Настройка привычек группы
+//Создание привычек группы
 export interface NewHabbit {
     groupId: number;
     name: string;
     type: "GENERAL" | "NUMBER" | "TEXT" | "TIME";
     hidden: boolean;
 }
+//Настройка привычки
+export interface ConfigureHabbit {
+    groupId: number;
+    habitId: number;
+    name?: string;
+    type?: "GENERAL" | "NUMBER" | "TEXT" | "TIME";
+    hidden?: boolean;
+}
+
+
 //--------------------------------
 
 
@@ -197,7 +207,14 @@ export const addHabit = async (data: NewHabbit) => {
 }
 
 //Удаление привычки
-export const deleteHabit = async (id) => {
+export const deleteHabit = async (id: number) => {
     const res =  await axiosApi.delete(`/api/habits/${id}`);
     return res.data;
 }
+
+//Настройки привычки
+export const configureHabit = async (data: ConfigureHabbit) => {
+    const res =  await axiosApi.post(`/api/habits/configure`, data);
+    return res.data;
+}
+

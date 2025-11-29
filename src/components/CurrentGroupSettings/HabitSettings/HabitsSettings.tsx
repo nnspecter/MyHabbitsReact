@@ -2,6 +2,8 @@ import React from 'react'
 import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '../../../features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '../../../features/SettingsButtons/DeleteHabitButton'
+import { Button } from '@mui/material'
+import HabitSettingsButton from '../../../features/SettingsButtons/HabitSettingsButton'
 const HabitsSettings = ({habits, groupId}) => {
   return (
     <div className={styles.habitsSettings}>
@@ -10,6 +12,9 @@ const HabitsSettings = ({habits, groupId}) => {
         {habits.map((habit, index) => (
           <div className={styles.habit} key={`habitssetting ${index}`}>
             {habit.name} 
+            <div></div>
+            <div>{habit.type}</div>
+            <HabitSettingsButton habit={habit} groupId={groupId}/>
             <div><DeleteHabitButton habitId={habit.id}/></div>
           </div>
         ))}
