@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from "./Settings.module.scss"
 import MainSettings from './MainSettings/MainSettings'
 import GroupSettings from './GroupsSettings/GroupSettings'

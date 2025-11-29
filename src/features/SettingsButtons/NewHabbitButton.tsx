@@ -1,7 +1,6 @@
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
-import React, { use, useCallback, useEffect, useState } from 'react'
-import { useAddHabit, useDeleteGroup } from '../../api/mutations';
-import { HexColorPicker } from 'react-colorful';
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
+import React, { useState } from 'react'
+import { useAddHabit} from '../../api/mutations';
 const NewHabitButton = ({groupId}) => {
     const [habitName, setHabitName] = useState("");
     const [open, setOpen] = React.useState(false);

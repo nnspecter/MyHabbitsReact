@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
-import React, { use, useEffect } from 'react'
+import React from 'react'
 import { useDeleteGroup } from '../../api/mutations';
 
 const DeleteButton = ({groupId}) => {

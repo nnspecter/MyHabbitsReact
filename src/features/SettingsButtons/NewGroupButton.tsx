@@ -1,6 +1,6 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
-import React, { use, useCallback, useEffect, useState } from 'react'
-import { useAddGroup, useDeleteGroup } from '../../api/mutations';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
+import React, { useCallback, useState } from 'react'
+import { useAddGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
 const NewGroupButton = () => {
     const [color, setColor] = useState("#aabbcc");

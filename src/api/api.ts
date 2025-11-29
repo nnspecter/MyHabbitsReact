@@ -13,7 +13,7 @@ export interface LoginResponse {
 
 
 // функция доступа к привычкам по датам
-interface HabbitsData {
+interface HabitsData {
     startDate: string;
     endDate: string;
 }
@@ -23,31 +23,31 @@ interface Record {
     value: boolean | number | string; // исправлено: value может быть разным типом
 }
 
-export interface Habbit {
+export interface Habit {
     id: number;
     name: string;
-    type: "GENERAL" | "NUMBER" | "TEXT"; // исправлено: конкретные типы
+    type: "GENERAL" | "NUMBER" | "TEXT" | "TIME"; // исправлено: конкретные типы
     hidden: boolean;
     position: number;
     records: Record[];
 }
 
-export interface HabbitsGroup { 
+export interface HabitsGroup { 
     id: number;
     name: string;
     color: string;
     hidden: boolean;
     minimized: boolean;
     position: number;
-    habits: Habbit[]; 
+    habits: Habit[]; 
 }
 
 interface Data {
-    groups: HabbitsGroup[];
+    groups: HabitsGroup[];
     dates: string[];
 }
 
-export interface HabbitsResponse {
+export interface HabitsResponse {
     data: Data;
     meta: { status: string };
 }
@@ -143,7 +143,7 @@ export const startLogin = async (data: LoginData) => {
 
 
 //функция доступа к привычкам по датам
-export const getHabbits = async (data: HabbitsData) => {
+export const getHabbits = async (data: HabitsData) => {
     const res =  await axiosApi.get('/api/records', {params:{
         startDate: data.startDate,
         endDate: data.endDate,

@@ -1,5 +1,4 @@
 import { Checkbox } from '@mui/material'
-import React from 'react'
 import { useConfigureGroup } from '../../api/mutations';
 
 const HiddenCheckbox = ({id, hidden}) => {

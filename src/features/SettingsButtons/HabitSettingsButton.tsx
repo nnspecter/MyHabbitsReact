@@ -1,11 +1,11 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
-import React, { use, useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useConfigureHabit } from '../../api/mutations';
-import { ConfigureHabbit, Habbit} from '../../api/api';
+import { ConfigureHabbit, Habit} from '../../api/api';
 import { useAllGroups } from '../../api/queries';
 
 interface HabitSettingsButtonProps {
-  habit: Habbit;
+  habit: Habit;
   groupId: number
 }
 

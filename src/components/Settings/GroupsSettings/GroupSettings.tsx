@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import styles from "./GroupSettings.module.scss"
 import { Button } from '@mui/material'
-import { HabbitsGroup } from '../../../api/api'
+import { HabitsGroup } from '../../../api/api'
 import { useStore } from '../../../ZustandStore/store'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import NewGroupButton from '../../../features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'
 
 interface GroupSettingsProps {
-  groups: HabbitsGroup[];
+  groups: HabitsGroup[];
 }
 
 const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {

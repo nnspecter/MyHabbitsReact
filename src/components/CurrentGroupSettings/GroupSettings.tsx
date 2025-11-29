@@ -2,7 +2,6 @@ import React from 'react'
 import styles from "./GroupSettings.module.scss"
 import CurrentSettings from './CurrentSettings/CurrentSettings'
 import HabitsSettings from './HabitSettings/HabitsSettings'
-import { useStore } from '../../ZustandStore/store'
 const GroupSettings = ({group}) => {
 
   return (

@@ -1,5 +1,3 @@
-import { Button, Checkbox } from '@mui/material'
-import React from 'react'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'
 import styles from "./CurrentSettings.module.scss"

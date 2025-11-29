@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
-import React, { use, useEffect } from 'react'
-import { useDeleteGroup, useDeleteHabit } from '../../api/mutations';
+import React from 'react'
+import { useDeleteHabit } from '../../api/mutations';
 
 const DeleteHabitButton = ({habitId}: {habitId: number}) => {
     const [open, setOpen] = React.useState(false);

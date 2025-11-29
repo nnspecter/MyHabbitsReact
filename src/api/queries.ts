@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
-import { getAllGroups, GroupsSettings, getHabbits, HabbitsResponse, startLogin, SettingsConfig, GetSettingsConfig } from "./api"
+import { getAllGroups, GroupsSettings, getHabbits, HabitsResponse, startLogin, SettingsConfig, GetSettingsConfig } from "./api"
 interface addGroupParams {
     name: string;
     color: string;
@@ -14,7 +14,7 @@ export const useLogin = (username: string, password: string) => {
 }
 
 export const useHabbits = () => {
-    return useQuery<HabbitsResponse>({
+    return useQuery<HabitsResponse>({
         queryKey: [queryKeys.groups],
         queryFn: () => getHabbits({startDate: "2025-10-01", endDate: "2025-11-10"}),
     })

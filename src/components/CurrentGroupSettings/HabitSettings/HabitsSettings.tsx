@@ -1,8 +1,6 @@
-import React from 'react'
 import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '../../../features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '../../../features/SettingsButtons/DeleteHabitButton'
-import { Button } from '@mui/material'
 import HabitSettingsButton from '../../../features/SettingsButtons/HabitSettingsButton'
 const HabitsSettings = ({habits, groupId}) => {
   return (

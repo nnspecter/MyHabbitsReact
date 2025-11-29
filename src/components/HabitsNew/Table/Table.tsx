@@ -1,32 +1,16 @@
 import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper, Button } from '@mui/material';
 import React from 'react';
-import { IoSettingsSharp } from "react-icons/io5";
+import { formatTimeShort } from '../../../features/TimeFormatter/TimeFormatter';
+import { HabitsGroup } from '../../../api/api';
 
-interface Date {
-  date: string;
-  value: string | null;
-}
-
-interface RecordType {
-  value: string | null;
-}
-
-interface HabitType {
-  name: string;
-  records: RecordType[];
-}
-
-interface GroupType {
-  name: string;
-  habits: HabitType[];
-}
 
 interface CustomTableProps {
   dates: string[];
-  groups: GroupType[];
+  groups: HabitsGroup[];
 }
 
 const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
+  console.log(groups)
   return (
     <TableContainer component={Paper} sx={{ overflowX: 'auto' }}>
       <Table sx={{ minWidth: 650, tableLayout: 'fixed',}} size="small">
@@ -102,7 +86,7 @@ const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
                         ? record.value
                           ? '✔️'
                           : ''
-                        : record.value}
+                        : habit.type === 'TIME' ? formatTimeShort(record.value):  record.value}
                     </TableCell>
                   ))}
                 </TableRow>
