@@ -7,6 +7,12 @@ html, body, #__next {
   background-color: rgb(29, 28, 28);
 }
 
+.tableLoading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .medFont2{
   font-size: 20pt;
 }
@@ -14,3 +20,4 @@ html, body, #__next {
 .medFont1{
   font-size: 16pt;
 }
+

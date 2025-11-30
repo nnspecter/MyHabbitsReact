@@ -1,4 +1,6 @@
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material"
 import NewRecordButton from "../../features/DashBoardButtons/RecordButton"
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./DashBoard.module.scss"
 
 const DashBoard = ({groups}) => {
@@ -21,6 +23,26 @@ const DashBoard = ({groups}) => {
             </div>
           ))}
         </div>
+        <div>
+          {groups.map((group, groupKey) => (
+            
+              <Accordion key={`dashboardGroupAccordionKey-${groupKey}`}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
+                  <div className="medFont1">{group.name}</div>
+                </AccordionSummary>
+                <div className={styles.accordionData}>
+                {group.habits.map((habit, habitKey)=> (
+                  <AccordionDetails key={`dashboardHabitAccordionKey-${habitKey}`}>
+                      <NewRecordButton habit={habit} groupName={group.name}/>
+                  </AccordionDetails>
+                ))}
+                </div>
+              </Accordion>
+            
+          ))}
+        </div>
+        
+        
     </div>
   )
 }
