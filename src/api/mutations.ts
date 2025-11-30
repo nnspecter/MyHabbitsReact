@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, NewHabbit, ConfigureHabbit, LoginResponse, startLogin, configureGroup, configureSettings, ConfigureSettings, addHabit, deleteHabit, configureHabit } from "./api";
+import { addGroup, deleteGroup, NewGroup, ConfigureGroup, LoginData, NewHabbit, ConfigureHabbit, LoginResponse, startLogin, configureGroup, configureSettings, ConfigureSettings, addHabit, deleteHabit, configureHabit, NewRecord, newRecord } from "./api";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
 
@@ -82,6 +82,16 @@ export const useConfigureHabit = () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+    },
+  });
+}
+
+export const useNewRecord = () => {
+  return useMutation({
+    mutationFn: (data: NewRecord) => newRecord(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
     },
   });
 }

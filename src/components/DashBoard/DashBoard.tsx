@@ -1,3 +1,4 @@
+import NewRecordButton from "../../features/DashBoardButtons/RecordButton"
 import styles from "./DashBoard.module.scss"
 
 const DashBoard = ({groups}) => {
@@ -14,7 +15,7 @@ const DashBoard = ({groups}) => {
               <div className="medFont1">{el.name}:</div>
               {el.habits.map((habit, habitKey)=> (
                 <div className={styles.Habits} key={`dashboardHabitKey-${habitKey}`}>
-                  {habit.name}
+                  <NewRecordButton habit={habit} groupName={el.name}/>
                 </div>
               ))}
             </div>

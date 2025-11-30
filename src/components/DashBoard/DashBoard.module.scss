@@ -9,9 +9,13 @@
     border-radius: 10px;
     gap: 20px;
     .habitGroups{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
         .Groups{
             display: flex;
-            gap: 5px;
+            gap: 15px;
+            align-items: center;
             .Habits{
                 display: flex;
             }

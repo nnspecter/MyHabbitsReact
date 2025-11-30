@@ -20,7 +20,7 @@ interface HabitsData {
 
 interface Record {
     date: string;
-    value: boolean | number | string; // исправлено: value может быть разным типом
+    value: boolean | number | string | null; // исправлено: value может быть разным типом
 }
 
 export interface Habit {
@@ -124,7 +124,11 @@ export interface ConfigureHabbit {
 
 
 //--------------------------------
-
+export interface NewRecord{
+    habitId: number;
+    date: string;
+    value: number | string | boolean
+}
 
 
 
@@ -218,3 +222,10 @@ export const configureHabit = async (data: ConfigureHabbit) => {
     return res.data;
 }
 
+//Дэшборд-------------------------------------------------------------------------------------------------
+
+//Создать запись
+export const newRecord = async (data: NewRecord) => {
+    const res =  await axiosApi.put(`/api/records`, data);
+    return res.data;
+}
