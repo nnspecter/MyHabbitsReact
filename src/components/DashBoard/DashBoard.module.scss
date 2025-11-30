@@ -1,0 +1,22 @@
+.dashBoard{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    margin: 10%;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 20px;
+    .habitGroups{
+        .Groups{
+            display: flex;
+            gap: 5px;
+            .Habits{
+                display: flex;
+            }
+
+        }
+        
+    }
+}

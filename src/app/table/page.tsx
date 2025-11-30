@@ -5,6 +5,7 @@ import SettingsPreview from '../../components/Settings/SettingsPreview'
 import GroupSettings from '../../components/CurrentGroupSettings/GroupSettings'
 import { useStore } from '../../ZustandStore/store'
 import { use } from 'react'
+import DashBoard from '../../components/DashBoard/DashBoard'
 
 const page = () => {
   const {data: habbitsQuery, isPending} = useHabbits();
@@ -21,9 +22,9 @@ const page = () => {
   return ( 
     <div>
       {(isPending || isPendingAllGroups) && <div>Загрузка</div>}
-      
+      {!isPending && <DashBoard groups={habbitsQuery.data.groups}/>}
       { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data}/> }
-      { !isPendingAllGroups && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery}/> }
+      { !isPendingAllGroups && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery?.data}/> }
       { selectedGroupId && group && <GroupSettings group={group}/> }
       
     </div>

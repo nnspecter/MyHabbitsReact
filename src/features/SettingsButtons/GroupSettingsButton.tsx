@@ -1,31 +1,53 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useConfigureGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
 const GroupSetiingsButton = ({group}) => {
-    const [color, setColor] = useState("#aabbcc");
-    const [habitName, setGroupName] = useState("");
-    const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const ConfigureMutation = useConfigureGroup();
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const ConfigureMutation = useConfigureGroup();
 
-    const handleColorChange = useCallback(() =>{
-      setColor(color);
-    }, []);
+  const [newSettings, setNewSettings] = useState(
+    {
+      groupId: group.id,
+      name: group.name,
+      color: group.color
+    }
+  )
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+  useEffect(()=> {
+    setNewSettings({
+      groupId: group.id,
+      name: group.name,
+      color: group.color
+    })
+  }, [group])
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+  const handleColorChange = useCallback((newColor: string) =>{
+    setNewSettings(prev => ({
+      ...prev, color: newColor
+    }))
+  }, []);
+    
+  const handleNameChange = (newName: string) =>{
+    setNewSettings(prev => ({
+      ...prev, name: newName
+    }))
+  };
 
-    const handleAccept = () => {
-        ConfigureMutation.mutate({ groupId: group.id, name: habitName, color: color});
-        setOpen(false);
-    };
+  const handleClickOpen = () => {
+      setOpen(true);
+  };
+
+  const handleClose = () => {
+      setOpen(false);
+  };
+
+  const handleAccept = () => {
+      ConfigureMutation.mutate(newSettings);
+      setOpen(false);
+  };
 
   return (
     <React.Fragment>
@@ -40,8 +62,8 @@ const GroupSetiingsButton = ({group}) => {
           {"Редактирование группы"}
         </DialogTitle>
         <DialogContent style={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
-          <Input placeholder="Название группы" onChange={(e) => setGroupName(e.target.value)} fullWidth />
-          <HexColorPicker color={color} onChange={handleColorChange}/>
+          <Input placeholder="Название группы" onChange={(e) => handleNameChange(e.target.value)} fullWidth value={newSettings.name} />
+          <HexColorPicker color={newSettings.color} onChange={handleColorChange}/>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>

@@ -1,5 +1,5 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useConfigureHabit } from '../../api/mutations';
 import { ConfigureHabbit, Habit} from '../../api/api';
 import { useAllGroups } from '../../api/queries';
@@ -11,45 +11,54 @@ interface HabitSettingsButtonProps {
 
 
 const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId})   => {
-    const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
-    const [newHabit, setNewHabit] = useState<ConfigureHabbit>({
+  const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
+  const [newHabit, setNewHabit] = useState<ConfigureHabbit>({
+    habitId: habit.id,
+    groupId: groupId,
+    name: habit.name,
+    hidden: habit.hidden,
+  });
+
+  useEffect(() => {
+    setNewHabit({
       habitId: habit.id,
       groupId: groupId,
       name: habit.name,
       hidden: habit.hidden,
     });
+}, [habit, groupId]);
     
-    const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const configureMutation = useConfigureHabit()
-    const handleNameChange = (newName: string) => {
-      setNewHabit(prev => ({...prev, name: newName}))
-    }
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const configureMutation = useConfigureHabit()
+  const handleNameChange = (newName: string) => {
+    setNewHabit(prev => ({...prev, name: newName}))
+  }
 
-    const handleHiddenChange = (newHidden: boolean) => {
-      setNewHabit(prev => ({...prev, hidden: newHidden}));
-    };
+  const handleHiddenChange = (newHidden: boolean) => {
+    setNewHabit(prev => ({...prev, hidden: newHidden}));
+  };
 
-    const handleGroupChange = (newGroupId: number) => {
-      setNewHabit(prev => ({...prev, groupId: newGroupId}))
-    }
+  const handleGroupChange = (newGroupId: number) => {
+    setNewHabit(prev => ({...prev, groupId: newGroupId}))
+  }
 
     
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+  const handleClickOpen = () => {
+      setOpen(true);
+  };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+  const handleClose = () => {
+      setOpen(false);
+  };
 
-    const handleAccept = () => {
-      if(newHabit.name !== habit.name || newHabit.hidden !== habit.hidden || newHabit.groupId !== groupId) {
-        configureMutation.mutate(newHabit);
-        setOpen(false);
-      }
-    };
+  const handleAccept = () => {
+    if(newHabit.name !== habit.name || newHabit.hidden !== habit.hidden || newHabit.groupId !== groupId) {
+      configureMutation.mutate(newHabit);
+      setOpen(false);
+    }
+  };
 
   return (
     <React.Fragment>
