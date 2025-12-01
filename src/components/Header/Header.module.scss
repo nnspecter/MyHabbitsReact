@@ -1,0 +1,48 @@
+.header {
+  background-color: #ffffff;
+  color: #1f1f1f;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; // чтобы перекрывал остальные элементы
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          color: #202020;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #1286f3;
+          }
+        }
+      }
+    }
+  }
+}

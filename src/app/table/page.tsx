@@ -7,6 +7,7 @@ import { useStore } from '../../ZustandStore/store'
 import { use } from 'react'
 import DashBoard from '../../components/DashBoard/DashBoard'
 import { CircularProgress } from '@mui/material'
+import Header from '../../components/Header/Header'
 
 const page = () => {
   const {data: habbitsQuery, isPending} = useHabbits();
@@ -22,6 +23,7 @@ const page = () => {
 
   return ( 
     <div>
+      <Header/>
       {(isPending || isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
       {!isPending && <DashBoard groups={habbitsQuery.data.groups}/>}
       { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data}/> }
