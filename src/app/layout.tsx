@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
       axiosApi.get("/api/test/user") 
         .then(() => {
-          if(pathname !== "/table") router.push("/table")
+          if(pathname === "/login") router.push("/table")
         })
         .catch(() => {
           if(pathname !== "/login") router.push("/login")

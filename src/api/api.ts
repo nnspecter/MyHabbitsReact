@@ -13,7 +13,7 @@ export interface LoginResponse {
 
 
 // функция доступа к привычкам по датам
-interface HabitsData {
+export interface HabitsData {
     startDate: string;
     endDate: string;
 }

@@ -1,7 +1,9 @@
-import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper, Button } from '@mui/material';
-import React from 'react';
+import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper, Button, CircularProgress } from '@mui/material';
+import React, { useEffect, useRef } from 'react';
 import { formatTimeShort } from '../../../features/TimeFormatter/TimeFormatter';
 import { HabitsGroup } from '../../../api/api';
+import { useStore } from '../../../ZustandStore/store';
+import { useHabbits } from '../../../api/queries';
 
 
 interface CustomTableProps {
@@ -9,10 +11,54 @@ interface CustomTableProps {
   groups: HabitsGroup[];
 }
 
-const CustomTable: React.FC<CustomTableProps> = ({ dates, groups }) => {
-  console.log(groups)
+const CustomTable: React.FC<CustomTableProps> = ({}) => {
+  const {dateRange, updateDateRange} = useStore();
+  const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
+  
+
+  const tableContainerRef = useRef<HTMLDivElement | null>(null);
+  const scrollDirectionRef = useRef<'left' | 'right' | null>(null);
+
+  const dates = habbitsQuery?.data?.dates || [];
+  const groups = habbitsQuery?.data?.groups || [];
+  
+  useEffect(()=> {
+    if(!tableContainerRef.current || !scrollDirectionRef.current) return;
+    const container = tableContainerRef.current;
+    
+    if(scrollDirectionRef.current === "left"){
+      container.scrollLeft = 1300
+    }
+    if(scrollDirectionRef.current === "right"){
+      container.scrollLeft = container.scrollWidth - container.clientWidth - 1300;
+    }
+    scrollDirectionRef.current = null;
+  
+  }, [dates]) 
+
+  const handlleScroll = () => {
+    if (!tableContainerRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = tableContainerRef.current;
+    if(scrollLeft <= 10){
+      scrollDirectionRef.current = "left";
+      updateDateRange("left")
+      
+    }
+    if (scrollLeft + clientWidth >= scrollWidth-10) {
+      scrollDirectionRef.current = "right";
+      updateDateRange("right")
+    }
+
+  }
+
+  if(isPending){ return(<div className="tableLoading"><CircularProgress/></div>)}
   return (
-    <TableContainer component={Paper} sx={{ overflowX: 'auto' }}>
+    <TableContainer 
+      component={Paper} 
+      sx={{ overflowX: 'auto' }}
+      ref={tableContainerRef}
+      onScroll={handlleScroll}
+    >
       <Table sx={{ minWidth: 650, tableLayout: 'fixed',}} size="small">
         {/* Заголовок с датами */}
         <TableHead>

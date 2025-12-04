@@ -1,23 +1,17 @@
 "use client"
 import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
-import HabbitsPreview from '../../components/HabitsNew/HabbitsPreview'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
 import GroupSettings from '../../components/CurrentGroupSettings/GroupSettings'
-import DashBoard from '../../components/DashBoard/DashBoard'
+import { useStore } from '../../ZustandStore/store'
 import { CircularProgress } from '@mui/material'
 import Header from '../../components/Header/Header'
-import { useStore } from '../../ZustandStore/store'
 
 const page = () => {
-  const {dateRange}=useStore();
-
-  const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
   const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
   const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
 
 
   const {selectedGroupId} = useStore();
-  const tableData = habbitsQuery?.data;
   const allGroups = allGroupsQuery?.data;
   const group = allGroups?.find(el => el.id === selectedGroupId);
 
@@ -25,9 +19,7 @@ const page = () => {
   return ( 
     <div>
       <Header/>
-      {(isPending || isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
-      {!isPending && <DashBoard groups={habbitsQuery.data.groups}/>}
-      { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data} isPending={isPending}/> }
+      {(isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
       { (!isPendingAllGroups && !isPendingSettingsConfig) && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery?.data}/> }
       { selectedGroupId && group && <GroupSettings group={group}/> }
       

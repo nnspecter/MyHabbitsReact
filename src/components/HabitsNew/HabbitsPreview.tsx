@@ -1,7 +1,7 @@
 import styles from "./Habbits.module.scss"
 import { useStore } from '../../ZustandStore/store';
 import CustomTable from './Table/Table';
-const HabbitsPreview = ({currentHabbits}) => {
+const HabbitsPreview = ({currentHabbits, isPending}) => {
   const {mods} = useStore();
   return (
     <div className={styles.allHabbits}>
