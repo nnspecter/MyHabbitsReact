@@ -18,7 +18,7 @@ export interface HabitsData {
     endDate: string;
 }
 
-interface Record {
+export interface Record {
     date: string;
     value: boolean | number | string | null; // исправлено: value может быть разным типом
 }

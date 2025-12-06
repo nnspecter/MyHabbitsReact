@@ -92,6 +92,8 @@ export const useNewRecord = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }

@@ -1,6 +1,6 @@
 "use client"
 import { useHabbits} from '../../api/queries'
-import DashBoard from '../../components/DashBoard/DashBoard'
+import DashBoard from '../../components/DashBoard/DashBoardNew'
 import { CircularProgress } from '@mui/material'
 import Header from '../../components/Header/Header'
 

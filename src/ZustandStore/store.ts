@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { dateFormatter } from "../features/DateFormatters/DateFormatter";
+import dayjs from "dayjs";
 interface DateRange{
     startDate: string;
     endDate: string;
@@ -8,10 +9,11 @@ interface DateRange{
 interface ModeStore{
     mods:Mode[],
     selectedGroupId: number | null,
+    selectedDate: string
     dateRange: DateRange,
     setMode: (number, boolean) => void,
     setSelectedGroupId: (number) => void,
-    setDateRange: (DateRange) => void,
+    setDate: (newDate) => void,
     updateDateRange: (event: "left" | "right") => void,
 }
 
@@ -23,6 +25,7 @@ interface Mode{
 export const useStore = create<ModeStore>((set, get)=>({
     mods: [],
     selectedGroupId: null,
+    selectedDate: dayjs(new Date()).format("DD-MM-YYYY"),
     dateRange: {
         startDate: "2025-10-01",
         endDate: "2025-11-10",
@@ -44,10 +47,11 @@ export const useStore = create<ModeStore>((set, get)=>({
         console.log(`Выбранная группа: ${id}`);
     },
 
-    setDateRange: (newDate: DateRange) => {
+    setDate: (newDate: string) => {
         set(()=>({
-            dateRange: newDate,
+            selectedDate: newDate,
         }))
+        console.log("Дата установлена на ", newDate)
     },
 
     updateDateRange: (event)=>{
