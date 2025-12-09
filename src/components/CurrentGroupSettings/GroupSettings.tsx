@@ -6,7 +6,7 @@ const GroupSettings = ({group}) => {
 
   return (
     <div className={styles.GroupSettings}>
-      <p className="medFont1">Превью настроек группы: {group.name}</p>
+      <div className="medFont1">Выбранная группа: {group.name}</div>
         <CurrentSettings group={group}/>    
         <HabitsSettings habits={group.habits} groupId={group.id}/>
     </div>

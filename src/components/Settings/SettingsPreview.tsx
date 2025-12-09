@@ -5,7 +5,7 @@ const SettingsPreview = ({currentGroups, settingsConfig}) => {
   
   return (
     <div className={styles.settings}>
-         <p className="medFont1">Превью настроек</p>
+         <div className="medFont2">Настройки</div>
         <MainSettings settings={settingsConfig}/>
         <GroupSettings groups={currentGroups} />
     </div>

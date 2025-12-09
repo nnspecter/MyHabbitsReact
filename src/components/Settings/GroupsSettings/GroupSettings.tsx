@@ -20,7 +20,7 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
 
   return (
     <div className={styles.GroupSettings}>
-      <p className="medFont1">Настройки групп</p>
+      <div className="medFont1">Настройки групп</div>
       
         {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>

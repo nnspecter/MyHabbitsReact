@@ -13,23 +13,13 @@ const page = () => {
 
   const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
   const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
-  const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
-
-
-  const {selectedGroupId} = useStore();
-  const tableData = habbitsQuery?.data;
-  const allGroups = allGroupsQuery?.data;
-  const group = allGroups?.find(el => el.id === selectedGroupId);
-
 
   return ( 
     <div>
       <Header/>
       {(isPending || isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
-      {!isPending && <DashBoard groups={habbitsQuery.data.groups}/>}
-      { !isPending && <HabbitsPreview currentHabbits={habbitsQuery.data} isPending={isPending}/> }
-      { (!isPendingAllGroups && !isPendingSettingsConfig) && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery?.data}/> }
-      { selectedGroupId && group && <GroupSettings group={group}/> }
+      {!isPending && <HabbitsPreview currentHabbits={habbitsQuery.data} isPending={isPending}/> }
+      
       
     </div>
   )

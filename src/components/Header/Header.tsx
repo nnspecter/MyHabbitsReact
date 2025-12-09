@@ -11,8 +11,8 @@ const Header = () => {
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li><Link href="/table">Таблица</Link></li>
             <li><Link href="/dashboard">Дэшборд</Link></li>
+            <li><Link href="/table">Таблица</Link></li>
             <li><Link href="/settings">Настройки</Link></li>
             <li><Link href="#contact">Сводка</Link></li>
             <li><Link href="#contact">Профиль</Link></li>

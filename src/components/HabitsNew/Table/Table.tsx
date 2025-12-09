@@ -34,7 +34,21 @@ const CustomTable: React.FC<CustomTableProps> = ({}) => {
     }
     scrollDirectionRef.current = null;
   
-  }, [dates]) 
+  }, [dates]);
+  //блок скролла при загрузке 
+  useEffect(() => {
+    const container = tableContainerRef.current;
+    if (!container) return;
+
+    const preventScroll = (e: Event) => {
+      if (isPending) e.preventDefault();
+    };
+
+    container.addEventListener('wheel', preventScroll, { passive: false });
+
+    return () => container.removeEventListener('wheel', preventScroll);
+  }, [isPending]);
+
 
   const handlleScroll = () => {
     if (!tableContainerRef.current) return;

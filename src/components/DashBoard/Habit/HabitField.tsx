@@ -73,7 +73,7 @@ const HabitField = ({habit}: HaitFieldProps) => {
             <div className={styles.habitField}>
                 {
                 habit.type === "TEXT" ?
-                <div className={styles.input}>
+                
                     <Input
                         placeholder="Значение"
                         fullWidth
@@ -81,9 +81,9 @@ const HabitField = ({habit}: HaitFieldProps) => {
                         value={record.value ?? ''} // ?? '' для контроля
                         onBlur={()=> handleAccept(record.value)}
                     />
-                </div>
+            
                 : habit.type === "NUMBER" ?
-                    <div className={styles.input}>
+                    
                         <Input
                             placeholder="Значение"
                             type="number"
@@ -92,7 +92,7 @@ const HabitField = ({habit}: HaitFieldProps) => {
                             value={record.value ?? ''} // ?? '' для контроля
                             onBlur={()=> handleAccept(record.value)}
                         />
-                    </div>
+                    
                 : habit.type === "GENERAL" &&
                     <div>
                         <Checkbox

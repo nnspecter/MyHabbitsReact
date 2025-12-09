@@ -40,7 +40,6 @@ const DashBoard = ({groups}) => {
                 {group.habits.map((habit, habitKey)=> (
                   <AccordionDetails key={`dashboardHabitAccordionKey-${habitKey}`}>
                       <HabitField habit={habit}/>
-                      
                   </AccordionDetails>
                 ))}
                 </div>
