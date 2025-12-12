@@ -1,13 +1,18 @@
 .header {
+  display: flex;
+  justify-self: center;
+  align-self: center;
   background-color: #ffffff;
   color: #1f1f1f;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; // чтобы перекрывал остальные элементы
+  left: 30;
+  right: 10;
+  border-radius: 0 0 10 10px;
+  width: 80%;
+  z-index: 1000; 
 
   .container {
     width: 90%;

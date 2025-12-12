@@ -11,8 +11,7 @@ const MainSettings = ({settings}) => {
 
   return (
     <div className={styles.mainSettings}>
-         <div className={styles.HiddenCheckbox}>Показывать скрытые <Checkbox onChange={(e) => handleShowHidden(e)} checked={settings.showHidden}/></div>
-        <Button variant='contained' color='success'> И так далее </Button>
+         <div className={styles.HiddenCheckbox}>Показывать скрытыe <Checkbox onChange={(e) => handleShowHidden(e)} checked={settings.showHidden}/></div>
     </div>
   )
 }

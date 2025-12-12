@@ -1,0 +1,57 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    height: 100vh;
+    .formPanel{
+        display: flex;
+        
+        align-items: center;
+        background-color: #D9D9D9;
+        color: #050505;
+        width: 300px;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        gap: 20px;
+        .name{
+            color: #454545;
+            font-size: 24pt;
+            font-weight: bold;
+        }
+
+        .formLabels{
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .Input{
+                border-radius: 15px;
+            }
+            .Pass{
+                gap: 20px
+            }
+            
+            .Number{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
+            
+
+        }
+        .formButton{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .lowerText{
+                color: #454545;
+                font-size: 12pt;
+                text-align: center;
+            }
+        }
+        
+    }   
+}

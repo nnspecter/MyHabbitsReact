@@ -35,6 +35,7 @@ const CustomTable: React.FC<CustomTableProps> = ({}) => {
     scrollDirectionRef.current = null;
   
   }, [dates]);
+  
   //блок скролла при загрузке 
   useEffect(() => {
     const container = tableContainerRef.current;
