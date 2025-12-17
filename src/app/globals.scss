@@ -4,7 +4,7 @@ html, body, #__next {
   font-family: Roboto, sans-serif;
   scrollbar-gutter: stable ;
   width: 100%;
-  background-color: rgb(165, 172, 177);
+  background-color: #ACACAC;
 }
 
 
@@ -15,10 +15,46 @@ html, body, #__next {
 }
 
 .medFont2{
+  color: #454545;
   font-size: 20pt;
+  font-weight: bold;
 }
 
 .medFont1{
+  color: #454545;
   font-size: 16pt;
+  font-weight: 700;
 }
 
+.smallFont2{
+  color: #454545;
+  font-size: 12pt;
+  font-weight: 600;
+}
+.smallFont1{
+  color: #454545;
+  font-size: 11pt;
+  font-weight: 500;
+}
+
+
+// стили для календаря выбора даты
+@import "react-day-picker/dist/style.css";
+.rdp-root {
+    --rdp-background-color: #D9D9D9;
+
+    --rdp-accent-color: #454545;
+    --rdp-accent-color-dark: #454545;
+
+    --rdp-text-color: #454545;
+
+    --rdp-day-selected-background-color: #454545;
+    --rdp-day-selected-color: #D9D9D9;
+
+    --rdp-day-hover-background-color: rgba(69, 69, 69, 0.15);
+
+    --rdp-day-today-color: #454545;
+    --rdp-day-disabled-color: rgba(69, 69, 69, 0.4);
+
+    --rdp-outline: 2px solid rgba(69, 69, 69, 0.4);
+  }

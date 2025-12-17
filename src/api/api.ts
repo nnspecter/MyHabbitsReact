@@ -229,3 +229,8 @@ export const newRecord = async (data: NewRecord) => {
     const res =  await axiosApi.put(`/api/records`, data);
     return res.data;
 }
+
+export const getDashboardHabbits = async (date: string) => {
+    const res =  await axiosApi.get(`/api/records/day?date=${date}`);
+    return res.data
+}

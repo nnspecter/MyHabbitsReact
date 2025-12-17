@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
-import { useStore } from "../../ZustandStore/store";
+
+import { useStore } from "../../../ZustandStore/store";
 import dayjs from 'dayjs';
 import { ru } from "date-fns/locale";
-export const DatePicker = () => {
+
+export const TableDatePicker = () => {
   const [selected, setSelected] = useState<Date>();
   const{setDate, selectedDate} = useStore();
 
@@ -23,6 +24,7 @@ export const DatePicker = () => {
       selected={selected}
       locale={ru}
       onSelect={(date)=> handleDate(date)}
+      
     />
   );
 }

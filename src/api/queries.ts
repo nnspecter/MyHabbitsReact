@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery, UseQueryOptions } from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
-import { getAllGroups, GroupsSettings, getHabbits, HabitsResponse, startLogin, SettingsConfig, GetSettingsConfig, HabitsData } from "./api"
+import { getAllGroups, GroupsSettings, getHabbits, HabitsResponse, startLogin, SettingsConfig, GetSettingsConfig, HabitsData, getDashboardHabbits } from "./api"
 interface addGroupParams {
     name: string;
     color: string;
@@ -18,6 +18,14 @@ export const useHabbits = (data: HabitsData) => {
     queryKey: queryKeys.groupsByDate(data.startDate, data.endDate),
     queryFn: () => getHabbits({ startDate: data.startDate, endDate: data.endDate }),
     placeholderData: keepPreviousData,
+  })
+}
+
+//функция дашборда
+export const useDashboardHabbit = (date: string) => {
+  return useQuery({
+    queryKey: queryKeys.groupsDashboard(date),
+    queryFn: () => getDashboardHabbits(date),
   })
 }
 

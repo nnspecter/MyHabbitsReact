@@ -81,19 +81,19 @@ const CustomTable: React.FC<CustomTableProps> = ({}) => {
             <TableCell
               sx={{
                 position: 'sticky',
-                width: '120px',
+                width: '150px',
                 left: 0,
                 backgroundColor: 'white',
                 zIndex: 2,
               }}
             >
             </TableCell>
-            {dates.map((el, dataKey) => (
+            {dates.map((date, dataKey) => (
               <TableCell
-                sx={{ width: '75px', textAlign: 'center', backgroundColor: 'white' }}
+                sx={{ width: '90px', textAlign: 'center', backgroundColor: 'white' }}
                 key={`dataKey-${dataKey}`}
               >
-                {el}
+                <div className='smallFont2'>{date}</div>
               </TableCell>
             ))}
           </TableRow>
@@ -117,9 +117,10 @@ const CustomTable: React.FC<CustomTableProps> = ({}) => {
                         backgroundColor: '#f0f0f0',
                         fontWeight: 'bold',
                         zIndex: 1,
+                        
                       }}
                     >
-                      {group.name}
+                      <div className='smallFont2'>{group.name}</div>
                     </TableCell>
                     <TableCell colSpan={dates.length} sx={{ backgroundColor: '#f0f0f0' }} />
                   </TableRow>
@@ -134,7 +135,7 @@ const CustomTable: React.FC<CustomTableProps> = ({}) => {
                       zIndex: 1,
                     }}
                   >
-                    {habit.name}
+                    <div className='smallFont1'>{habit.name}</div>
                   </TableCell>
                   {habit.records.map((record, cellKey) => (
                     <TableCell

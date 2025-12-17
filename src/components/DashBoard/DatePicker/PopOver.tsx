@@ -2,7 +2,7 @@ import { Popover } from '@varld/popover';
 import styles from './PopOver.module.scss';
 import { DatePicker } from './DatePicker';
 import { Button } from '@mui/material';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 export const PopOver = () => {
   return (
     <div className={styles.app}>
@@ -15,7 +15,7 @@ export const PopOver = () => {
           );
         }}
       >
-        <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto"}}><BorderColorIcon/></Button>
+        <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto"}}><CalendarMonthIcon sx={{color: "#454545",}}/></Button>
       </Popover>
     </div>
   );

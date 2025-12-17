@@ -13,14 +13,12 @@ interface HaitFieldProps{
 }
 
 const HabitField = ({habit}: HaitFieldProps) => {
-    const {selectedDate: startDate} = useStore();
-    const [date, setDate] = useState<string>(
-        dayjs(startDate, "DD-MM-YYYY").format("YYYY-MM-DD")
-    );
+    
+    const {selectedDate} = useStore();
     const newRecordMutation = useNewRecord();
     const [record, setRecord] = useState({
         habitId: habit.id,
-        date: date,
+        date: selectedDate,
         value: null,
     });
 
@@ -29,23 +27,25 @@ const HabitField = ({habit}: HaitFieldProps) => {
     const handleValueChange = (newValue: string | number | boolean) => {
         setRecord(prev => ({...prev, value: newValue}))
         console.log(newValue)
+        if(habit.type==="GENERAL" && typeof newValue === "boolean"){
+             newRecordMutation.mutate({ ...record, value: newValue });
+             console.log( "Новая запись boolean создана");
+        }
     };
 
     useEffect(() => {
-        if (!startDate) return;
+        if (!selectedDate) return;
 
-        const formattedDate = dayjs(startDate, "DD-MM-YYYY").format("YYYY-MM-DD");
-
-        const currentRecord = habit.records.find(el => el.date === formattedDate);
+        const currentRecord = habit.records.find(el => el.date === selectedDate);
         if (currentRecord) {
-            setRecord(prev => ({ ...prev, value: currentRecord.value, date: formattedDate }));
+            setRecord(prev => ({ ...prev, value: currentRecord.value, date: selectedDate }));
         } else {
-            setRecord(prev => ({ ...prev, date: formattedDate }));
+            setRecord(prev => ({ ...prev, date: selectedDate }));
         }
-    }, [startDate, habit.records]);
+    }, [selectedDate, habit.records]);
 
 
-    const handleAccept = (value: string) => {
+    const handleAccept = (value: string | boolean | number) => {
         const currentRecord = habit.records.find(el => el.date === record.date);
 
         const newValue =
@@ -56,9 +56,9 @@ const HabitField = ({habit}: HaitFieldProps) => {
                 : record.value;
 
         // если записи нет или значение изменилось — мутируем
-        if (!currentRecord || currentRecord.value !== value) {
+        if (currentRecord && currentRecord.value !== newValue) {
             newRecordMutation.mutate({ ...record, value: newValue });
-            console.log(!currentRecord ? "Новая запись создана" : "Существующая запись обновлена");
+            console.log( "Новая запись создана");
         }
 
         console.log("потеря фокуса");   
@@ -67,7 +67,7 @@ const HabitField = ({habit}: HaitFieldProps) => {
 
     return (
         <div className={styles.habit}>
-            <div className={styles.habitName}>
+            <div className="smallFont2">
                 {habit.name}:
             </div>
             <div className={styles.habitField}>
@@ -98,6 +98,7 @@ const HabitField = ({habit}: HaitFieldProps) => {
                         <Checkbox
                             checked={Boolean(record.value)}
                             onChange={(e) => handleValueChange(e.target.checked)}
+                            sx={{ marginRight: 0, padding: 0, color: '#454545','&.Mui-checked': {color: '#454545',}}}
                         />
                     </div>
                 }

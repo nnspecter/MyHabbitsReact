@@ -9,9 +9,8 @@ interface DateRange{
 interface ModeStore{
     mods:Mode[],
     selectedGroupId: number | null,
-    selectedDate: string
+    selectedDate: string,
     dateRange: DateRange,
-    dashBoardDateRange: DateRange,
     setMode: (number, boolean) => void,
     setSelectedGroupId: (number) => void,
     setDate: (newDate) => void,
@@ -26,15 +25,12 @@ interface Mode{
 export const useStore = create<ModeStore>((set, get)=>({
     mods: [],
     selectedGroupId: null,
-    selectedDate: dayjs(new Date()).format("DD-MM-YYYY"),
+    selectedDate: dayjs(new Date()).format("YYYY-MM-DD"), //2024-10-05-DD
     dateRange: {
         startDate: "2025-10-01",
         endDate: "2025-11-10",
     },
-    dashBoardDateRange: {
-        startDate: "2025-01-01",
-        endDate: "2025-12-31",
-    },
+    
 
     setMode: (id: number, mode: boolean)=>{
         set((state)=>({
