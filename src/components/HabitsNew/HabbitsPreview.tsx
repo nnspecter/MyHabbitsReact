@@ -4,9 +4,10 @@ import CustomTable from './Table/Table';
 import { useHabbits } from "../../api/queries";
 import { CircularProgress } from "@mui/material";
 import { TablePopOver } from "./DatePicker/TablePopOver";
+import { dateFormatter } from "../..//features/DateFormatters/DateFormatter";
+import dayjs from "dayjs";
 const HabbitsPreview = () => {
-  const {dateRange}=useStore();
-  const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
+  const {selectedTableDate} = useStore();
   
   return (
     <div className={styles.allHabbits}>
@@ -14,10 +15,12 @@ const HabbitsPreview = () => {
         <div className={styles.center}> 
           <div className='medFont2'>Превью всех привычек</div>
         </div>
-        <div className={styles.right}><TablePopOver/></div>
+        <div className={styles.right}>
+          {dayjs(selectedTableDate).format("DD.MM.YYYY")}
+          <TablePopOver/>
+        </div>
       </div>
-      {isPending && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
-      {!isPending && <CustomTable dates={habbitsQuery.data.dates} groups={habbitsQuery.data.groups}/>}
+       <CustomTable/>
     </div>
   )
 }

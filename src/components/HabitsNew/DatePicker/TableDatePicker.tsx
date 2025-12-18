@@ -7,12 +7,12 @@ import { ru } from "date-fns/locale";
 
 export const TableDatePicker = () => {
   const [selected, setSelected] = useState<Date>();
-  const{setDate, selectedDate} = useStore();
+  const{ setTableDate} = useStore();
 
   const handleDate = (date: Date | undefined) => {
     setSelected(date);
-    const formatted = dayjs(date).format('DD-MM-YYYY'); 
-    setDate(formatted);
+    const formatted = dayjs(date).format('YYYY-MM-DD'); 
+    setTableDate(formatted);
   }
 
 

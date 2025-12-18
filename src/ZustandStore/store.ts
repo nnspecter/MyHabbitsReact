@@ -10,10 +10,11 @@ interface ModeStore{
     mods:Mode[],
     selectedGroupId: number | null,
     selectedDate: string,
-    dateRange: DateRange,
+    selectedTableDate: string,
     setMode: (number, boolean) => void,
     setSelectedGroupId: (number) => void,
     setDate: (newDate) => void,
+    setTableDate: (newDate: string) => void,
     updateDateRange: (event: "left" | "right") => void,
 }
 
@@ -26,11 +27,7 @@ export const useStore = create<ModeStore>((set, get)=>({
     mods: [],
     selectedGroupId: null,
     selectedDate: dayjs(new Date()).format("YYYY-MM-DD"), //2024-10-05-DD
-    dateRange: {
-        startDate: "2025-10-01",
-        endDate: "2025-11-10",
-    },
-    
+    selectedTableDate: dayjs(new Date()).format("YYYY-MM-DD"),
 
     setMode: (id: number, mode: boolean)=>{
         set((state)=>({
@@ -52,26 +49,25 @@ export const useStore = create<ModeStore>((set, get)=>({
         set(()=>({
             selectedDate: newDate,
         }))
-        console.log("Дата установлена на ", newDate)
+        console.log("Дата дашборда установлена на ", newDate)
+    },
+    setTableDate: (newDate: string) => {
+        set(()=>({
+            selectedTableDate: newDate,
+        }))
+        console.log("Дата таблицы установлена на ", newDate)
     },
 
     updateDateRange: (event)=>{
-       const currentDate =  get().dateRange
         if(event==="right"){
             set(()=>({
-                dateRange: {
-                    startDate: dateFormatter(currentDate.startDate, 12),
-                    endDate: dateFormatter(currentDate.endDate, 12)
-                }
+                selectedTableDate: dateFormatter(get().selectedTableDate, 20)
             }))
         }
 
         if(event==="left"){
             set(()=>({
-                dateRange: {
-                    startDate: dateFormatter(currentDate.startDate, -12),
-                    endDate: dateFormatter(currentDate.endDate, -12)
-                }
+                selectedTableDate: dateFormatter(get().selectedTableDate, -20)
             }))
         }
 
