@@ -31,6 +31,15 @@
             font-weight: 700;
             font-size: 14pt;
         }
+        .habitBody{
+            .noData{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40pt;
+            }
+        }
+        
     }
     .habitGroups{
         display: flex;

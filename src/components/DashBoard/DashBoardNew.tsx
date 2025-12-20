@@ -11,7 +11,7 @@ import { use, useEffect, useState } from "react";
 import { useDashboardHabbit } from "../../api/queries";
 dayjs.extend(customParseFormat);
 
-const DashBoard = ({groups}) => {
+const DashBoard = () => {
   const {selectedDate} = useStore();
   const date = dayjs(selectedDate).format("DD-MM-YYYY");
   
@@ -43,8 +43,13 @@ const DashBoard = ({groups}) => {
             <PopOver/>{date} {todayDate(date) && <>{"(сегодня)"}</>}
           </div>
         </div>
-        <div>
+
+        <div className={styles.habitBody}>
           {isPending && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
+          {!isPending && data?.data.groups.length === 0 && (
+            <div className="tableLoading">Нет данных для отображения</div>
+          )}
+
           {data?.data.groups.map((group, groupKey) => (
               <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff"}}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>

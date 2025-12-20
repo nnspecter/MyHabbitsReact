@@ -13,7 +13,13 @@ const HiddenCheckbox = ({id, hidden}) => {
     }
   return (
     <div>
-       Скрыть <Checkbox onChange={(e)=>handleChange(e)} checked={hidden}  ></Checkbox>
+       Скрыть 
+       <Checkbox 
+        onChange={(e)=>handleChange(e)}
+        checked={hidden}
+        sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
+      >
+      </Checkbox>
     </div>
   )
 }

@@ -11,7 +11,14 @@ const MainSettings = ({settings}) => {
 
   return (
     <div className={styles.mainSettings}>
-         <div className={styles.HiddenCheckbox}>Показывать скрытыe <Checkbox onChange={(e) => handleShowHidden(e)} checked={settings.showHidden}/></div>
+         <div className={styles.HiddenCheckbox}>
+            Показывать скрытыe
+            <Checkbox
+              onChange={(e) => handleShowHidden(e)}
+              checked={settings.showHidden}
+              sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
+              />
+          </div>
     </div>
   )
 }

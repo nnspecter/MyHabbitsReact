@@ -24,12 +24,27 @@ const DeleteButton = ({groupId}) => {
 
   return (
     <React.Fragment>
-        <Button variant="contained" color='error' onClick={handleClickOpen}>Удалить</Button>
+        <Button 
+          variant="contained"
+          onClick={handleClickOpen}
+          sx={{background: "#AA3333"}}
+          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
+          >
+          Удалить
+        </Button>
+
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
         disableScrollLock
+        sx={{
+          "& .MuiDialog-paper": {
+            backgroundColor: "#D9D9D9",
+            color: "#454545",
+            borderRadius: "16px",
+          },
+        }}
       >
         <DialogTitle id="responsive-dialog-title">
           {"Удалить группу?"}
@@ -40,10 +55,10 @@ const DeleteButton = ({groupId}) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
-          <Button onClick={() => { handleClose(); handleDelete(groupId);}} autoFocus>
+          <Button onClick={() => { handleClose(); handleDelete(groupId);}} sx={{color: "#AA3333"}} autoFocus>
             Удалить
           </Button>
         </DialogActions>

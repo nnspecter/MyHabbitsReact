@@ -62,12 +62,26 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
 
   return (
     <React.Fragment>
-        <Button variant='contained' onClick={handleClickOpen}>Настроить</Button>
+        <Button 
+          variant='contained'
+          onClick={handleClickOpen}
+          sx={{background: "#454545"}}
+          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
+        >
+          Настроить
+        </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
         disableScrollLock
+        sx={{
+          "& .MuiDialog-paper": {
+            backgroundColor: "#D9D9D9",
+            color: "#454545",
+            borderRadius: "16px",
+          },
+        }}
       >
         <DialogTitle id="responsive-dialog-title">
           {"Параметры привычки"}
@@ -97,10 +111,10 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
 
         </DialogContent>
         <DialogActions sx={{display: "flex", justifyContent: "space-between"}}>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
-          <Button onClick={handleAccept} autoFocus>
+          <Button onClick={handleAccept} autoFocus sx={{color: "#454545"}}>
             Изменить
           </Button>
         </DialogActions>

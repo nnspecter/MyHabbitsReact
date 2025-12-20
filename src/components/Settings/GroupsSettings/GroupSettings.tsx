@@ -28,7 +28,14 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
                      {group.name} 
                 </div>
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
-                <Button variant="contained" onClick={() => setSelectedGroupId(group.id)}>Настройки</Button>
+                <Button 
+                  variant="contained"
+                  onClick={() => setSelectedGroupId(group.id)} sx={{background: "#454545"}}
+                  style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
+                >
+                  Настроить
+                </Button>
+
                 <DeleteButton groupId={group.id}/>
             </div>
         ))}

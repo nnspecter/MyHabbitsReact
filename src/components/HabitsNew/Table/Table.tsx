@@ -82,6 +82,13 @@ const CustomTable = () => {
       <CircularProgress sx={{color: "#454545"}}/>
     </div>)
   }
+  if(!isPending && groups.length === 0){
+    return(
+      <div className="tableLoading">
+        Нет данных для отображения
+      </div>
+    )
+  }
 
   return (
     <TableContainer 

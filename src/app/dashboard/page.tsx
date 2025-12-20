@@ -13,7 +13,7 @@ const page = () => {
     <div>
       <Header/>
       {(isPending ) && <div className="tableLoading"><CircularProgress/></div>}
-      {!isPending && <DashBoard groups={habbitsQuery.data.groups}/>}
+      {!isPending && <DashBoard/>}
     </div>
   )
 }
