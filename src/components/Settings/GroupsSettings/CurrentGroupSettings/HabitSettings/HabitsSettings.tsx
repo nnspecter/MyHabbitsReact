@@ -1,7 +1,7 @@
 import styles from "./HabitsSettings.module.scss"
-import NewHabitButton from '../../../features/SettingsButtons/NewHabbitButton'
-import DeleteHabitButton from '../../../features/SettingsButtons/DeleteHabitButton'
-import HabitSettingsButton from '../../../features/SettingsButtons/HabitSettingsButton'
+import NewHabitButton from '../../../../../features/SettingsButtons/NewHabbitButton'
+import DeleteHabitButton from '../../../../../features/SettingsButtons/DeleteHabitButton'
+import HabitSettingsButton from '../../../../../features/SettingsButtons/HabitSettingsButton'
 const HabitsSettings = ({habits, groupId}) => {
   return (
     <div className={styles.habitsSettings}>

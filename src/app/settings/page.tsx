@@ -1,7 +1,7 @@
 "use client"
 import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
-import GroupSettings from '../../components/CurrentGroupSettings/GroupSettings'
+import GroupSettings from '../../components/Settings/GroupsSettings/CurrentGroupSettings/GroupSettings'
 import { useStore } from '../../ZustandStore/store'
 import { CircularProgress } from '@mui/material'
 import Header from '../../components/Header/Header'

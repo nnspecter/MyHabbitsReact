@@ -1,8 +1,9 @@
 "use client"
 import styles from "./StyledLoginForm.module.scss"
 import { Button, styled, TextField } from '@mui/material'
-import { useLogin } from '../../api/mutations';
 import { useRouter } from 'next/navigation';
+import { LoginData, startLogin } from "../../api/api";
+import { useMutation } from "@tanstack/react-query";
 
 
 
@@ -47,8 +48,17 @@ const AuthentificationForm = () => {
       },
     },
   });
+
   const router = useRouter();
-  const LoginMutation = useLogin();
+  const LoginMutation = useMutation({
+    mutationFn: (data: LoginData) => startLogin(data),  
+    onSuccess: () => {
+        router.push("/table");
+    },
+    onError: (error) => {
+        console.error(error);
+    }
+});
 
 
     const handleSubmit = async (username, password) => {
@@ -59,7 +69,6 @@ const AuthentificationForm = () => {
 
         console.log({username: username, password: password})
         await LoginMutation.mutate({ username, password });
-        await router.push("/table")
     } 
 
   return (
@@ -85,10 +94,12 @@ const AuthentificationForm = () => {
               type="password"
               
             />
+            {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
           </div>
           <div className={styles.formButton}>
             <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
             <div className={styles.lowerText}>Нет аккаунта? Зарегистрироваться</div>
+            
           </div>
         </div>
 

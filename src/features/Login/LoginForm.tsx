@@ -54,7 +54,9 @@ const AuthentificationForm = () => {
     }
     console.log({username: username, password: password})
     await LoginMutation.mutate({ username, password });
-    await router.push("/table")
+    if(LoginMutation.isSuccess){
+      router.push("/table")
+    }
   } 
 
   return (

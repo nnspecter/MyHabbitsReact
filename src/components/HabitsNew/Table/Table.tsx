@@ -25,12 +25,11 @@ const CustomTable = () => {
   const groups = habbitsQuery?.data?.groups || [];
 
   useLayoutEffect(() => {
-  if (!tableContainerRef.current) return;
+    if (!tableContainerRef.current) return;
 
-  const container = tableContainerRef.current;
-  container.scrollLeft =
-    container.scrollWidth / 2 - container.clientWidth / 2;
-}, [selectedTableDate]);
+    const container = tableContainerRef.current;
+    container.scrollLeft = container.scrollWidth / 2 - container.clientWidth / 2;
+  }, [selectedTableDate, isPending]);
   
   // useEffect(()=> {
   //   if(!tableContainerRef.current || !scrollDirectionRef.current) return;
