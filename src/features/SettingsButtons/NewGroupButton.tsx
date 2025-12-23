@@ -1,7 +1,8 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useState } from 'react'
 import { useAddGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
+import InputLenght from '../Input/InputLenght';
 const NewGroupButton = () => {
     const [color, setColor] = useState("#aabbcc");
     const [groupName, setGroupName] = useState("");
@@ -53,7 +54,17 @@ const NewGroupButton = () => {
           {"Создание новой группы"}
         </DialogTitle>
         <DialogContent style={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
-          <Input placeholder="Название группы" onChange={(e) => setGroupName(e.target.value)} fullWidth />
+          <Input 
+            placeholder="Название группы"
+            onChange={(e) => setGroupName(e.target.value)}
+            fullWidth
+            inputProps={{ maxLength: 25 }}
+            endAdornment={
+              <InputAdornment position="end">
+                <InputLenght valueLenght={groupName.length}/>
+              </InputAdornment>
+            }
+          />
           <HexColorPicker color={color} onChange={handleColorChange}/>
         </DialogContent>
         <DialogActions>

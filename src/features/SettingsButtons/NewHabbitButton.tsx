@@ -1,6 +1,7 @@
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, TextField, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react'
 import { useAddHabit} from '../../api/mutations';
+import InputLenght from '../Input/InputLenght';
 const NewHabitButton = ({groupId}) => {
     const [habitName, setHabitName] = useState("");
     const [open, setOpen] = React.useState(false);
@@ -9,6 +10,7 @@ const NewHabitButton = ({groupId}) => {
     const addMutation = useAddHabit();
     const [type, setType] = useState("GENERAL");
     const [hidden, setHidden] = useState(false);
+    
 
 
     const handleHiddenChange = (event) => {
@@ -52,6 +54,7 @@ const NewHabitButton = ({groupId}) => {
             backgroundColor: "#D9D9D9",
             color: "#454545",
             borderRadius: "16px",
+            
           },
         }}
       >
@@ -59,9 +62,19 @@ const NewHabitButton = ({groupId}) => {
           {"Создание привычки"}
         </DialogTitle>
         <DialogContent style={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
-
-          <Input placeholder="Название привычки" onChange={(e) => setHabitName(e.target.value)} fullWidth />
-
+          
+            <Input 
+              placeholder="Название привычки"
+              onChange={(e) => setHabitName(e.target.value)}
+              fullWidth
+              inputProps={{ maxLength: 25 }}
+              endAdornment={
+                <InputAdornment position="end">
+                  <InputLenght valueLenght={habitName.length}/>
+                </InputAdornment>
+              }
+            />
+            
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Тип</InputLabel>
             <Select

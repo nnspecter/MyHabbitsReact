@@ -1,8 +1,9 @@
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useConfigureHabit } from '../../api/mutations';
 import { ConfigureHabbit, Habit} from '../../api/api';
 import { useAllGroups } from '../../api/queries';
+import InputLenght from '../Input/InputLenght';
 
 interface HabitSettingsButtonProps {
   habit: Habit;
@@ -88,7 +89,18 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
         </DialogTitle>
         <DialogContent style={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
 
-          <Input placeholder="Название привычки" onChange={(e) => handleNameChange(e.target.value)} fullWidth  value={newHabit.name}/>
+          <Input
+            placeholder="Название привычки"
+            onChange={(e) => handleNameChange(e.target.value)}
+            fullWidth
+            value={newHabit.name}
+            inputProps={{ maxLength: 25 }}
+            endAdornment={
+              <InputAdornment position="end">
+                <InputLenght valueLenght={newHabit.name.length}/>
+              </InputAdornment>
+            }
+          />
 
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Группа</InputLabel>

@@ -1,7 +1,8 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react'
 import { useConfigureGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
+import InputLenght from '../Input/InputLenght';
 const GroupSetiingsButton = ({group}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
@@ -77,7 +78,18 @@ const GroupSetiingsButton = ({group}) => {
           {"Редактирование группы"}
         </DialogTitle>
         <DialogContent style={{display: "flex", flexDirection: "column", gap: "20px", alignItems: "center"}}>
-          <Input placeholder="Название группы" onChange={(e) => handleNameChange(e.target.value)} fullWidth value={newSettings.name} />
+          <Input 
+            placeholder="Название группы"
+            onChange={(e) => handleNameChange(e.target.value)}
+            fullWidth
+            value={newSettings.name}
+            inputProps={{ maxLength: 25 }}
+            endAdornment={
+              <InputAdornment position="end">
+                <InputLenght valueLenght={newSettings.name.length}/>
+              </InputAdornment>
+            }
+         />
           <HexColorPicker color={newSettings.color} onChange={handleColorChange} style={{boxShadow: "0 4px 4px rgba(0,0,0,0.1)"}}/>
         </DialogContent>
         <DialogActions>

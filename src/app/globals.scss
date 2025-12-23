@@ -37,6 +37,13 @@ html, body, #__next {
   font-weight: 500;
 }
 
+.inputContainer{
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+}
+
 
 // стили для календаря выбора даты
 @import "react-day-picker/dist/style.css";

@@ -88,6 +88,7 @@ interface HabbitsAllGroups {
     hidden: boolean;
     minimized: boolean;
     position: number; 
+    habits: Habit[];
 }
 //--------------------------------
 
