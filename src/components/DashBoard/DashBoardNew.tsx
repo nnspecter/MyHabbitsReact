@@ -13,7 +13,7 @@ dayjs.extend(customParseFormat);
 
 const DashBoard = () => {
   const {selectedDate} = useStore();
-  const date = dayjs(selectedDate).format("DD-MM-YYYY");
+  const date = dayjs(selectedDate).format("DD.MM.YYYY");
   
   //реализую выдачу полям из родителя
   const{data, isPending} = useDashboardHabbit(selectedDate);
@@ -25,7 +25,7 @@ const DashBoard = () => {
   
 
   const todayDate = (date) => {
-    const today = dayjs(new Date()).format("DD-MM-YYYY");
+    const today = dayjs(new Date()).format("DD.MM.YYYY");
     
     if(date === today) return true;
     else return false;

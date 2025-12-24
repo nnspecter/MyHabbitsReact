@@ -119,7 +119,15 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
             </Select>
           </FormControl>
 
-         <div style={{display:"flex", alignItems: "center"}}>Скрыть<Checkbox onChange={(e)=> handleHiddenChange(e.target.checked)} checked={newHabit.hidden}></Checkbox></div>
+         <div style={{display:"flex", alignItems: "center"}}>
+            Скрыть
+            <Checkbox 
+              onChange={(e)=> handleHiddenChange(e.target.checked)}
+              checked={newHabit.hidden}
+              sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
+            >
+            </Checkbox>
+          </div>
 
         </DialogContent>
         <DialogActions sx={{display: "flex", justifyContent: "space-between"}}>

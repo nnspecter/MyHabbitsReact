@@ -5,12 +5,14 @@ import { HabitsGroup } from '../../../api/api';
 import { useStore } from '../../../ZustandStore/store';
 import { useHabbits } from '../../../api/queries';
 import { dateFormatter } from "../../../features/DateFormatters/DateFormatter";
+import dayjs from 'dayjs';
 
 
 
 const CustomTable = () => {
   const {updateDateRange, selectedTableDate} = useStore();
-  
+  const isSelected = (date: string) => {return selectedTableDate === date};
+
   const dateRange = ({ 
     startDate: dateFormatter(selectedTableDate, -20),
     endDate: dateFormatter(selectedTableDate, +20),
@@ -115,7 +117,7 @@ const CustomTable = () => {
                 sx={{ width: '90px', textAlign: 'center', backgroundColor: 'white' }}
                 key={`dataKey-${dataKey}`}
               >
-                <div className='smallFont2'>{date}</div>
+                <div className='smallFont2' style={{ color: isSelected(date) ? '#AA3333' : '#454545' }}>{dayjs(date).format("DD.MM.YYYY")}</div>
               </TableCell>
             ))}
           </TableRow>

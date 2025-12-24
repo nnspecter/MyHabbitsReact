@@ -16,8 +16,8 @@ const HabbitsPreview = () => {
           <div className='medFont2'>Превью всех привычек</div>
         </div>
         <div className={styles.right}>
-          {dayjs(selectedTableDate).format("DD.MM.YYYY")}
           <TablePopOver/>
+          {dayjs(selectedTableDate).format("DD.MM.YYYY")}
         </div>
       </div>
        <CustomTable/>
