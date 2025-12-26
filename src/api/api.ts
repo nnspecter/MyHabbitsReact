@@ -192,13 +192,13 @@ export const deleteGroup = async (id: number) => {
 
 //получение конфигурации настроек всех групп
 export const GetSettingsConfig = async () => {
-    const res =  await axiosApi.get(`/api/user/settings`)
+    const res =  await axiosApi.get(`/api/users/settings`)
     return res.data
 }
 
 //Изменение конфигурации настроек всех групп 
 export const configureSettings = async (data: ConfigureSettings) => {
-    const res =  await axiosApi.post(`/api/user/settings`, data)
+    const res =  await axiosApi.post(`/api/users/settings`, data)
     return res.data
 }
 

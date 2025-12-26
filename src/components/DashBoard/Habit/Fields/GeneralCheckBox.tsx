@@ -21,10 +21,10 @@ const GeneralCheckBox = ({record}: {record: record}) => {
           setNewRecord(record);
         }, [record]);
 
-    const handleAccept = () => {
+    const handleAccept = (checked) => {
         console.log("Accepted value:", newRecord);
-        
-            newRecordMutation.mutate(newRecord);
+            setNewRecord({...newRecord, value: checked}); 
+            newRecordMutation.mutate({...newRecord, value: checked});
             console.log( "Новая запись создана");
         
     };
@@ -34,8 +34,7 @@ const GeneralCheckBox = ({record}: {record: record}) => {
         checked={Boolean(newRecord.value)}
         sx={{ marginRight: 0, padding: 0, color: '#454545','&.Mui-checked': {color: '#454545',}}}
         onChange={(e) => {
-            setNewRecord({...newRecord, value: e.target.checked}); 
-            handleAccept();
+            handleAccept(e.target.checked);
         }}
     />
   )
