@@ -51,7 +51,7 @@ const DashBoard = () => {
           )}
 
           {data?.data.groups.map((group, groupKey) => (
-              <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff"}}>
+              <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff"}} defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                   <div className="medFont1">{group.name}</div>
                 </AccordionSummary>
