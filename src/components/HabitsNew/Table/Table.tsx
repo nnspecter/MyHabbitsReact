@@ -117,7 +117,7 @@ const CustomTable = () => {
                 sx={{ width: '90px', textAlign: 'center', backgroundColor: 'white' }}
                 key={`dataKey-${dataKey}`}
               >
-                <div className='smallFont2' style={{ color: isSelected(date) ? '#AA3333' : '#454545' }}>{dayjs(date).format("DD.MM.YYYY")}</div>
+                <div className='smallFont2' style={{ color: isSelected(date) ? '#39b354ff' : '#454545' }}>{dayjs(date).format("DD.MM.YYYY")}</div>
               </TableCell>
             ))}
           </TableRow>
