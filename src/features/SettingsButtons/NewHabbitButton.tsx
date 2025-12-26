@@ -8,7 +8,7 @@ const NewHabitButton = ({groupId}) => {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     const addMutation = useAddHabit();
-    const [type, setType] = useState("GENERAL");
+    const [type, setType] = useState<"GENERAL" | "NUMBER" | "TEXT" | "TIME">("GENERAL");
     const [hidden, setHidden] = useState(false);
     
 
@@ -19,6 +19,7 @@ const NewHabitButton = ({groupId}) => {
 
     const handleTypeChange = (event) => {
       setType(event.target.value);
+      console.log(event.target.value)
     };
 
     const handleClickOpen = () => {
@@ -30,7 +31,7 @@ const NewHabitButton = ({groupId}) => {
     };
 
     const handleAccept = () => {
-      addMutation.mutate({groupId: groupId, name: habitName, type: "GENERAL", hidden: false});
+      addMutation.mutate({groupId: groupId, name: habitName, type: type, hidden: false});
         setOpen(false);
     };
 
