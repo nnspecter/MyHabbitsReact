@@ -6,22 +6,30 @@ import { CircularProgress } from "@mui/material";
 import { TablePopOver } from "./DatePicker/TablePopOver";
 import { dateFormatter } from "../..//features/DateFormatters/DateFormatter";
 import dayjs from "dayjs";
+import { MountAnimation } from "../../animations/MountAnimation";
 const HabbitsPreview = () => {
   const {selectedTableDate} = useStore();
-  
+  const todayDate = (date) => {
+      const today = dayjs(new Date()).format("DD.MM.YYYY");
+      
+      if(date === today) return true;
+      else return false;
+    }
   return (
-    <div className={styles.allHabbits}>
-      <div className={styles.head}>
-        <div className={styles.center}> 
-          <div className='medFont2'>Превью всех привычек</div>
+    <MountAnimation>
+      <div className={styles.allHabbits}>
+        <div className={styles.head}>
+          <div className={styles.center}> 
+            <div className='medFont2'>Превью всех привычек</div>
+          </div>
+          <div className={styles.right}>
+            <TablePopOver/>
+            {dayjs(selectedTableDate).format("DD.MM.YYYY")} {todayDate(dayjs(selectedTableDate).format("DD.MM.YYYY")) && <>{"(сегодня)"}</>}
+          </div>
         </div>
-        <div className={styles.right}>
-          <TablePopOver/>
-          {dayjs(selectedTableDate).format("DD.MM.YYYY")}
-        </div>
+        <CustomTable/>
       </div>
-       <CustomTable/>
-    </div>
+    </MountAnimation>
   )
 }
 

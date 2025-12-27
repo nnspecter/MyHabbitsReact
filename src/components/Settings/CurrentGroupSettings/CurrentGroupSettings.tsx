@@ -6,6 +6,7 @@ import { Button, CircularProgress } from '@mui/material'
 import { useStore } from '../../../ZustandStore/store'
 import { useAllGroups } from '../../../api/queries'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { MountAnimation } from '../../../animations/MountAnimation'
 
 const CurrentGroupSettings = () => {
   const {selectedGroupId, setSelectedGroupId} = useStore();
@@ -38,7 +39,7 @@ const CurrentGroupSettings = () => {
       
         <CurrentSettings group={group}/>    
         <HabitsSettings habits={group.habits} groupId={group.id}/>
-    </div>
+    </div> 
   )
 }
 
