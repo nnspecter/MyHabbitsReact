@@ -9,9 +9,9 @@ const HabitsSettings = ({habits, groupId}) => {
       <div className={styles.habits}>
         {habits.map((habit, index) => (
           <div className={styles.habit} key={`habitssetting ${index}`}>
-            {habit.name} 
+            <div className="truncated">{habit.name}</div> 
             <div></div>
-            <div>{habit.type}</div>
+            <div className="truncated" style={{width: "100px"}}>{habit.type}</div>
             <HabitSettingsButton habit={habit} groupId={groupId}/>
             <div><DeleteHabitButton habitId={habit.id}/></div>
           </div>

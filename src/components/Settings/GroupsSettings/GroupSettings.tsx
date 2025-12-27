@@ -38,7 +38,7 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
         {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>
                 <div>
-                     {group.name} 
+                     <div className='truncated'>{group.name} </div>
                 </div>
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
                 <Button 

@@ -44,6 +44,14 @@ html, body, #__next {
   align-items: center;
 }
 
+// Ограничение текста в 1 строку
+.truncated {
+  width: 150px;           
+  white-space: nowrap;    
+  overflow: hidden;       
+  text-overflow: ellipsis; 
+}
+
 
 // стили для календаря выбора даты
 @import "react-day-picker/dist/style.css";

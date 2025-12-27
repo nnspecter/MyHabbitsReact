@@ -144,7 +144,7 @@ const CustomTable = () => {
                         
                       }}
                     >
-                      <div className='smallFont2'>{group.name}</div>
+                      <div className='smallFont2 truncated' style={{width: "150px"}}>{group.name}</div>
                     </TableCell>
                     <TableCell colSpan={dates.length} sx={{ backgroundColor: '#f0f0f0' }} />
                   </TableRow>

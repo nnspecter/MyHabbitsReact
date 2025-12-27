@@ -6,6 +6,7 @@ import { LoginData, RegistrationData, startLogin, startRegistration } from "../.
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import Link from "next/link";
+import { MountAnimation } from "../../animations/MountAnimation";
 
 
 
@@ -81,48 +82,50 @@ const AuthentificationForm = () => {
     } 
 
   return (
-    <div className={styles.form}>
-      <form onSubmit ={e => {
-        e.preventDefault();
-        handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim(), e.target['repeat-password-input'].value.trim());
-      }}>
-        <div className={styles.formPanel}>
-          <div className={styles.name}>Регистрация</div>
-          <div className={styles.formLabels}>
-            <CssTextField 
-              label="Логин или номер телефона" 
-              placeholder="Введите логин" 
-              id="login-input"
-              type="text"
-               
-            />
-            <CssTextField 
-              label="Пароль" 
-              placeholder="Введите пароль" 
-              id="password-input" 
-              type="password"
-              
-            />
-            <CssTextField 
-              label="Повторите пароль" 
-              placeholder="Введите пароль снова" 
-              id="repeat-password-input" 
-              type="password"
-              
-            />
-            {RegMutation.isError && <div className={styles.errorText}>Ошибка сервера</div>}
-            {repeatPasswordError && <div className={styles.errorText}>Пароли не совпадают</div>}
-          </div>
-          <div className={styles.formButton}>
-            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
-            <div className={styles.lowerText}>
-              Есть аккаунт? 
-              <Link href="/login">Войти</Link>
-            </div>
-          </div>
+    <MountAnimation key={"registration"}> 
+        <div className={styles.form}>
+            <form onSubmit ={e => {
+                e.preventDefault();
+                handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim(), e.target['repeat-password-input'].value.trim());
+            }}>
+                <div className={styles.formPanel}>
+                    <div className={styles.name}>Регистрация</div>
+                    <div className={styles.formLabels}>
+                        <CssTextField 
+                        label="Логин или номер телефона" 
+                        placeholder="Введите логин" 
+                        id="login-input"
+                        type="text"
+                        
+                        />
+                        <CssTextField 
+                        label="Пароль" 
+                        placeholder="Введите пароль" 
+                        id="password-input" 
+                        type="password"
+                        
+                        />
+                        <CssTextField 
+                        label="Повторите пароль" 
+                        placeholder="Введите пароль снова" 
+                        id="repeat-password-input" 
+                        type="password"
+                        
+                        />
+                        {RegMutation.isError && <div className={styles.errorText}>Ошибка сервера</div>}
+                        {repeatPasswordError && <div className={styles.errorText}>Пароли не совпадают</div>}
+                    </div>
+                        <div className={styles.formButton}>
+                            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
+                            <div className={styles.lowerText}>
+                            Есть аккаунт? 
+                            <Link href="/login">Войти</Link>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
+    </MountAnimation>
   )
 }
 

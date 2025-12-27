@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { LoginData, startLogin } from "../../api/api";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
+import { MountAnimation } from "../../animations/MountAnimation";
 
 
 
@@ -73,40 +74,43 @@ const AuthentificationForm = () => {
     } 
 
   return (
-    <div className={styles.form}>
-      <form onSubmit ={e => {
-        e.preventDefault();
-        handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim());
-      }}>
-        <div className={styles.formPanel}>
-          <div className={styles.name}>Вход</div>
-          <div className={styles.formLabels}>
-            <CssTextField 
-              label="Логин или номер телефона" 
-              placeholder="Введите логин" 
-              id="login-input"
-              type="text"
-               
-            />
-            <CssTextField 
-              label="Пароль" 
-              placeholder="Введите пароль" 
-              id="password-input" 
-              type="password"
+    <MountAnimation key={"login"}>
+      <div className={styles.form}>
+        <form onSubmit ={e => {
+          e.preventDefault();
+          handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim());
+        }}>
+          <div className={styles.formPanel}>
+            <div className={styles.name}>Вход</div>
+            <div className={styles.formLabels}>
+              <CssTextField 
+                label="Логин или номер телефона" 
+                placeholder="Введите логин" 
+                id="login-input"
+                type="text"
+                
+              />
+              <CssTextField 
+                label="Пароль" 
+                placeholder="Введите пароль" 
+                id="password-input" 
+                type="password"
+                
+              />
+              {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
+            </div>
+            <div className={styles.formButton}>
+              <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
+              <div className={styles.lowerText}>
+                Нет аккаунта? 
+                <Link href="/registration">Зарегистрироваться</Link>
+              </div>
               
-            />
-            {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
+            </div>
           </div>
-          <div className={styles.formButton}>
-            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
-            <div className={styles.lowerText}>Нет аккаунта? 
-              <Link href="/registration">Зарегистрироваться</Link></div>
-            
-          </div>
-        </div>
-
-      </form>
-    </div>
+        </form>
+      </div>
+    </MountAnimation>
   )
 }
 
