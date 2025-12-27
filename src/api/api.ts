@@ -9,6 +9,10 @@ export interface LoginData {
 export interface LoginResponse {
     token: string;
 }
+export interface RegistrationData{
+    name: string;
+    password: string;
+}
 //--------------------------------
 
 
@@ -136,10 +140,15 @@ export interface NewRecord{
 //Регистрация------------------------------------------------------------------------------------------
 
 
-//Функция регистрации пользователя
+//Функция логина пользователя
 export const startLogin = async (data: LoginData) => {
     const res =  await axiosApi.post('/login', qs.stringify(data),
     {headers: {"Content-Type": "application/x-www-form-urlencoded"}})
+    return res.data
+}
+//Функция регистрации пользователя
+export const startRegistration = async (data: RegistrationData) => {
+    const res =  await axiosApi.post('/api/users/add', data)
     return res.data
 }
 

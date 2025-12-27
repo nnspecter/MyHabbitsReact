@@ -2,8 +2,10 @@
 import styles from "./StyledLoginForm.module.scss"
 import { Button, styled, TextField } from '@mui/material'
 import { useRouter } from 'next/navigation';
-import { LoginData, startLogin } from "../../api/api";
+import { LoginData, RegistrationData, startLogin, startRegistration } from "../../api/api";
 import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import Link from "next/link";
 
 
 
@@ -50,10 +52,11 @@ const AuthentificationForm = () => {
   });
 
   const router = useRouter();
-  const LoginMutation = useMutation({
-    mutationFn: (data: LoginData) => startLogin(data),  
+  const [repeatPasswordError, setRepeatPasswordError] = useState(false);
+  const RegMutation = useMutation({
+    mutationFn: (data: RegistrationData) => startRegistration(data),  
     onSuccess: () => {
-        router.push("/table");
+        router.push("/login");
     },
     onError: (error) => {
         console.error(error);
@@ -61,24 +64,30 @@ const AuthentificationForm = () => {
 });
 
 
-    const handleSubmit = async (username, password) => {
+    const handleSubmit = async (username, password, repeatPassword) => {
 
         if (!username || !password) {
             return;
         }
-
+        if(password !== repeatPassword){
+            setRepeatPasswordError(true);
+            return;
+        }
+        setRepeatPasswordError(false);
+        
         console.log({username: username, password: password})
-        await LoginMutation.mutate({ username, password });
+        await RegMutation.mutate({ name: username, password });
+
     } 
 
   return (
     <div className={styles.form}>
       <form onSubmit ={e => {
         e.preventDefault();
-        handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim());
+        handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim(), e.target['repeat-password-input'].value.trim());
       }}>
         <div className={styles.formPanel}>
-          <div className={styles.name}>Вход</div>
+          <div className={styles.name}>Регистрация</div>
           <div className={styles.formLabels}>
             <CssTextField 
               label="Логин или номер телефона" 
@@ -94,15 +103,24 @@ const AuthentificationForm = () => {
               type="password"
               
             />
-            {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
+            <CssTextField 
+              label="Повторите пароль" 
+              placeholder="Введите пароль снова" 
+              id="repeat-password-input" 
+              type="password"
+              
+            />
+            {RegMutation.isError && <div className={styles.errorText}>Ошибка сервера</div>}
+            {repeatPasswordError && <div className={styles.errorText}>Пароли не совпадают</div>}
           </div>
           <div className={styles.formButton}>
-            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
-            <div className={styles.lowerText}>Нет аккаунта? Зарегистрироваться</div>
-            
+            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
+            <div className={styles.lowerText}>
+              Есть аккаунт? 
+              <Link href="/login">Войти</Link>
+            </div>
           </div>
         </div>
-
       </form>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthentificationForm from '../../features/Login/StyledLoginform'
+import AuthentificationForm from '../../components/Login/StyledLoginform'
 
 const page = () => {
   return (
