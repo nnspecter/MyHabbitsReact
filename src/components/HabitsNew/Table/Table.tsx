@@ -86,7 +86,7 @@ const CustomTable = () => {
   if(!isPending && groups.length === 0){
     return(
       <div className="tableLoading">
-        Нет данных для отображения
+        Нет данных для отображения. Создайте группы в настройках
       </div>
     )
   }

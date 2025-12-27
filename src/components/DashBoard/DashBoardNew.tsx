@@ -47,7 +47,7 @@ const DashBoard = () => {
         <div className={styles.habitBody}>
           {isPending && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
           {!isPending && data?.data.groups.length === 0 && (
-            <div className="tableLoading">Нет данных для отображения</div>
+            <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
           )}
 
           {data?.data.groups.map((group, groupKey) => (

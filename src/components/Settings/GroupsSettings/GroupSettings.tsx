@@ -18,10 +18,23 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
     
   }, [selectedGroupId])
 
+  if(groups.length === 0){
+    return (
+      <div className={styles.GroupSettings}>
+        <div className={styles.emptyGroups}>
+          Группы отсутствуют
+          <NewGroupButton/>
+        </div>
+        
+
+      </div>
+    )
+  }
+
   return (
     <div className={styles.GroupSettings}>
       
-      
+        
         {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>
                 <div>
