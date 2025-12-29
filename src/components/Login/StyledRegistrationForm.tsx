@@ -118,7 +118,7 @@ const AuthentificationForm = () => {
                         <div className={styles.formButton}>
                             <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
                             <div className={styles.lowerText}>
-                            Есть аккаунт? 
+                            Есть аккаунт?  
                             <Link href="/login">Войти</Link>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ const HabbitsPreview = () => {
       <div className={styles.allHabbits}>
         <div className={styles.head}>
           <div className={styles.center}> 
-            <div className='medFont2'>Превью всех привычек</div>
+            <div className='medFont2'>Превью записей</div>
           </div>
           <div className={styles.right}>
             <TablePopOver/>

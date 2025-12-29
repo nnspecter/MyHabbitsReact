@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./CurrentGroupSettings.module.scss"
 import CurrentSettings from './CurrentSettings/CurrentSettings'
 import HabitsSettings from './HabitSettings/HabitsSettings'
@@ -12,11 +12,13 @@ const CurrentGroupSettings = () => {
   const {selectedGroupId, setSelectedGroupId} = useStore();
   const {data, isPending} = useAllGroups();
   const group = data?.data.find(el => el.id === selectedGroupId);
+  useEffect(()=>{
+    if (!group) {
+      setSelectedGroupId(null);
+      
+    };
+  }, [group])
   
-  if (!group) {
-    setSelectedGroupId(null);
-    return <div>Group not found</div>
-  };
   
   if(isPending) { 
       return(
@@ -26,20 +28,24 @@ const CurrentGroupSettings = () => {
   }
 
   return (
-    <div className={styles.GroupSettings}>
-      <div className={styles.row}>
-        <Button
-          onClick={() => setSelectedGroupId(null)}
-          variant="contained"
-          sx={{padding: 0, minWidth: "30px", color: "#D9D9D9", backgroundColor: "#454545",}}
-        ><ArrowBackIcon/>
-        </Button>
-        <div className="medFont2">Группа: {group.name}</div>
-      </div>
-      
-        <CurrentSettings group={group}/>    
-        <HabitsSettings habits={group.habits} groupId={group.id}/>
-    </div> 
+    <div>
+      { group ? <div className={styles.GroupSettings}>
+        <div className={styles.row}>
+          <Button
+            onClick={() => setSelectedGroupId(null)}
+            variant="contained"
+            sx={{padding: 0, minWidth: "30px", color: "#D9D9D9", backgroundColor: "#454545",}}
+          ><ArrowBackIcon/>
+          </Button>
+          <div className="medFont2">Группа: {group.name}</div>
+        </div>
+        
+          <CurrentSettings group={group}/>    
+          <HabitsSettings habits={group.habits} groupId={group.id}/>
+        </div>
+        :
+        <div className={styles.GroupSettings}> <div className="medFont1" style={{textAlign: "center"}}>Успешно удалено</div></div>}
+    </div>
   )
 }
 

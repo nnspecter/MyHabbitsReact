@@ -7,15 +7,15 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          Habits
+          Habits 
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li><Link href="/dashboard">Дэшборд</Link></li>
-            <li><Link href="/table">Таблица</Link></li>
+            <li><Link href="/dashboard">Записи</Link></li>
+            <li><Link href="/table">Превью</Link></li>
             <li><Link href="/settings">Настройки</Link></li>
-            <li><Link href="#contact">Сводка</Link></li>
-            <li><Link href="#contact">Профиль</Link></li>
+            
+            
           </ul>
         </nav>
       </div>

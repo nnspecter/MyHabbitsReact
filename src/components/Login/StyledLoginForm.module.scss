@@ -52,9 +52,14 @@
             flex-direction: column;
             gap: 15px;
             .lowerText{
+                justify-self: center;
                 color: #454545;
                 font-size: 12pt;
                 text-align: center;
+                
+                a{
+                    color: #363636;
+                }
             }
         }
         
