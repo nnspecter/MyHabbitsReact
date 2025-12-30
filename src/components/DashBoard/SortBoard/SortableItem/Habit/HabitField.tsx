@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Habit, Record } from '../../../api/api'
+import { useEffect, useState } from 'react'
 import styles from "./HabitField.module.scss"
-import { Checkbox, Input } from '@mui/material';
-import { useStore } from '../../../ZustandStore/store';
 import dayjs from 'dayjs';
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { useNewRecord } from '../../../api/mutations';
 import TextField from './Fields/TextField';
 import NumberField from './Fields/NumberField';
 import GeneralCheckBox from './Fields/GeneralCheckBox';
 import TimeFields from './Fields/TimeFields';
+import { Habit } from '../../../../../api/api';
+import { useStore } from '../../../../../ZustandStore/store';
 dayjs.extend(customParseFormat);
 
 interface HaitFieldProps{

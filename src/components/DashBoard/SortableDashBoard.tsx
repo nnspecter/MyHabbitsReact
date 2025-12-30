@@ -1,18 +1,18 @@
 import { Accordion, AccordionDetails, AccordionSummary, CircularProgress } from "@mui/material"
-import NewRecordButton from "../../features/DashBoardButtons/RecordButton"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import styles from "./DashBoardNew.module.scss"
+import styles from "./DashBoard.module.scss"
 import { PopOver } from "./DatePicker/PopOver";
 import { useStore } from "../../ZustandStore/store";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import HabitField from "./Habit/HabitField";
-import { use, useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDashboardHabbit } from "../../api/queries";
 import { MountAnimation } from "../../animations/MountAnimation";
+
+import { SortBoard } from "./SortBoard/SortBoard";
 dayjs.extend(customParseFormat);
 
-const DashBoard = () => {
+const SortableDashBoard = () => {
   const {selectedDate} = useStore();
   const date = dayjs(selectedDate).format("DD.MM.YYYY");
   
@@ -29,6 +29,7 @@ const DashBoard = () => {
     const today = dayjs(new Date()).format("DD.MM.YYYY");
     
     if(date === today) return true;
+    
     else return false;
   }
 
@@ -53,7 +54,7 @@ const DashBoard = () => {
             )}
 
             {data?.data.groups.map((group, groupKey) => (
-                <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff"}} defaultExpanded>
+                <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff", position: "relative"}} defaultExpanded>
                   <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                     <div className="medFont1">{group.name}</div>
                   </AccordionSummary>
@@ -65,11 +66,7 @@ const DashBoard = () => {
                         </div>
                       </div>
                     }
-                    {group.habits.map((habit, habitKey)=> (
-                      <AccordionDetails key={`dashboardHabitAccordionKey-${habitKey}`}>
-                          <HabitField habit={habit}/>
-                      </AccordionDetails>
-                    ))}
+                    <SortBoard groupId={group.id} habits={group.habits}/>
                   </div>
                 </Accordion>
               
@@ -82,4 +79,4 @@ const DashBoard = () => {
   )
 }
 
-export default DashBoard
+export default SortableDashBoard

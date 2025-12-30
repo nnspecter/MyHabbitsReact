@@ -1,14 +1,14 @@
 import { Input } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { useNewRecord } from '../../../../api/mutations';
+import { useNewRecord } from '../../../../../../api/mutations';
 
 interface record {
   habitId: number;
   date: string;
-  value: number | null;
+  value: string | null;
 }
 //только мутирует
-const NumberField = ({record}: {record: record}) => {
+const TextField = ({record}: {record: record}) => {
 
     const newRecordMutation = useNewRecord();
     const[newRecord, setNewRecord] = useState({
@@ -18,8 +18,8 @@ const NumberField = ({record}: {record: record}) => {
     });
 
     useEffect(() => {
-          setNewRecord(record);
-        }, [record]);
+      setNewRecord(record);
+    }, [record]);
 
     const handleAccept = () => {
         console.log("Accepted value:", newRecord);
@@ -31,14 +31,13 @@ const NumberField = ({record}: {record: record}) => {
 
   return (
     <Input
-        type='number'
         placeholder="Значение"
         fullWidth
         value={newRecord.value ?? ""}
-        onChange={(e) => setNewRecord({...newRecord, value: Number(e.target.value)})}
+        onChange={(e) => setNewRecord({...newRecord, value: e.target.value})}
         onBlur={() => handleAccept()}
     />
   )
 }
 
-export default NumberField
+export default TextField

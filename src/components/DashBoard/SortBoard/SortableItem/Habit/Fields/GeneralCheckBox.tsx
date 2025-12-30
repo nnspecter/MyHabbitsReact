@@ -1,6 +1,7 @@
 import { Checkbox, Input } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { useNewRecord } from '../../../../api/mutations';
+import { useNewRecord } from '../../../../../../api/mutations';
+
 
 interface record {
   habitId: number;
