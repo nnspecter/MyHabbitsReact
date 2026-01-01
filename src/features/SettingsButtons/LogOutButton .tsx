@@ -1,17 +1,29 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
-import { useDeleteGroup } from '../../api/mutations';
+import { useDeleteHabit } from '../../api/mutations';
+import { useMutation } from '@tanstack/react-query';
 
-const DeleteButton = ({groupId}) => {
+import { LogOut } from '../../api/api';
+import { useRouter } from 'next/navigation';
+
+const LogOutButton = () => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const router = useRouter();
 
-    const deleteMutation = useDeleteGroup();
+    const logOutMutation = useMutation({
+    mutationFn: () => LogOut(),  
+    onSuccess: () => {
+        router.push("/login");
+    },
+    onError: (error) => {
+        console.error(error);
+    }
+    });
       
-    const handleDelete = (id: number) => {
-        deleteMutation.mutate(id);
-        console.log("Delete group", id);  
+    const handleLogOut = () => {
+        logOutMutation.mutate();  
       }
 
     const handleClickOpen = () => {
@@ -25,14 +37,15 @@ const DeleteButton = ({groupId}) => {
   return (
     <React.Fragment>
         <Button 
-          variant="contained"
+          variant="text"
           onClick={handleClickOpen}
-          sx={{background: "#AA3333"}}
-          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
-          >
-          <div className='smallFont1' style={{color: "#ffff"}}>Удалить</div>
+          sx={{color: "#AA3333", textTransform: 'none'}}
+          style={{ fontSize: "12pt", fontWeight: "700", borderRadius: "10px"}}
+        >
+          <div className='smallFont2' style={{color: "#AA3333"}}>
+            Выйти
+          </div>
         </Button>
-
       <Dialog
         open={open}
         onClose={handleClose}
@@ -47,19 +60,19 @@ const DeleteButton = ({groupId}) => {
         }}
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Удалить группу?"}
+          {"Выйти из аккаунта?"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Если вы удалите группу, то все привычки из этой группы также будут удалены. Вы уверены, что хотите удалить эту группу?
+            Вы уверены, что хотите выйти из учетной записи?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
-          <Button onClick={() => { handleClose(); handleDelete(groupId);}} sx={{color: "#AA3333"}} autoFocus>
-            Удалить
+          <Button onClick={() => { handleClose(); handleLogOut();}} autoFocus sx={{color: "#AA3333"}}>
+            Выйти
           </Button>
         </DialogActions>
       </Dialog>
@@ -67,4 +80,4 @@ const DeleteButton = ({groupId}) => {
   )
 }
 
-export default DeleteButton
+export default LogOutButton

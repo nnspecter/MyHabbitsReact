@@ -58,7 +58,7 @@ const GroupSetiingsButton = ({group}) => {
           sx={{background: "#454545"}}
           style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
         >
-          Редактировать
+          <div className='smallFont1' style={{color: "#ffff"}}>Редактировать</div>
         </Button>
 
       <Dialog

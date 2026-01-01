@@ -12,14 +12,15 @@ const HiddenCheckbox = ({id, hidden}) => {
         console.log(id)
     }
   return (
-    <div>
-       Скрыть 
+    <div style={{display: "flex", alignItems: "center"}}>
+       <div className='smallFont1'>Скрыть</div> 
        <Checkbox 
         onChange={(e)=>handleChange(e)}
         checked={hidden}
         sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
-      >
-      </Checkbox>
+
+      />
+      
     </div>
   )
 }

@@ -6,7 +6,6 @@ import Header from '../../components/Header/Header'
 
 const page = () => {
   
-  const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
 
   return ( 
     <div>

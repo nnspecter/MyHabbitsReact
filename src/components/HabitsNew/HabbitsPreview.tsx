@@ -7,24 +7,24 @@ import { TablePopOver } from "./DatePicker/TablePopOver";
 import { dateFormatter } from "../..//features/DateFormatters/DateFormatter";
 import dayjs from "dayjs";
 import { MountAnimation } from "../../animations/MountAnimation";
+import { todayDate } from "../../features/TodayDate/TodayDate";
 const HabbitsPreview = () => {
   const {selectedTableDate} = useStore();
-  const todayDate = (date) => {
-      const today = dayjs(new Date()).format("DD.MM.YYYY");
-      
-      if(date === today) return true;
-      else return false;
-    }
+  const date = dayjs(selectedTableDate).format("DD.MM.YYYY")
   return (
     <MountAnimation>
-      <div className={styles.allHabbits}>
+      <div className='container'>
         <div className={styles.head}>
           <div className={styles.center}> 
             <div className='medFont2'>Превью записей</div>
           </div>
           <div className={styles.right}>
-            <TablePopOver/>
-            {dayjs(selectedTableDate).format("DD.MM.YYYY")} {todayDate(dayjs(selectedTableDate).format("DD.MM.YYYY")) && <>{"(сегодня)"}</>}
+            <div className="date">
+              <TablePopOver/>
+              <div className="medFont0">
+                {date} {todayDate(date) && <>{"(сегодня)"}</>}
+              </div>
+            </div>
           </div>
         </div>
         <CustomTable/>

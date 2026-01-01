@@ -35,15 +35,20 @@ const SortableDashBoard = () => {
 
   return (
     <MountAnimation>
-      <div className={styles.dashBoard}>
+      <div className="container">
           <div className={styles.first}>
             <div className={styles.title}>
               <div className="medFont2">
                   Запись привычек
               </div>
             </div>
-            <div className={styles.date}>
-              <PopOver/>{date} {todayDate(date) && <>{"(сегодня)"}</>}
+            <div className="date">
+              
+                <PopOver/>
+                <div className="medFont0">
+                  {date} {todayDate(date) && <>{"(сегодня)"}</>}
+                </div>
+              
             </div>
           </div>
 

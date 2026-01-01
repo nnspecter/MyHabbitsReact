@@ -1,18 +1,5 @@
-.dashBoard{
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    width: 80%;
-    height: auto;
-    margin: 10%;
-    background-color: #D9D9D9;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
-    padding: 10px;
-    border-radius: 10px;
-    gap: 20px;
-    padding: 20px;
+
     .first{
-        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -51,7 +38,6 @@
         }
         
     }
-}
 
 .accordionData{
     display: flex;

@@ -62,7 +62,7 @@ const AuthentificationForm = () => {
     onError: (error) => {
         console.error(error);
     }
-});
+  });
 
 
     const handleSubmit = async (username, password, repeatPassword) => {

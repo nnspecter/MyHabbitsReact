@@ -152,6 +152,10 @@ export const startRegistration = async (data: RegistrationData) => {
     const res =  await axiosApi.post('/api/users/add', data)
     return res.data
 }
+export const LogOut = async () =>{
+    const res = await axiosApi.post("/logout");
+    return res.data 
+}
 
 
 //Привычки для таблицы--------------------------------------------------------------------------------

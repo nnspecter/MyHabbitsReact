@@ -1,7 +1,6 @@
 "use client"
 import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
-import { useStore } from '../../ZustandStore/store'
 import { CircularProgress } from '@mui/material'
 import Header from '../../components/Header/Header'
 
@@ -10,9 +9,7 @@ const page = () => {
   const {data: settingsConfigQuery, isPending: isPendingSettingsConfig} = useSettingsConfig();
   console.log(allGroupsQuery)
 
-  const {selectedGroupId} = useStore();
   const allGroups = allGroupsQuery?.data;
-  const group = allGroups?.find(el => el.id === selectedGroupId);
 
 
   return ( 

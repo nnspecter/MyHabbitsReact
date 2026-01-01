@@ -30,7 +30,7 @@ const DeleteHabitButton = ({habitId}: {habitId: number}) => {
           sx={{background: "#AA3333"}}
           style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
         >
-          Удалить
+          <div className='smallFont1' style={{color: "#ffff"}}>Удалить</div>
         </Button>
       <Dialog
         open={open}

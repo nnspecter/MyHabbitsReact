@@ -38,7 +38,7 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
         {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>
                 <div>
-                     <div className='truncated'>{group.name} </div>
+                     <div className='truncated smallFont2'>{group.name} </div>
                 </div>
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
                 <Button 
@@ -46,7 +46,9 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
                   onClick={() => setSelectedGroupId(group.id)} sx={{background: "#454545"}}
                   style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
                 >
-                  Настроить
+                 <div className='smallFont1' style={{color: "#ffff"}}> 
+                    Настроить
+                  </div>
                 </Button>
 
                 <DeleteButton groupId={group.id}/>

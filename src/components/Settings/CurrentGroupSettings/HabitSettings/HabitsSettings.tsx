@@ -11,7 +11,7 @@ const HabitsSettings = ({habits, groupId}) => {
           <div className={styles.habit} key={`habitssetting ${index}`}>
             <div className="truncated">{habit.name}</div> 
             <div></div>
-            <div className="truncated" style={{width: "100px"}}>{habit.type}</div>
+            <div className="setTruncated">{habit.type}</div>
             <HabitSettingsButton habit={habit} groupId={groupId}/>
             <div><DeleteHabitButton habitId={habit.id}/></div>
           </div>

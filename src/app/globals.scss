@@ -6,7 +6,53 @@ html, body, #__next {
   width: 100%;
   background-color: #ACACAC;
 }
+:root{
+  --padding: 20px;
+  --containersMargin: 10%;
+  --gap: 20px;
+  --background: #D9D9D9;
+  --textColor: #454545;
+  --sFontSize: 12pt;
+  --mFontSize: 20pt;
+  --itemsGap: 20px;
+  --truncatedWidth: 150px
 
+
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: 80%;
+  margin: var(--containersMargin);
+  height: auto;
+  background-color: #D9D9D9;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  gap: var(--gap);
+  padding: var(--padding);
+}
+
+// Ограничение текста в 1 строку
+.truncated, .setTruncated {
+  width: var(--truncatedWidth);           
+  white-space: nowrap;    
+  overflow: hidden;       
+  text-overflow: ellipsis; 
+}
+.setTruncated{
+  width: calc(var(--truncatedWidth)*0.75);
+}
+
+.date{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: #454545;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: calc(var(--mFontSize) - 6pt);
+}
 
 .tableLoading{
   display: flex;
@@ -15,25 +61,31 @@ html, body, #__next {
 }
 
 .medFont2{
-  color: #454545;
-  font-size: 20pt;
+  color: var(--textColor);
+  font-size: var(--mFontSize);
   font-weight: bold;
 }
 
 .medFont1{
-  color: #454545;
-  font-size: 16pt;
+  color: var(--textColor);
+  font-size: calc(var(--mFontSize) * 0.80 );
+  font-weight: 700;
+}
+
+.medFont0{
+  color: var(--textColor);
+  font-size: calc(var(--mFontSize) * 0.80);
   font-weight: 700;
 }
 
 .smallFont2{
-  color: #454545;
-  font-size: 12pt;
+  color: var(--textColor);
+  font-size: var(--sFontSize);
   font-weight: 600;
 }
 .smallFont1{
-  color: #454545;
-  font-size: 11pt;
+  color: var(--textColor);
+  font-size: calc(var(--sFontSize) * 0.90);
   font-weight: 500;
 }
 
@@ -44,13 +96,6 @@ html, body, #__next {
   align-items: center;
 }
 
-// Ограничение текста в 1 строку
-.truncated {
-  width: 150px;           
-  white-space: nowrap;    
-  overflow: hidden;       
-  text-overflow: ellipsis; 
-}
 
 
 // стили для календаря выбора даты
@@ -73,3 +118,60 @@ html, body, #__next {
 
     --rdp-outline: 2px solid rgba(69, 69, 69, 0.4);
   }
+
+  //Медиа запросы 
+  @media (max-width: 1000px) {
+    :root{
+      --containersMargin: 13%;
+      --mFontSize: 17pt;
+      --sFontSize: 11pt;
+
+    }
+  }
+
+  @media (max-width: 800px) {
+    :root{
+      --containersMargin: 15%;
+      --mFontSize: 15pt;
+      --sFontSize: 11pt;
+      
+    }
+  }
+  @media (max-width: 710px) {
+    :root{
+      --containersMargin: 17%;
+      --mFontSize: 14pt;
+      --sFontSize: 10pt;
+      --truncatedWidth: 100px;
+      .date{
+        flex-direction: column-reverse;
+      }
+    }
+  }
+  @media (max-width: 610px) {
+    :root{
+      --containersMargin: 18%;
+      --mFontSize: 12pt;
+      --sFontSize: 10pt;
+      
+    }
+  }
+  @media (max-width: 550px) {
+    :root{
+      --containersMargin: 18%;
+      --mFontSize: 11pt;
+      --sFontSize: 9pt;
+      
+    }
+  }
+
+  @media (max-width: 550px) {
+    :root{
+      --containersMargin: 18%;
+      --mFontSize: 11pt;
+      --sFontSize: 9pt;
+      
+    }
+  }
+
+

@@ -1,19 +1,19 @@
 .GroupSettings{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--itemsGap);
     margin-top: 20px;
     .emptyGroups{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: var(--itemsGap);
     }
     .group{
         display:flex;
         align-items: center;
-        gap: 20px;
+        gap: var(--itemsGap);
         
     }
 }

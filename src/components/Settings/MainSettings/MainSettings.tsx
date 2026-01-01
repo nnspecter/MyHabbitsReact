@@ -10,8 +10,7 @@ const MainSettings = ({settings}) => {
   }
 
   return (
-    <div className={styles.mainSettings}>
-         <div className={styles.HiddenCheckbox}>
+         <div>
             Показывать скрытыe
             <Checkbox
               onChange={(e) => handleShowHidden(e)}
@@ -19,7 +18,6 @@ const MainSettings = ({settings}) => {
               sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
               />
           </div>
-    </div>
   )
 }
 

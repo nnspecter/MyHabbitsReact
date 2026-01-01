@@ -69,7 +69,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
           sx={{background: "#454545"}}
           style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
         >
-          Настроить
+          <div className='smallFont1' style={{color: "#ffff"}}>Настроить</div>
         </Button>
       <Dialog
         open={open}
