@@ -1,18 +1,18 @@
-
-    .first{
+    .head{
         display: flex;
-        justify-content: center;
+        flex-direction: var(--dateDirection);
+        justify-content: var(--dateJustify);
         align-items: center;
         position: relative;
-        .title{
-            position: absolute;
+        .center{
+            position: var(--dateCenterPosition);
             left: 50%;
-            transform: translateX(-50%);
+            transform: var(--dateCenterTransform);
         }
-        .date{
+        .right{
             display: flex;
             align-items: center;
-            margin-left: auto;
+            margin-left: var(--dateMarginLeft);
             color: #454545;
             text-decoration: none;
             font-weight: 700;

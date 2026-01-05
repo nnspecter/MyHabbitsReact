@@ -36,19 +36,20 @@ const SortableDashBoard = () => {
   return (
     <MountAnimation>
       <div className="container">
-          <div className={styles.first}>
-            <div className={styles.title}>
+          <div className={styles.head}>
+            <div className={styles.center}>
               <div className="medFont2">
                   Запись привычек
               </div>
             </div>
-            <div className="date">
-              
-                <PopOver/>
-                <div className="medFont0">
-                  {date} {todayDate(date) && <>{"(сегодня)"}</>}
-                </div>
-              
+            <div className={styles.right}>
+              <div className="date">
+                
+                  <PopOver/>
+                  <div className="medFont0">
+                    {date} {todayDate(date) && <>{"(сегодня)"}</>}
+                  </div>
+              </div> 
             </div>
           </div>
 

@@ -7,6 +7,7 @@ html, body, #__next {
   background-color: #ACACAC;
 }
 :root{
+  //общие 
   --padding: 20px;
   --containersMargin: 10%;
   --gap: 20px;
@@ -15,9 +16,22 @@ html, body, #__next {
   --sFontSize: 12pt;
   --mFontSize: 20pt;
   --itemsGap: 20px;
-  --truncatedWidth: 150px
-
-
+  --truncatedWidth: 150px;
+  //хедер - завершено
+  --headerWidth: 90%;
+  --headerGap: 2rem;
+  --headerLogoSize: var(--mFontSize);
+  --headerCenter: space-between;
+  //дата 
+  --dateDirection: row;
+  --dateJustify: space-between;
+  --dateCenterPosition: absolute;
+  --dateCenterTransform: translateX(-50%);
+  --dateMarginLeft: auto;
+  //таблица - завершено
+  --tablHWidth: var(--truncatedWidth);
+  --tableDWidth: 150px;
+  
 }
 .container{
   display: flex;
@@ -33,16 +47,23 @@ html, body, #__next {
   padding: var(--padding);
 }
 
-// Ограничение текста в 1 строку
-.truncated, .setTruncated {
-  width: var(--truncatedWidth);           
-  white-space: nowrap;    
+// Ограничение текста 
+.truncated, .setTruncated, .wrapTruncated {
+  width: var(--truncatedWidth);              
   overflow: hidden;       
   text-overflow: ellipsis; 
 }
+.truncated{
+  white-space: nowrap; 
+}
 .setTruncated{
   width: calc(var(--truncatedWidth)*0.75);
+  white-space: nowrap; 
 }
+.wrapTruncated{
+  white-space: wrap;    
+}
+//------------------------
 
 .date{
   display: flex;
@@ -80,7 +101,12 @@ html, body, #__next {
 
 .smallFont2{
   color: var(--textColor);
-  font-size: var(--sFontSize);
+  font-size: var(--sFontSize );
+  font-weight: 600;
+}
+.smallFont1Table{
+  color: var(--textColor);
+  font-size: calc(var(--sFontSize) * 0.90);
   font-weight: 600;
 }
 .smallFont1{
@@ -134,6 +160,8 @@ html, body, #__next {
       --containersMargin: 15%;
       --mFontSize: 15pt;
       --sFontSize: 11pt;
+      --truncatedWidth: 110px;
+      
       
     }
   }
@@ -143,6 +171,7 @@ html, body, #__next {
       --mFontSize: 14pt;
       --sFontSize: 10pt;
       --truncatedWidth: 100px;
+      --headerWidth: 100%;
       .date{
         flex-direction: column-reverse;
       }
@@ -154,6 +183,8 @@ html, body, #__next {
       --mFontSize: 12pt;
       --sFontSize: 10pt;
       
+      --headerGap: 1rem;
+      --truncatedWidth: 90px;
     }
   }
   @media (max-width: 550px) {
@@ -161,17 +192,41 @@ html, body, #__next {
       --containersMargin: 18%;
       --mFontSize: 11pt;
       --sFontSize: 9pt;
+      --truncatedWidth: 80px;
+    }
+  }
+
+
+  @media (max-width: 480px) {
+    :root{
+      --containersMargin: 25%;
+      --mFontSize: 11pt;
+      --sFontSize: 9pt;
+      --truncatedWidth: 70px;
+      --headerGap: 1rem;
+      --headerLogoSize: 0px;
+      --headerCenter: center;
+      
+      --dateDirection: column;
+      --dateJustify: center;
+      --dateCenterPosition: static;
+      --dateCenterTransform: none;
+      --dateMarginLeft: 0px;
+
+    }
+  }
+
+  @media (max-width: 360px) {
+    :root{
+      --containersMargin: 28%;
+      --mFontSize: 11pt;
+      --sFontSize: 9pt;
+      --truncatedWidth: 70px;
       
     }
   }
 
-  @media (max-width: 550px) {
-    :root{
-      --containersMargin: 18%;
-      --mFontSize: 11pt;
-      --sFontSize: 9pt;
-      
-    }
-  }
+
+
 
 

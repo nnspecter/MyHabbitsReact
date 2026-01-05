@@ -98,14 +98,14 @@ const CustomTable = () => {
       ref={tableContainerRef}
       //onScroll={handlleScroll}
     >
-      <Table sx={{ minWidth: 650, tableLayout: 'fixed',}} size="small">
+      <Table sx={{  tableLayout: 'fixed',}} size="small">
         {/* Заголовок с датами */}
         <TableHead>
           <TableRow>
             <TableCell
               sx={{
                 position: 'sticky',
-                width: '150px',
+                width: 'var(--tablHWidth)',
                 left: 0,
                 backgroundColor: 'white',
                 zIndex: 2,
@@ -114,7 +114,7 @@ const CustomTable = () => {
             </TableCell>
             {dates.map((date, dataKey) => (
               <TableCell
-                sx={{ width: '90px', textAlign: 'center', backgroundColor: 'white' }}
+                sx={{ width: 'var(--tablHWidth)', textAlign: 'center', backgroundColor: 'white' }}
                 key={`dataKey-${dataKey}`}
               >
                 <div className='smallFont2' style={{ color: isSelected(date) ? '#39b354ff' : '#454545' }}>{dayjs(date).format("DD.MM.YYYY")}</div>
@@ -144,7 +144,7 @@ const CustomTable = () => {
                         
                       }}
                     >
-                      <div className='smallFont2 truncated' style={{width: "150px"}}>{group.name}</div>
+                      <div className='smallFont1Table truncated' style={{width: "var(--tablHWidth)"}}>{group.name}</div>
                     </TableCell>
                     <TableCell colSpan={dates.length} sx={{ backgroundColor: '#f0f0f0' }} />
                   </TableRow>
@@ -164,15 +164,22 @@ const CustomTable = () => {
                   {habit.records.map((record, cellKey) => (
                     <TableCell
                       key={`dataCell-${gKey}-${hKey}-${cellKey}`}
-                      sx={{ width: '75px', textAlign: 'center', whiteSpace: 'normal', wordBreak: 'break-word' }}
+                      sx={{ textAlign: 'center', whiteSpace: 'normal', wordBreak: 'break-word' }}
+                      style={{width: "var(--tablHWidth)"}}
                     >
-                      {record?.value === null || record?.value === undefined
-                        ? ''
-                        : typeof record?.value === 'boolean'
-                        ? record.value
-                          ? '✔️'
-                          : ''
-                        : habit.type === 'TIME' ? formatTimeShort(record.value):  record.value}
+                      <div 
+                      className='wrapTruncated smallFont1 tableContent'
+                      >
+                        {
+                          record?.value === null || record?.value === undefined
+                          ? ''
+                          : typeof record?.value === 'boolean'
+                          ? record.value
+                            ? '✔️'
+                            : ''
+                          : habit.type === 'TIME' ? formatTimeShort(record.value):  record.value
+                        }
+                      </div>
                     </TableCell>
                   ))}
                 </TableRow>

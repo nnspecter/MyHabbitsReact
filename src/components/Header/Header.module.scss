@@ -9,30 +9,32 @@
   position: fixed;
   top: 0;
   border-radius: 0 0 10 10px;
-  width: 80%;
+  width: var(--headerWidth);
   z-index: 1000; 
   user-select: none;
 
   .container {
-    width: 90%;
+    width: calc( var(--headerWidth) - 20%);
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: var(--headerCenter);
     align-items: center;
+    
   }
 
   .logo {
     color: #454545;
-    font-size: 20pt;
+    font-size: var(--headerLogoSize);
     font-weight: bold;
   }
 
   .nav {
+    
     ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: var(--headerGap);
       margin: 0;
       padding: 0;
       align-items: center;
