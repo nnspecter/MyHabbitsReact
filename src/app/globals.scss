@@ -31,6 +31,9 @@ html, body, #__next {
   //таблица - завершено
   --tablHWidth: var(--truncatedWidth);
   --tableDWidth: 150px;
+  //дашборд
+  --dashboardWidth: 70%;
+  --dashboardJustify: space-between; 
   
 }
 .container{
@@ -161,6 +164,7 @@ html, body, #__next {
       --mFontSize: 15pt;
       --sFontSize: 11pt;
       --truncatedWidth: 110px;
+      --dashboardWidth: 100%;
       
       
     }
@@ -172,6 +176,7 @@ html, body, #__next {
       --sFontSize: 10pt;
       --truncatedWidth: 100px;
       --headerWidth: 100%;
+      
       .date{
         flex-direction: column-reverse;
       }
@@ -191,7 +196,7 @@ html, body, #__next {
     :root{
       --containersMargin: 18%;
       --mFontSize: 11pt;
-      --sFontSize: 9pt;
+      --sFontSize: 10pt;
       --truncatedWidth: 80px;
     }
   }
@@ -201,8 +206,8 @@ html, body, #__next {
     :root{
       --containersMargin: 25%;
       --mFontSize: 11pt;
-      --sFontSize: 9pt;
-      --truncatedWidth: 70px;
+      --sFontSize: 10pt;
+      --truncatedWidth: 80px;
       --headerGap: 1rem;
       --headerLogoSize: 0px;
       --headerCenter: center;
@@ -220,8 +225,8 @@ html, body, #__next {
     :root{
       --containersMargin: 28%;
       --mFontSize: 11pt;
-      --sFontSize: 9pt;
-      --truncatedWidth: 70px;
+      --sFontSize: 10pt;
+      --truncatedWidth: 78px;
       
     }
   }

@@ -33,11 +33,15 @@ export const SortableItem = ({habit}) =>  {
             <IconButton
               {...attributes}
               {...listeners}
+              disableRipple
+              disableFocusRipple
               sx={{
                 cursor: "grab",
                 mr: 1,
                 "&:active": { cursor: "grabbing" },
+                touchAction: "none",
               }}
+              style={{touchAction: "none"}}
             >
               <DragIndicatorIcon />
             </IconButton>

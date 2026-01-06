@@ -1,5 +1,6 @@
 import  {useEffect, useState} from 'react';
 import { restrictToParentElement, restrictToVerticalAxis } from '@dnd-kit/modifiers';
+
 import {
   DndContext, 
   closestCenter,
@@ -7,6 +8,7 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
+  TouchSensor,
 } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -26,6 +28,19 @@ interface SortBoardProps {
     groupId: number;
 }
 export const SortBoard = ({ habits, groupId }: SortBoardProps) => {
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(TouchSensor, {
+            activationConstraint: {
+            delay: 150,
+            tolerance: 5,
+            },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    ) ;
+
     const { setNodeRef } = useSortable({
         id: groupId
     });
@@ -38,12 +53,6 @@ export const SortBoard = ({ habits, groupId }: SortBoardProps) => {
         configureMutation.mutate({groupId: groupId, orderedIds: orderedIds})
     },[items])
 
-    const sensors = useSensors(
-        useSensor(PointerSensor),
-        useSensor(KeyboardSensor, {
-            coordinateGetter: sortableKeyboardCoordinates,
-        })
-    );
 
     const handleDragEnd = (event) => {
         const { active, over } = event;

@@ -36,7 +36,7 @@ const HabitField = ({habit}: HaitFieldProps) => {
 
     return (
         <div className={styles.habit}>
-            <div className="smallFont2">
+            <div className="smallFont1">
                 {habit.name}:
             </div>
             <div className={styles.habitField}>

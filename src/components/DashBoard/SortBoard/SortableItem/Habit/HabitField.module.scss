@@ -1,11 +1,11 @@
 .habit{
     height: auto;
-    width: 80%;
+    width: var(--dashboardWidth);
     
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20;
+    
 
     .habitField{
         display: flex;
