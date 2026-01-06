@@ -3,10 +3,11 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useConfigureGroup } from '../../api/mutations';
 import { HexColorPicker } from 'react-colorful';
 import InputLenght from '../Input/InputLenght';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
 const GroupSetiingsButton = ({group}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const ConfigureMutation = useConfigureGroup();
 
   const [newSettings, setNewSettings] = useState(
@@ -52,14 +53,13 @@ const GroupSetiingsButton = ({group}) => {
 
   return (
     <React.Fragment>
-        <Button 
+        <SettingsStyledButton
           variant='contained'
           onClick={handleClickOpen}
           sx={{background: "#454545"}}
-          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
         >
-          <div className='smallFont1' style={{color: "#ffff"}}>Редактировать</div>
-        </Button>
+          <div className='smallFont1' style={{color: "#ffff", display: "flex"}}><SettingsIcon/></div>
+        </SettingsStyledButton>
 
       <Dialog
         open={open}

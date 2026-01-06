@@ -1,8 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
-import { useDeleteHabit } from '../../api/mutations';
 import { useMutation } from '@tanstack/react-query';
-
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { LogOut } from '../../api/api';
 import { useRouter } from 'next/navigation';
 
@@ -40,10 +39,10 @@ const LogOutButton = () => {
           variant="text"
           onClick={handleClickOpen}
           sx={{color: "#AA3333", textTransform: 'none'}}
-          style={{ fontSize: "12pt", fontWeight: "700", borderRadius: "10px"}}
+          style={{ fontSize: "12pt", fontWeight: "700", padding: "0", margin: "0", minWidth: 'auto',}}
         >
-          <div className='smallFont2' style={{color: "#AA3333"}}>
-            Выйти
+          <div className='smallFont2' style={{color: "#AA3333", display: "flex", justifyContent:"center"}}>
+            <ExitToAppIcon/>
           </div>
         </Button>
       <Dialog

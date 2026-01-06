@@ -1,7 +1,8 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
 import { useDeleteHabit } from '../../api/mutations';
-
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
 const DeleteHabitButton = ({habitId}: {habitId: number}) => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
@@ -24,14 +25,16 @@ const DeleteHabitButton = ({habitId}: {habitId: number}) => {
 
   return (
     <React.Fragment>
-        <Button 
+        <SettingsStyledButton
           variant="contained"
           onClick={handleClickOpen}
           sx={{background: "#AA3333"}}
-          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
+          
         >
-          <div className='smallFont1' style={{color: "#ffff"}}>Удалить</div>
-        </Button>
+          <div className='smallFont1' style={{color: "#ffff", display: "flex"}}>
+            <DeleteForeverIcon/>
+          </div>
+        </SettingsStyledButton>
       <Dialog
         open={open}
         onClose={handleClose}

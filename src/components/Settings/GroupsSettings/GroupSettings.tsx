@@ -6,6 +6,7 @@ import { useStore } from '../../../ZustandStore/store'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import NewGroupButton from '../../../features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'
+import { ToGroupSettingsButton } from '../../../features/SettingsButtons/ToGroupSettingsButton'
 
 interface GroupSettingsProps {
   groups: HabitsGroup[];
@@ -13,10 +14,7 @@ interface GroupSettingsProps {
 
 const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
   const [responsive, setResponsive] = React.useState(false);
-  const{selectedGroupId, setSelectedGroupId} = useStore();
-  useEffect(()=>{
-    
-  }, [selectedGroupId])
+  
 
   if(groups.length === 0){
     return (
@@ -38,18 +36,10 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
         {groups.map((group, index) => (
             <div key= {`gsettings ${index}`} className={styles.group}>
                 <div>
-                     <div className='truncated smallFont2'>{group.name} </div>
+                     <div className='settingsTruncated smallFont2'>{group.name} </div>
                 </div>
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
-                <Button 
-                  variant="contained"
-                  onClick={() => setSelectedGroupId(group.id)} sx={{background: "#454545"}}
-                  style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
-                >
-                 <div className='smallFont1' style={{color: "#ffff"}}> 
-                    Настроить
-                  </div>
-                </Button>
+                <ToGroupSettingsButton groupId={group.id} />
 
                 <DeleteButton groupId={group.id}/>
             </div>

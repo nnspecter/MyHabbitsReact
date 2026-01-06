@@ -4,6 +4,8 @@ import { useConfigureHabit } from '../../api/mutations';
 import { ConfigureHabbit, Habit} from '../../api/api';
 import { useAllGroups } from '../../api/queries';
 import InputLenght from '../Input/InputLenght';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
 
 interface HabitSettingsButtonProps {
   habit: Habit;
@@ -63,14 +65,16 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
 
   return (
     <React.Fragment>
-        <Button 
+        <SettingsStyledButton
           variant='contained'
           onClick={handleClickOpen}
           sx={{background: "#454545"}}
-          style={{ fontSize: "10pt", fontWeight: "bold", borderRadius: "10px"}}
+          
         >
-          <div className='smallFont1' style={{color: "#ffff"}}>Настроить</div>
-        </Button>
+          <div className='smallFont1' style={{color: "#ffff", display: "flex"}}>
+            <SettingsIcon/>
+          </div>
+        </SettingsStyledButton>
       <Dialog
         open={open}
         onClose={handleClose}

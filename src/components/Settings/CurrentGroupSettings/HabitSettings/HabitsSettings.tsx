@@ -5,13 +5,13 @@ import HabitSettingsButton from '../../../../features/SettingsButtons/HabitSetti
 const HabitsSettings = ({habits, groupId}) => {
   return (
     <div className={styles.habitsSettings}>
-      <div className="medFont1">Настройки привычек</div>
+      <div className="medFont2">Настройки привычек</div>
       <div className={styles.habits}>
         {habits.map((habit, index) => (
           <div className={styles.habit} key={`habitssetting ${index}`}>
-            <div className="truncated">{habit.name}</div> 
+            <div className="settingsTruncated smallFont2">{habit.name}</div> 
             <div></div>
-            <div className="setTruncated">{habit.type}</div>
+            <div className="settingsTruncated smallFont2">{habit.type}</div>
             <HabitSettingsButton habit={habit} groupId={groupId}/>
             <div><DeleteHabitButton habitId={habit.id}/></div>
           </div>

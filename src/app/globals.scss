@@ -8,6 +8,7 @@ html, body, #__next {
 }
 :root{
   //общие 
+  --containerWidth: 80%;
   --padding: 20px;
   --containersMargin: 10%;
   --gap: 20px;
@@ -16,32 +17,33 @@ html, body, #__next {
   --sFontSize: 12pt;
   --mFontSize: 20pt;
   --itemsGap: 20px;
-  --truncatedWidth: 150px;
-  //хедер - завершено
-  --headerWidth: 90%;
-  --headerGap: 2rem;
-  --headerLogoSize: var(--mFontSize);
-  --headerCenter: space-between;
   //дата 
   --dateDirection: row;
   --dateJustify: space-between;
   --dateCenterPosition: absolute;
   --dateCenterTransform: translateX(-50%);
   --dateMarginLeft: auto;
+  //хедер - завершено
+  --headerWidth: 90%;
+  --headerGap: 2rem;
+  --headerLogoSize: var(--mFontSize);
+  --headerCenter: space-between;
   //таблица - завершено
   --tablHWidth: var(--truncatedWidth);
   --tableDWidth: 150px;
-  //дашборд
+  --truncatedWidth: 150px;
+  //дашборд - завершено
   --dashboardWidth: 70%;
   --dashboardJustify: space-between; 
-  
+  //настройки
+
 }
 .container{
   display: flex;
   flex-direction: column;
   justify-self: center;
-  width: 80%;
-  margin: var(--containersMargin);
+  width: var(--containerWidth);
+  margin-top: var(--containersMargin);
   height: auto;
   background-color: #D9D9D9;
   box-shadow: 0 4px 4px rgba(0,0,0,0.1);
@@ -59,12 +61,16 @@ html, body, #__next {
 .truncated{
   white-space: nowrap; 
 }
-.setTruncated{
-  width: calc(var(--truncatedWidth)*0.75);
-  white-space: nowrap; 
-}
+
 .wrapTruncated{
   white-space: wrap;    
+}
+.settingsTruncated{
+  width: calc(var(--truncatedWidth) * 1.2);              
+  white-space: wrap; 
+  overflow: hidden;       
+  text-overflow: ellipsis; 
+
 }
 //------------------------
 
@@ -77,6 +83,16 @@ html, body, #__next {
   font-weight: 700;
   font-size: calc(var(--mFontSize) - 6pt);
 }
+//----------------------
+.setButton{
+  font-size: 10pt; 
+  font-weight: bold;
+  border-radius: 100px;
+  min-width: auto;
+  padding: 10px;
+}
+
+//----------------------
 
 .tableLoading{
   display: flex;
@@ -190,6 +206,7 @@ html, body, #__next {
       
       --headerGap: 1rem;
       --truncatedWidth: 90px;
+
     }
   }
   @media (max-width: 550px) {
@@ -204,7 +221,9 @@ html, body, #__next {
 
   @media (max-width: 480px) {
     :root{
+      --containerWidth: 95%;
       --containersMargin: 25%;
+      --padding: 5%;
       --mFontSize: 11pt;
       --sFontSize: 10pt;
       --truncatedWidth: 80px;
