@@ -13,7 +13,7 @@ const page = () => {
 
 
   return ( 
-    <div>
+    <div className='headerDirection'>
       <Header/>
       {(isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
       { (!isPendingAllGroups && !isPendingSettingsConfig) && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery?.data}/> }

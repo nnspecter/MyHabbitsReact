@@ -5,7 +5,7 @@ import SortableDashBoard from '../../components/DashBoard/SortableDashBoard'
 const page = () => {
   
   return ( 
-    <div>
+    <div className='headerDirection'>
       <Header/>
       <SortableDashBoard/>
     </div>

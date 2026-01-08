@@ -11,6 +11,7 @@ html, body, #__next {
   --containerWidth: 80%;
   --padding: 20px;
   --containersMargin: 10%;
+  --containersMarginBottom: 0%;
   --gap: 20px;
   --background: #D9D9D9;
   --textColor: #454545;
@@ -28,6 +29,8 @@ html, body, #__next {
   --headerGap: 2rem;
   --headerLogoSize: var(--mFontSize);
   --headerCenter: space-between;
+  --headerTop: 0;
+  --headerBottom: auto;
   //таблица - завершено
   --tablHWidth: var(--truncatedWidth);
   --tableDWidth: 150px;
@@ -38,12 +41,17 @@ html, body, #__next {
   //настройки
 
 }
+.headerDirection{
+  display: flex;
+  flex-direction: column;
+}
 .container{
   display: flex;
   flex-direction: column;
   justify-self: center;
   width: var(--containerWidth);
   margin-top: var(--containersMargin);
+  margin-bottom: var(--containersMarginBottom) ;
   height: auto;
   background-color: #D9D9D9;
   box-shadow: 0 4px 4px rgba(0,0,0,0.1);
@@ -222,7 +230,8 @@ html, body, #__next {
   @media (max-width: 480px) {
     :root{
       --containerWidth: 95%;
-      --containersMargin: 25%;
+      --containersMargin: 0%;
+      --containersMarginBottom: 25%;
       --padding: 5%;
       --mFontSize: 11pt;
       --sFontSize: 10pt;
@@ -236,8 +245,14 @@ html, body, #__next {
       --dateCenterPosition: static;
       --dateCenterTransform: none;
       --dateMarginLeft: 0px;
+      
+      --headerTop: auto;
+      --headerBottom: 0;
 
     }
+    .headerDirection{
+        flex-direction: column-reverse;
+      }
   }
 
   @media (max-width: 360px) {
