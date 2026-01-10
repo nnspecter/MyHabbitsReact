@@ -14,10 +14,10 @@ const Header = () => {
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li ><Link href="/dashboard" ><PlaylistAddCheckCircleIcon/></Link></li>
-            <li><Link href="/table"><TableRowsIcon/></Link></li>
-            <li><Link href="/settings"><SettingsIcon/></Link></li>
-            <LogOutButton/>
+            <li ><Link href="/dashboard" ><PlaylistAddCheckCircleIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
+            <li><Link href="/table"><TableRowsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
+            <li><Link href="/settings"><SettingsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
+            
             
           </ul>
         </nav>

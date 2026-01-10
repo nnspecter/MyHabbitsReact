@@ -25,12 +25,15 @@ html, body, #__next {
   --dateCenterTransform: translateX(-50%);
   --dateMarginLeft: auto;
   //хедер - завершено
+  --headerFontSize: var(--mFontSize);
   --headerWidth: 90%;
   --headerGap: 2rem;
   --headerLogoSize: var(--mFontSize);
   --headerCenter: space-between;
   --headerTop: 0;
   --headerBottom: auto;
+  --headerBorders: 0 0 10px 10px;
+  --headerShadow: 0 4px 4px rgba(0,0,0,0.1);
   //таблица - завершено
   --tablHWidth: var(--truncatedWidth);
   --tableDWidth: 150px;
@@ -178,6 +181,8 @@ html, body, #__next {
       --containersMargin: 13%;
       --mFontSize: 17pt;
       --sFontSize: 11pt;
+      --headerFontSize: 18pt;
+      --headerLogoSize: 18pt;
 
     }
   }
@@ -201,6 +206,7 @@ html, body, #__next {
       --truncatedWidth: 100px;
       --headerWidth: 100%;
       
+      
       .date{
         flex-direction: column-reverse;
       }
@@ -212,7 +218,7 @@ html, body, #__next {
       --mFontSize: 12pt;
       --sFontSize: 10pt;
       
-      --headerGap: 1rem;
+      --headerGap: 2rem;
       --truncatedWidth: 90px;
 
     }
@@ -229,26 +235,27 @@ html, body, #__next {
 
   @media (max-width: 480px) {
     :root{
-      --containerWidth: 95%;
+      --containerWidth: 90%;
       --containersMargin: 0%;
       --containersMarginBottom: 25%;
       --padding: 5%;
       --mFontSize: 11pt;
       --sFontSize: 10pt;
       --truncatedWidth: 80px;
-      --headerGap: 1rem;
-      --headerLogoSize: 0px;
-      --headerCenter: center;
-      
       --dateDirection: column;
       --dateJustify: center;
       --dateCenterPosition: static;
       --dateCenterTransform: none;
       --dateMarginLeft: 0px;
       
+      --headerFontSize: 20pt;
+      --headerGap: 2rem;
+      --headerLogoSize: 0px;
+      --headerCenter: center;
+      --headerBorders: 10px 10px 0 0px;
       --headerTop: auto;
       --headerBottom: 0;
-
+      --headerShadow: 0 -3px 4px rgba(0,0,0,0.1);
     }
     .headerDirection{
         flex-direction: column-reverse;
@@ -257,7 +264,7 @@ html, body, #__next {
 
   @media (max-width: 360px) {
     :root{
-      --containersMargin: 28%;
+      --containersMargin: 0%;
       --mFontSize: 11pt;
       --sFontSize: 10pt;
       --truncatedWidth: 78px;

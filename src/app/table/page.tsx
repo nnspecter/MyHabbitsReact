@@ -8,7 +8,7 @@ const page = () => {
   
 
   return ( 
-    <div>
+    <div className='headerDirection'>
       <Header/>
       <HabbitsPreview/>
     </div>

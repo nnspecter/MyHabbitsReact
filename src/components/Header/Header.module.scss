@@ -5,11 +5,11 @@
   background-color: #D9D9D9;
   color: #1f1f1f;
   padding: 1rem 0;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--headerShadow);
   position: fixed;
   top: var(--headerTop);
   bottom: var(--headerBottom);
-  border-radius: 0 0 10 10px;
+  border-radius:  var(--headerBorders);
   width: var(--headerWidth);
   z-index: 1000; 
   user-select: none;
@@ -47,7 +47,7 @@
           text-decoration: none;
           font-weight: 600;
           transition: color 0.3s;
-          font-size: var(--sFontSize);
+          font-size: var(--headerFontSize);
 
           &:hover {
             color: #272727;

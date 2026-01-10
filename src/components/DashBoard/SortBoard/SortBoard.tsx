@@ -1,4 +1,4 @@
-import  {useEffect, useState} from 'react';
+import  {useEffect, useRef, useState} from 'react';
 import { restrictToParentElement, restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
 import {
@@ -50,6 +50,9 @@ export const SortBoard = ({ habits, groupId }: SortBoardProps) => {
     
 
     useEffect(()=>{
+        if (items===habits){ 
+            return;
+        }
         configureMutation.mutate({groupId: groupId, orderedIds: orderedIds})
     },[items])
 
