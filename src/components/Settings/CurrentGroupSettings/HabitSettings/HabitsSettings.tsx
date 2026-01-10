@@ -1,3 +1,4 @@
+"use client"
 import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '../../../../features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '../../../../features/SettingsButtons/DeleteHabitButton'

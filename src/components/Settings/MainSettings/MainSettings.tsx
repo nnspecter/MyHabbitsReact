@@ -1,6 +1,5 @@
-import { Button, Checkbox } from '@mui/material'
-import React from 'react'
-import styles from  "./MainSettings.module.scss"
+"use client"
+import {  Checkbox } from '@mui/material'
 import { useConfigureSettings } from '../../../api/mutations'
 const MainSettings = ({settings}) => {
   const useConfigureSettingsMutation = useConfigureSettings();

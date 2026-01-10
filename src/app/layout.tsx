@@ -24,13 +24,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           if(pathname !== "/login") router.push("/login")
         })
   }, [])
+
+    const hideHeaderPaths = ["/login", "/register"];
+    const showHeader = !hideHeaderPaths.includes(pathname);
   return (
     <html lang="ru">
       <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           <body>
             <div className='headerDirection'>
-              <Header/>
+              {showHeader && <Header/>}
               {children}
             </div>
           </body>

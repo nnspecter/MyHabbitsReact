@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+"use client"
+import React from 'react'
 import styles from "./GroupSettings.module.scss"
-import { Button } from '@mui/material'
 import { HabitsGroup } from '../../../api/api'
-import { useStore } from '../../../ZustandStore/store'
 import DeleteButton from '../../../features/SettingsButtons/DeleteButton'
 import NewGroupButton from '../../../features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '../../../features/SettingsButtons/HiddenCheckbox'

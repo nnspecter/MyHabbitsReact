@@ -1,3 +1,4 @@
+"use client"
 import DeleteButton from '../../../../features/SettingsButtons/DeleteButton'
 import HiddenCheckbox from '../../../../features/SettingsButtons/HiddenCheckbox'
 import styles from "./CurrentSettings.module.scss"
