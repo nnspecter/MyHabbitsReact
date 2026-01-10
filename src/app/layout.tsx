@@ -9,6 +9,7 @@ import { axiosApi } from '../api/axiosApi';
 import { usePathname, useRouter } from 'next/navigation';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '../features/muiThemes/theme';
+import Header from '../components/Header/Header';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const router = useRouter()
@@ -28,7 +29,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           <body>
-                {children}
+            <div className='headerDirection'>
+              <Header/>
+              {children}
+            </div>
           </body>
         </QueryClientProvider>
       </ThemeProvider>

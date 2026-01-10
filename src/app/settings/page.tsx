@@ -1,7 +1,7 @@
 "use client"
 import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
 import SettingsPreview from '../../components/Settings/SettingsPreview'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, Skeleton } from '@mui/material'
 import Header from '../../components/Header/Header'
 
 const page = () => {
@@ -11,14 +11,11 @@ const page = () => {
 
   const allGroups = allGroupsQuery?.data;
 
-
+  
   return ( 
-    <div className='headerDirection'>
-      <Header/>
+    <div>
       {(isPendingAllGroups) && <div className="tableLoading"><CircularProgress/></div>}
       { (!isPendingAllGroups && !isPendingSettingsConfig) && <SettingsPreview currentGroups={allGroups}  settingsConfig={settingsConfigQuery?.data}/> }
-      
-      
     </div>
   )
 }

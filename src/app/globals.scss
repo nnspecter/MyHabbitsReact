@@ -48,7 +48,7 @@ html, body, #__next {
   display: flex;
   flex-direction: column;
 }
-.container{
+.container, .containerSkeleton {
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -61,6 +61,13 @@ html, body, #__next {
   border-radius: 10px;
   gap: var(--gap);
   padding: var(--padding);
+}
+.containerSkeleton{
+  
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+  align-self: center;
 }
 
 // Ограничение текста 

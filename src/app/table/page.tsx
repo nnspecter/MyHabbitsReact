@@ -1,4 +1,5 @@
 "use client"
+import { Skeleton } from '@mui/material'
 import { useAllGroups, useHabbits, useSettingsConfig } from '../../api/queries'
 import HabbitsPreview from '../../components/HabitsNew/HabbitsPreview'
 import Header from '../../components/Header/Header'
@@ -6,12 +7,9 @@ import Header from '../../components/Header/Header'
 
 const page = () => {
   
-
+  
   return ( 
-    <div className='headerDirection'>
-      <Header/>
       <HabbitsPreview/>
-    </div>
   )
 }
 
