@@ -1,6 +1,7 @@
-import { Input } from '@mui/material';
+import { Input, InputAdornment } from '@mui/material';
 import { useEffect, useState } from 'react'
 import { useNewRecord } from '../../../../../../api/mutations';
+import InputLenght from '../../../../../../features/Input/InputLenght';
 
 interface record {
   habitId: number;
@@ -9,7 +10,7 @@ interface record {
 }
 //только мутирует
 const TextField = ({record}: {record: record}) => {
-
+    
     const newRecordMutation = useNewRecord();
     const[newRecord, setNewRecord] = useState({
       habitId: record.habitId,
@@ -36,7 +37,12 @@ const TextField = ({record}: {record: record}) => {
         value={newRecord.value ?? ""}
         onChange={(e) => setNewRecord({...newRecord, value: e.target.value})}
         onBlur={() => handleAccept()}
-    />
+        inputProps={{ maxLength: 99 }}
+        endAdornment={
+          <InputAdornment position="end">
+            <InputLenght valueLenght={newRecord.value?.length || 0} maxLength={99}/>
+          </InputAdornment>
+         }/> 
   )
 }
 

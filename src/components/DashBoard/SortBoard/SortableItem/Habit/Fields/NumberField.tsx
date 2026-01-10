@@ -6,7 +6,7 @@ import { useNewRecord } from '../../../../../../api/mutations';
 interface record {
   habitId: number;
   date: string;
-  value: number | null;
+  value: number | null | string;
 }
 //только мутирует
 const NumberField = ({record}: {record: record}) => {
@@ -23,20 +23,35 @@ const NumberField = ({record}: {record: record}) => {
         }, [record]);
 
     const handleAccept = () => {
+        const finalValue = newRecord.value === "" ? null : Number(newRecord.value);
         console.log("Accepted value:", newRecord);
+        
         if (record.value !== newRecord.value) {
-            newRecordMutation.mutate(newRecord);
+            newRecordMutation.mutate({...newRecord, value: finalValue});
             console.log( "Новая запись создана");
         }
     };
-
+    const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        if (value==="") {
+          setNewRecord({...newRecord, value: ""});
+          return;
+        } 
+        const numberValue = Number(value);
+        if (!isNaN(numberValue) && numberValue < 999999999 && numberValue > -999999999) {
+          setNewRecord({...newRecord, value: value});
+        }
+        
+    }
+    
   return (
     <Input
         type='number'
-        placeholder="Значение"
+        placeholder="Число"
         fullWidth
-        value={newRecord.value ?? ""}
-        onChange={(e) => setNewRecord({...newRecord, value: Number(e.target.value)})}
+        inputProps={{ max: 999999999, min: -999999999, }}
+        value={newRecord.value || ""}
+        onChange={handleChange}
         onBlur={() => handleAccept()}
     />
   )
