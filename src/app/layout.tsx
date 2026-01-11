@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         })
   }, [])
 
-    const hideHeaderPaths = ["/login", "/register"];
-    const showHeader = !hideHeaderPaths.includes(pathname);
+    const hideHeaderPaths = ["/dashboard", "/settings", "/table"];
+    const showHeader = hideHeaderPaths.includes(pathname);
   return (
     <html lang="ru">
       <ThemeProvider theme={theme}>
