@@ -1,10 +1,9 @@
 import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper, Button, CircularProgress } from '@mui/material';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { formatTimeShort } from '../../../features/TimeFormatter/TimeFormatter';
-import { HabitsGroup } from '../../../api/api';
-import { useStore } from '../../../ZustandStore/store';
-import { useHabbits } from '../../../api/queries';
-import { dateFormatter } from "../../../features/DateFormatters/DateFormatter";
+import { formatTimeShort } from '@/features/TimeFormatter/TimeFormatter';
+import { useStore } from '@/ZustandStore/store';
+import { useHabbits } from '@/api/queries';
+import { dateFormatter } from "@/features/DateFormatters/DateFormatter";
 import dayjs from 'dayjs';
 
 

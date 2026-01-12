@@ -1,7 +1,5 @@
-import React from 'react';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-import LogOutButton from '../../features/SettingsButtons/LogOutButton ';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import PlaylistAddCheckCircleIcon from '@mui/icons-material/PlaylistAddCheckCircle';

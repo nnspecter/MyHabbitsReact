@@ -1,11 +1,12 @@
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useConfigureHabit } from '../../api/mutations';
-import { ConfigureHabbit, Habit} from '../../api/api';
-import { useAllGroups } from '../../api/queries';
-import InputLenght from '../Input/InputLenght';
+import { useConfigureHabit } from '@/api/mutations';
+import { ConfigureHabbit, Habit} from '@/api/api';
+import { useAllGroups } from '@/api/queries';
+import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
+import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
+
 
 interface HabitSettingsButtonProps {
   habit: Habit;
@@ -14,7 +15,7 @@ interface HabitSettingsButtonProps {
 
 
 const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId})   => {
-  const {data: allGroupsQuery, isPending: isPendingAllGroups} = useAllGroups();
+  const {data: allGroupsQuery} = useAllGroups();
   const [newHabit, setNewHabit] = useState<ConfigureHabbit>({
     habitId: habit.id,
     groupId: groupId,

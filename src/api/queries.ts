@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery, UseQueryOptions } from "@tanstack/react-query"
+import { keepPreviousData, useQuery} from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
 import { getAllGroups, GroupsSettings, getHabbits, HabitsResponse, startLogin, SettingsConfig, GetSettingsConfig, HabitsData, getDashboardHabbits } from "./api"
 interface addGroupParams {

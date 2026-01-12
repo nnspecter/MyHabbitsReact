@@ -1,7 +1,9 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, TextField, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react'
-import { useAddHabit} from '../../api/mutations';
-import InputLenght from '../Input/InputLenght';
+import { useAddHabit} from '@/api/mutations';
+import InputLenght from '@/features/Input/InputLenght';
+
+
 const NewHabitButton = ({groupId}) => {
     const [habitName, setHabitName] = useState("");
     const [open, setOpen] = React.useState(false);

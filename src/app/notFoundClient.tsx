@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { SettingsStyledButton } from "../features/muiThemes/SettingsStyledButton";
-import { MountAnimation } from "../animations/MountAnimation";
+import { SettingsStyledButton } from "@/features/muiThemes/SettingsStyledButton";
+import { MountAnimation } from "@/animations/MountAnimation";
 
 export default function NotFoundClient() {
   const router = useRouter();

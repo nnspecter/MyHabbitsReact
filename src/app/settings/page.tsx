@@ -1,4 +1,4 @@
-import SettingsPreview from '../../components/Settings/SettingsPreview'
+import SettingsPreview from '@/components/Settings/SettingsPreview'
 
 
 const page = () => {

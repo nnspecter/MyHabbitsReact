@@ -1,8 +1,10 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
-import { useDeleteHabit } from '../../api/mutations';
+import { useDeleteHabit } from '@/api/mutations';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
+import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
+
+
 const DeleteHabitButton = ({habitId}: {habitId: number}) => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();

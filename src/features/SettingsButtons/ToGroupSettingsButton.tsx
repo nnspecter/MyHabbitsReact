@@ -1,8 +1,6 @@
-import { Button } from '@mui/material'
-import React from 'react'
-import { useStore } from '../../ZustandStore/store';
+import { useStore } from '@/ZustandStore/store';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
+import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
 
 
 export const ToGroupSettingsButton = ({groupId} : {groupId: number}) => {

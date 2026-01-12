@@ -1,8 +1,10 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useState } from 'react'
-import { useAddGroup } from '../../api/mutations';
+import { useAddGroup } from '@/api/mutations';
 import { HexColorPicker } from 'react-colorful';
-import InputLenght from '../Input/InputLenght';
+import InputLenght from '@/features/Input/InputLenght';
+
+
 const NewGroupButton = () => {
     const [color, setColor] = useState("#aabbcc");
     const [groupName, setGroupName] = useState("");

@@ -1,7 +1,6 @@
 "use client"
-import Header from '../../components/Header/Header'
-import SortableDashBoard from '../../components/DashBoard/SortableDashBoard'
-import { Skeleton } from '@mui/material'
+import SortableDashBoard from '@/components/DashBoard/SortableDashBoard'
+
 
 const page = () => {
   

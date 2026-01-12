@@ -1,8 +1,9 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
-import { useDeleteGroup } from '../../api/mutations';
+import { useDeleteGroup } from '@/api/mutations';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
+import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
+
 
 const DeleteButton = ({groupId}) => {
     const [open, setOpen] = React.useState(false);

@@ -1,10 +1,11 @@
 "use client"
-import DeleteButton from '../../../../features/SettingsButtons/DeleteButton'
-import HiddenCheckbox from '../../../../features/SettingsButtons/HiddenCheckbox'
+import DeleteButton from '@/features/SettingsButtons/DeleteButton'
+import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'
 import styles from "./CurrentSettings.module.scss"
-import GroupSetiingsButton from '../../../../features/SettingsButtons/GroupSettingsButton'
-const CurrentSettings = ({group}) => {
+import GroupSetiingsButton from '@/features/SettingsButtons/GroupSettingsButton'
 
+
+const CurrentSettings = ({group}) => {
   return (
     <div className={styles.CurrentSettings}>
       <GroupSetiingsButton group={group}/>

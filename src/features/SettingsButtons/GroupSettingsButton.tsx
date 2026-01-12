@@ -1,10 +1,12 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react'
-import { useConfigureGroup } from '../../api/mutations';
+import { useConfigureGroup } from '@/api/mutations';
 import { HexColorPicker } from 'react-colorful';
-import InputLenght from '../Input/InputLenght';
+import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { SettingsStyledButton } from '../muiThemes/SettingsStyledButton';
+import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
+
+
 const GroupSetiingsButton = ({group}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();

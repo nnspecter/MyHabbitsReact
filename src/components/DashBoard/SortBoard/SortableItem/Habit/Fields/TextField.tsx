@@ -1,7 +1,7 @@
 import { Input, InputAdornment } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { useNewRecord } from '../../../../../../api/mutations';
-import InputLenght from '../../../../../../features/Input/InputLenght';
+import { useNewRecord } from '@/api/mutations';
+import InputLenght from '@/features/Input/InputLenght';
 
 interface record {
   habitId: number;

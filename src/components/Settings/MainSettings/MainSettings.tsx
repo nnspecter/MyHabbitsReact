@@ -1,6 +1,6 @@
 "use client"
 import {  Checkbox } from '@mui/material'
-import { useConfigureSettings } from '../../../api/mutations'
+import { useConfigureSettings } from '@/api/mutations'
 const MainSettings = ({settings}) => {
   const useConfigureSettingsMutation = useConfigureSettings();
   

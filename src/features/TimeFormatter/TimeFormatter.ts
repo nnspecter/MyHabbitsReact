@@ -1,3 +1,9 @@
+interface formatTimeFull{
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 export function formatTimeShort(timeStr: string): string {
   const [hStr, mStr, sStr] = timeStr.split(":");
   const hours = parseInt(hStr, 10);
@@ -14,11 +20,7 @@ export function formatTimeShort(timeStr: string): string {
   return parts.join(" ");
 }
 
-interface formatTimeFull{
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
+
 export function formatTimeFull(hours: number ,minutes: number ,seconds: number): string  {
     const hStr = hours < 10 ? `0${hours}` : `${hours}`;
     const mStr = minutes < 10 ? `0${minutes}` : `${minutes}`;

@@ -1,16 +1,16 @@
-import { Accordion, AccordionDetails, AccordionSummary, CircularProgress } from "@mui/material"
+import { Accordion, AccordionSummary, CircularProgress } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./DashBoard.module.scss"
 import { PopOver } from "./DatePicker/PopOver";
-import { useStore } from "../../ZustandStore/store";
+import { useStore } from "@/ZustandStore/store";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useEffect} from "react";
-import { useDashboardHabbit } from "../../api/queries";
-import { MountAnimation } from "../../animations/MountAnimation";
-
+import { useDashboardHabbit } from "@/api/queries";
+import { MountAnimation } from "@/animations/MountAnimation";
 import { SortBoard } from "./SortBoard/SortBoard";
 dayjs.extend(customParseFormat);
+
 
 const SortableDashBoard = () => {
   const {selectedDate} = useStore();

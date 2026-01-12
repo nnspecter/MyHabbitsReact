@@ -2,10 +2,10 @@
 import styles from "./StyledLoginForm.module.scss"
 import { Button, styled, TextField } from '@mui/material'
 import { useRouter } from 'next/navigation';
-import { LoginData, startLogin } from "../../api/api";
+import { LoginData, startLogin } from "@/api/api";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
-import { MountAnimation } from "../../animations/MountAnimation";
+import { MountAnimation } from "@/animations/MountAnimation";
 
 
 

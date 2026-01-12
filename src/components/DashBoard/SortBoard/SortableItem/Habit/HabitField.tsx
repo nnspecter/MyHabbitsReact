@@ -6,8 +6,8 @@ import TextField from './Fields/TextField';
 import NumberField from './Fields/NumberField';
 import GeneralCheckBox from './Fields/GeneralCheckBox';
 import TimeFields from './Fields/TimeFields';
-import { Habit } from '../../../../../api/api';
-import { useStore } from '../../../../../ZustandStore/store';
+import { Habit } from '@/api/api';
+import { useStore } from '@/ZustandStore/store';
 dayjs.extend(customParseFormat);
 
 interface HaitFieldProps{

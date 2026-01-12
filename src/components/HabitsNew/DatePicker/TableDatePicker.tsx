@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
-import { useStore } from "../../../ZustandStore/store";
+import { useStore } from "@/ZustandStore/store";
 import dayjs from 'dayjs';
 import { ru } from "date-fns/locale";
 

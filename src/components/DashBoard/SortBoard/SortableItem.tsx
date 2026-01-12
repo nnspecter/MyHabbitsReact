@@ -1,10 +1,10 @@
 import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
-
 import { IconButton, Box, AccordionDetails } from "@mui/material";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import HabitField from './SortableItem/Habit/HabitField';
-import { useDraggable } from '@dnd-kit/core';
+
+
 export const SortableItem = ({habit}) =>  {
   const {
     attributes,
