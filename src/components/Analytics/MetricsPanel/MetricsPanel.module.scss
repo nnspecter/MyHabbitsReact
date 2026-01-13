@@ -1,0 +1,22 @@
+.head{
+    display: flex;
+    flex-direction: var(--dateDirection);
+    justify-content: var(--dateJustify);
+    align-items: center;
+    position: relative;
+    .center{
+        position: var(--dateCenterPosition);
+        left: 50%;
+        transform: var(--dateCenterTransform);
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        margin-left: var(--dateMarginLeft);
+        color: #454545;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14pt;
+    }  
+        
+}

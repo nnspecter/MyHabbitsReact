@@ -86,7 +86,7 @@ export interface GroupsSettings{
     meta: { status: string };
 }
 
-interface HabbitsAllGroups { 
+export interface HabbitsAllGroups { 
     id: number;
     name: string;
     color: string;
@@ -136,6 +136,21 @@ export interface NewRecord{
     value: number | string | boolean
 }
 
+//Аналитика-------------------------
+export interface StatsResponse {
+    data: HabitStats;
+    meta: { status: string, description: string };
+}
+
+export interface HabitStats {
+    completion: number,
+    completionCount: number,
+    weekCompletion: number,
+    maxStreak: number,
+    maxMiss: number,
+    currentStreak: number,
+    currentMiss: number,
+}
 
 
 //Регистрация------------------------------------------------------------------------------------------
@@ -255,3 +270,10 @@ export const getDashboardHabbits = async (date: string) => {
 //     const res =  await axiosApi.post(`/api/groups/configure`);
 //     return res.data
 // }
+
+//Аналитика----------------------------------------------------------------------------------------------
+//Получение статистики привычки
+export const getHabitStats = async (id: number) => {
+    const res =  await axiosApi.get(`/api/habits/${id}/stats`);
+    return res.data
+}

@@ -13,11 +13,13 @@ interface ModeStore{
     selectedGroupId: number | null,
     selectedDate: string,
     selectedTableDate: string,
+    selectedHabitId: number | null,
     setMode: (number, boolean) => void,
     setSelectedGroupId: (number) => void,
     setDate: (newDate) => void,
     setTableDate: (newDate: string) => void,
     updateDateRange: (event: "left" | "right") => void,
+    setSelectedHabitId: (habitId: number) => void,
 }
 
 interface Mode{
@@ -30,6 +32,7 @@ export const useStore = create<ModeStore>((set, get)=>({
     selectedGroupId: null,
     selectedDate: dayjs(new Date()).format("YYYY-MM-DD"), //2024-10-05-DD
     selectedTableDate: dayjs(new Date()).format("YYYY-MM-DD"),
+    selectedHabitId: null,
 
     setMode: (id: number, mode: boolean)=>{
         set((state)=>({
@@ -73,7 +76,11 @@ export const useStore = create<ModeStore>((set, get)=>({
             }))
         }
 
-    }
-
-
+    },
+    setSelectedHabitId: (habitId: number)=>{
+        set(()=>({
+            selectedHabitId: habitId,
+        }))
+        console.log("Выбранная привычка: ", habitId)
+}
 }))

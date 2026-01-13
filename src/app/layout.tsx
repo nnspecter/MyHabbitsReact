@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         })
   }, [])
 
-    const hideHeaderPaths = ["/dashboard", "/settings", "/table"];
+    const hideHeaderPaths = ["/dashboard", "/settings", "/table", "/analytics"];
     const showHeader = hideHeaderPaths.includes(pathname);
   return (
     <html lang="ru">

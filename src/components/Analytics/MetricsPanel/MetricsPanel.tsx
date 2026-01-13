@@ -1,0 +1,36 @@
+import React from 'react'
+import styles from "./MetricsPanel.module.scss"
+import { useAllGroups, useHabitStats } from '@/api/queries'
+import Metrics from './Metrics/Metrics';
+import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
+import { useStore } from '@/ZustandStore/store';
+
+
+const MetricsPanel = () => {
+    const {data: allGroups, isPending: allGroupsPending, isError: allGroupsError} = useAllGroups();
+    const{selectedHabitId} = useStore();  
+    console.log("All Groups:", allGroups);
+  return (
+    <div className='container'>
+        <div className={styles.head}>
+            <div className={styles.center}>
+                <div className="medFont2">
+                    Метрики
+                </div>
+            </div>
+            <div className={styles.right}>
+                <div className="date">
+                    Календарь аналитики
+                    <div className="medFont0">
+                        {/*{date} {todayDate(date) && <>{"(сегодня)"}</>}}*/}
+                    </div>
+                </div> 
+            </div>
+        </div>
+        {!allGroupsPending  && <HabitSelector groups={allGroups.data}/>}
+        {selectedHabitId && <Metrics habitId={selectedHabitId}/>}
+    </div>
+  )
+}
+
+export default MetricsPanel

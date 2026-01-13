@@ -1,0 +1,15 @@
+.analyticsContainer{
+    background-color: aqua;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    .diagram{
+        margin: 20px;
+        width: 300px;
+    }
+    .data{
+        margin: 20px;
+    }
+}
