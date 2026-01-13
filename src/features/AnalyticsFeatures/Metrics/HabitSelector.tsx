@@ -6,7 +6,7 @@ import { use, useEffect, useRef, useState } from 'react'
 
 const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
     const{selectedHabitId, setSelectedHabitId} = useStore();
-    const [selectedGroup, setSelectedGroup] = useState<HabbitsAllGroups>(groups[0]);
+    const [selectedGroup, setSelectedGroup] = useState<HabbitsAllGroups>(groups.find(g => g.habits.length > 0) || groups[0]);
     const isFirstRender =  useRef(true);
     
     useEffect(() => {
@@ -19,13 +19,13 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
             console.log("есть выбранное - первый рендер");
         }
         else{
-            setSelectedGroup(groups[0]);
-            setSelectedHabitId(groups[0].habits[0].id);
+            setSelectedHabitId(groups.find(g => g.habits.length > 0)?.habits[0].id || null);
             isFirstRender.current = false;
             console.log("нет выбранного - первый рендер");
         }
 
     }, [isFirstRender]);
+
     
     
     //handlers
