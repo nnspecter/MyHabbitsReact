@@ -27,7 +27,8 @@ const MetricsPanel = () => {
                 </div> 
             </div>
         </div>
-        {!allGroupsPending  && <HabitSelector groups={allGroups.data}/>}
+        {(!allGroupsPending && allGroups.data.length === 0) && <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>}
+        {(!allGroupsPending && allGroups.data.length > 0) && <HabitSelector groups={allGroups.data}/>}
         {selectedHabitId && <Metrics habitId={selectedHabitId}/>}
     </div>
   )

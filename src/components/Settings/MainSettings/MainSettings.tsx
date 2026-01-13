@@ -1,6 +1,7 @@
 "use client"
 import {  Checkbox } from '@mui/material'
 import { useConfigureSettings } from '@/api/mutations'
+import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
 const MainSettings = ({settings}) => {
   const useConfigureSettingsMutation = useConfigureSettings();
   
@@ -9,13 +10,14 @@ const MainSettings = ({settings}) => {
   }
 
   return (
-         <div>
-            Показывать скрытыe
+         <div style={{display:"flex"}}>
+            <p className='smallFont2'>Показывать скрытыe</p>
             <Checkbox
               onChange={(e) => handleShowHidden(e)}
               checked={settings.showHidden}
               sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
               />
+              <LogOutButton/>
           </div>
   )
 }

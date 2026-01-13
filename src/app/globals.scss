@@ -115,6 +115,10 @@ html, body, #__next {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  color: var(--textColor);
+  font-size: var(--sFontSize );
+  font-weight: 600;
 }
 
 .medFont2{

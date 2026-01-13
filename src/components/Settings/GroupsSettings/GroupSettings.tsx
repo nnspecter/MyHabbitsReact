@@ -19,7 +19,7 @@ const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
     return (
       <div className={styles.GroupSettings}>
         <div className={styles.emptyGroups}>
-          Группы отсутствуют
+          <div className='tableLoading'>Группы отсутствуют</div>
           <NewGroupButton/>
         </div>
         
