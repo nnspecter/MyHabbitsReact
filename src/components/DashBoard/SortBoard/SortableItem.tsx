@@ -3,9 +3,10 @@ import {CSS} from '@dnd-kit/utilities';
 import { IconButton, Box, AccordionDetails } from "@mui/material";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import HabitField from './SortableItem/Habit/HabitField';
+import { Habit } from '@/api/api';
 
 
-export const SortableItem = ({habit}) =>  {
+export const SortableItem = ({habit}:{habit: Habit}) =>  {
   const {
     attributes,
     listeners,

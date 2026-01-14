@@ -54,7 +54,7 @@ html, body, #__next {
   justify-self: center;
   width: var(--containerWidth);
   margin-top: var(--containersMargin);
-  margin-bottom: var(--containersMarginBottom) ;
+  
   height: auto;
   background-color: #D9D9D9;
   box-shadow: 0 4px 4px rgba(0,0,0,0.1);
@@ -162,6 +162,13 @@ html, body, #__next {
   align-items: center;
 }
 
+.mobileCenter{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
 
 
 // стили для календаря выбора даты
@@ -245,10 +252,10 @@ html, body, #__next {
 
   @media (max-width: 480px) {
     :root{
-      --containerWidth: 90%;
-      --containersMargin: 0%;
+      --containerWidth: 80%;
+      --containersMargin: 5%;
       --containersMarginBottom: 25%;
-      --padding: 5%;
+      --padding: 3%;
       --mFontSize: 11pt;
       --sFontSize: 10pt;
       --truncatedWidth: 80px;
@@ -270,6 +277,7 @@ html, body, #__next {
     .headerDirection{
         flex-direction: column-reverse;
       }
+    
   }
 
   @media (max-width: 360px) {

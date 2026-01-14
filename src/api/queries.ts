@@ -1,10 +1,7 @@
 import { keepPreviousData, useQuery} from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
 import { getAllGroups, GroupsSettings, getHabbits, HabitsResponse, startLogin, SettingsConfig, GetSettingsConfig, HabitsData, getDashboardHabbits, StatsResponse, getHabitStats } from "./api"
-interface addGroupParams {
-    name: string;
-    color: string;
-}
+
 
 export const useLogin = (username: string, password: string) => {
     return useQuery({
@@ -14,7 +11,7 @@ export const useLogin = (username: string, password: string) => {
 }
 
 export const useHabbits = (data: HabitsData) => {
-  return useQuery({
+  return useQuery<HabitsResponse>({
     queryKey: queryKeys.groupsByDate(data.startDate, data.endDate),
     queryFn: () => getHabbits({ startDate: data.startDate, endDate: data.endDate }),
     placeholderData: keepPreviousData,

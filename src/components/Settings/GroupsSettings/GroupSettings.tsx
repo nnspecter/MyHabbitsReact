@@ -12,9 +12,6 @@ interface GroupSettingsProps {
 }
 
 const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
-  const [responsive, setResponsive] = React.useState(false);
-  
-
   if(groups.length === 0){
     return (
       <div className={styles.GroupSettings}>

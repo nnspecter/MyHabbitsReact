@@ -27,10 +27,11 @@ export interface Record {
     value: boolean | number | string | null; // исправлено: value может быть разным типом
 }
 
+
 export interface Habit {
     id: number;
     name: string;
-    type: "GENERAL" | "NUMBER" | "TEXT" | "TIME"; // исправлено: конкретные типы
+    type: "GENERAL" | "NUMBER" | "TEXT" | "TIME" ; // исправлено: конкретные типы
     hidden: boolean;
     position: number;
     records: Record[];
@@ -101,7 +102,7 @@ export interface HabbitsAllGroups {
 export interface ConfigureSettings {
     showHidden: boolean;
 }
-interface SettingsConfigData {
+export interface SettingsConfigData {
     showHidden: boolean;
 }
 //данные конфигурации настроек всех групп

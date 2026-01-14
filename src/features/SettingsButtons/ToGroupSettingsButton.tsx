@@ -4,7 +4,7 @@ import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton'
 
 
 export const ToGroupSettingsButton = ({groupId} : {groupId: number}) => {
-    const{selectedGroupId, setSelectedGroupId} = useStore();
+    const{ setSelectedGroupId} = useStore();
   return (
     <SettingsStyledButton
         variant="contained"

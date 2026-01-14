@@ -5,7 +5,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
 
 
-const DeleteButton = ({groupId}) => {
+const DeleteButton = ({groupId}: {groupId: number}) => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));

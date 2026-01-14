@@ -46,7 +46,7 @@ const TimeFields = ({record}: {record: record}) => {
         })
     },[time])
     
-    const handleValueDisplay = (value) => {
+    const handleValueDisplay = (value: number) => {
         if (value===0) return ""
         return value;
     }

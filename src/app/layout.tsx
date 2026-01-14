@@ -33,7 +33,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <body>
             <div className='headerDirection'>
               {showHeader && <Header/>}
-              {children}
+              <div className='mobileCenter'>
+                {children}
+              </div>
             </div>
           </body>
         </QueryClientProvider>

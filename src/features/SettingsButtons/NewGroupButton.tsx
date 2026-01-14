@@ -9,8 +9,6 @@ const NewGroupButton = () => {
     const [color, setColor] = useState("#aabbcc");
     const [groupName, setGroupName] = useState("");
     const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     const addMutation = useAddGroup();
 
     const handleColorChange = useCallback(() =>{

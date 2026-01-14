@@ -9,6 +9,7 @@ import { useEffect} from "react";
 import { useDashboardHabbit } from "@/api/queries";
 import { MountAnimation } from "@/animations/MountAnimation";
 import { SortBoard } from "./SortBoard/SortBoard";
+import { HabitsGroup } from "@/api/api";
 dayjs.extend(customParseFormat);
 
 
@@ -25,7 +26,7 @@ const SortableDashBoard = () => {
   },[data])
   
 
-  const todayDate = (date) => {
+  const todayDate = (date: string) => {
     const today = dayjs(new Date()).format("DD.MM.YYYY");
     
     if(date === today) return true;
@@ -59,7 +60,7 @@ const SortableDashBoard = () => {
               <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
             )}
 
-            {data?.data.groups.map((group, groupKey) => (
+            {data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
                 <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff", position: "relative"}} defaultExpanded>
                   <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                     <div className="medFont1">{group.name}</div>

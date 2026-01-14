@@ -8,8 +8,6 @@ import { useRouter } from 'next/navigation';
 
 const LogOutButton = () => {
     const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     const router = useRouter();
 
     const logOutMutation = useMutation({

@@ -10,11 +10,8 @@ import { Habit } from '@/api/api';
 import { useStore } from '@/ZustandStore/store';
 dayjs.extend(customParseFormat);
 
-interface HaitFieldProps{
-    habit: Habit;
-}
 
-const HabitField = ({habit}: HaitFieldProps) => {
+const HabitField = ({habit}: {habit: Habit}) => {
     const {selectedDate} = useStore();
     const [record, setRecord] = useState({
         habitId: habit.id,

@@ -15,6 +15,7 @@
     "strict": false,
     "noEmit": true,
     "incremental": true,
+    "noImplicitAny": true,
     "module": "NodeNext",
     "esModuleInterop": true,
     "moduleResolution": "nodenext",

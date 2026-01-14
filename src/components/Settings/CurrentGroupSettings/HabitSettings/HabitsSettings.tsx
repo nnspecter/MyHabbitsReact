@@ -3,7 +3,10 @@ import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '@/features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '@/features/SettingsButtons/DeleteHabitButton'
 import HabitSettingsButton from '@/features/SettingsButtons/HabitSettingsButton'
-const HabitsSettings = ({habits, groupId}) => {
+import { Habit } from "@/api/api"
+
+
+const HabitsSettings = ({habits, groupId}:{habits: Habit[], groupId: number}) => {
   return (
     <div className={styles.habitsSettings}>
       <div className="medFont2">Настройки привычек</div>

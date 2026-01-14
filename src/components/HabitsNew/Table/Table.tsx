@@ -5,6 +5,7 @@ import { useStore } from '@/ZustandStore/store';
 import { useHabbits } from '@/api/queries';
 import { dateFormatter } from "@/features/DateFormatters/DateFormatter";
 import dayjs from 'dayjs';
+import { Habit, HabitsGroup, Record } from '@/api/api';
 
 
 
@@ -12,17 +13,17 @@ const CustomTable = () => {
   const {updateDateRange, selectedTableDate} = useStore();
   const isSelected = (date: string) => {return selectedTableDate === date};
 
-  const dateRange = ({ 
+  const dateRange: {startDate: string, endDate: string} = { 
     startDate: dateFormatter(selectedTableDate, -20),
     endDate: dateFormatter(selectedTableDate, +20),
-  });
+  };
   
   const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
   
   const tableContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollDirectionRef = useRef<'left' | 'right' | null>(null);
 
-  const dates = habbitsQuery?.data?.dates || [];
+  const dates = habbitsQuery?.data?.dates || [] ;
   const groups = habbitsQuery?.data?.groups || [];
 
   useLayoutEffect(() => {
@@ -126,7 +127,15 @@ const CustomTable = () => {
         <TableBody>
           {groups.map((group, gKey) => {
             // Если у группы нет привычек, создаем "пустой" объект привычки
-            const habits = group.habits.length > 0 ? group.habits : [{ name: 'Пустая группа', records: dates.map(() => ({ value: null })) }];
+            const habits: Habit[] = group.habits.length > 0 ? group.habits : [{ 
+              id: -99,
+              name: 'Пустая группа',
+              type: "TEXT",
+              hidden: false,
+              position: 1,
+              records: dates.map((date): Record => ({ date: date, value: "" }) ),
+            }];
+              
 
             return habits.map((habit, hKey) => (
               <React.Fragment key={`habit-${gKey}-${hKey}`}>
@@ -160,7 +169,7 @@ const CustomTable = () => {
                   >
                     <div className='smallFont1'>{habit.name}</div>
                   </TableCell>
-                  {habit.records.map((record, cellKey) => (
+                  {habit.records.map((record: Record , cellKey: number) => (
                     <TableCell
                       key={`dataCell-${gKey}-${hKey}-${cellKey}`}
                       sx={{ textAlign: 'center', whiteSpace: 'normal', wordBreak: 'break-word' }}
@@ -176,7 +185,7 @@ const CustomTable = () => {
                           ? record.value
                             ? '✔️'
                             : ''
-                          : habit.type === 'TIME' ? formatTimeShort(record.value):  record.value
+                          : habit.type === 'TIME' ? formatTimeShort(String(record.value)):  record.value
                         }
                       </div>
                     </TableCell>

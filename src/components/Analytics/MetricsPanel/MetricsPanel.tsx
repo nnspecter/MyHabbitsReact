@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./MetricsPanel.module.scss"
-import { useAllGroups, useHabitStats } from '@/api/queries'
+import { useAllGroups} from '@/api/queries'
 import Metrics from './Metrics/Metrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
 import { useStore } from '@/ZustandStore/store';

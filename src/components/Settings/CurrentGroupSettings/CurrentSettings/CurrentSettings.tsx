@@ -3,9 +3,10 @@ import DeleteButton from '@/features/SettingsButtons/DeleteButton'
 import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'
 import styles from "./CurrentSettings.module.scss"
 import GroupSetiingsButton from '@/features/SettingsButtons/GroupSettingsButton'
+import { HabitsGroup } from '@/api/api'
 
 
-const CurrentSettings = ({group}) => {
+const CurrentSettings = ({group}:{group: HabitsGroup}) => {
   return (
     <div className={styles.CurrentSettings}>
       <GroupSetiingsButton group={group}/>

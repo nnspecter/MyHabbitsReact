@@ -5,9 +5,10 @@ import { HexColorPicker } from 'react-colorful';
 import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
+import { HabitsGroup } from '@/api/api';
 
 
-const GroupSetiingsButton = ({group}) => {
+const GroupSetiingsButton = ({group}: {group: HabitsGroup}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const ConfigureMutation = useConfigureGroup();

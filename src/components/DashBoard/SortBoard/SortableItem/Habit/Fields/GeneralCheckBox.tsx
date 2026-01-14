@@ -22,7 +22,7 @@ const GeneralCheckBox = ({record}: {record: record}) => {
           setNewRecord(record);
         }, [record]);
 
-    const handleAccept = (checked) => {
+    const handleAccept = (checked: boolean) => {
         console.log("Accepted value:", newRecord);
             setNewRecord({...newRecord, value: checked}); 
             newRecordMutation.mutate({...newRecord, value: checked});

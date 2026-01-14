@@ -57,7 +57,7 @@ export const SortBoard = ({ habits, groupId }: SortBoardProps) => {
     },[items])
 
 
-    const handleDragEnd = (event) => {
+    const handleDragEnd = (event: any) => {
         const { active, over } = event;
         if (!over) return;
 

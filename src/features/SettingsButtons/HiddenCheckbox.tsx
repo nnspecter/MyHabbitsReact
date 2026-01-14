@@ -2,10 +2,10 @@ import { Checkbox } from '@mui/material'
 import { useConfigureGroup } from '@/api/mutations';
 
 
-const HiddenCheckbox = ({id, hidden}) => {
+const HiddenCheckbox = ({id, hidden}: {id: number, hidden: boolean}) => {
     const hiddenMutation = useConfigureGroup();
     
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         hiddenMutation.mutate({
             groupId: id,
             hidden: e.target.checked

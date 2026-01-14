@@ -2,10 +2,12 @@
 import {  Checkbox } from '@mui/material'
 import { useConfigureSettings } from '@/api/mutations'
 import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
-const MainSettings = ({settings}) => {
+import { SettingsConfigData } from '@/api/api';
+
+const MainSettings = ({settings}:{settings: SettingsConfigData}) => {
   const useConfigureSettingsMutation = useConfigureSettings();
   
-  const handleShowHidden = (e) => {
+  const handleShowHidden = (e: React.ChangeEvent<HTMLInputElement>) => {
     useConfigureSettingsMutation.mutate({ showHidden: e.target.checked });
   }
 

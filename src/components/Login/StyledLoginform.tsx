@@ -63,7 +63,7 @@ const AuthentificationForm = () => {
 });
 
 
-    const handleSubmit = async (username, password) => {
+    const handleSubmit = async (username: string, password: string) => {
 
         if (!username || !password) {
             return;
@@ -76,9 +76,12 @@ const AuthentificationForm = () => {
   return (
     <MountAnimation key={"login"}>
       <div className={styles.form}>
-        <form onSubmit ={e => {
+        <form onSubmit ={(e:React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          handleSubmit(e.target['login-input'].value.trim(), e.target['password-input'].value.trim());
+          const form = e.currentTarget;
+          const login = (form.elements.namedItem('login-input') as HTMLInputElement).value.trim();
+          const password = (form.elements.namedItem('password-input') as HTMLInputElement).value.trim();
+          handleSubmit(login, password);
         }}>
           <div className={styles.formPanel}>
             <div className={styles.name}>Вход</div>

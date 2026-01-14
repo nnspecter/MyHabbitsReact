@@ -4,7 +4,7 @@ import { useAddHabit} from '@/api/mutations';
 import InputLenght from '@/features/Input/InputLenght';
 
 
-const NewHabitButton = ({groupId}) => {
+const NewHabitButton = ({groupId}: {groupId: number}) => {
     const [habitName, setHabitName] = useState("");
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
@@ -15,12 +15,12 @@ const NewHabitButton = ({groupId}) => {
     
 
 
-    const handleHiddenChange = (event) => {
-      setHidden(event.target.value);
+    const handleHiddenChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setHidden(event.target.checked);
     };
 
-    const handleTypeChange = (event) => {
-      setType(event.target.value);
+    const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setType(event.target.value as "GENERAL" | "NUMBER" | "TEXT" | "TIME");
       console.log(event.target.value)
     };
 
