@@ -21,6 +21,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
     groupId: groupId,
     name: habit.name,
     hidden: habit.hidden,
+    scheduleN: 1
   });
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
       groupId: groupId,
       name: habit.name,
       hidden: habit.hidden,
+      scheduleN: 1
     });
 }, [habit, groupId]);
     

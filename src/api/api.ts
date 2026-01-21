@@ -119,6 +119,9 @@ export interface NewHabbit {
     name: string;
     type: "GENERAL" | "NUMBER" | "TEXT" | "TIME";
     hidden: boolean;
+    schedule: "EVERYDAY" | "IN_DAY" | "N_WEEK" | "N_MONTH" //+
+    scheduleN: number; // +
+
 }
 //Настройка привычки
 export interface ConfigureHabbit {
@@ -127,6 +130,8 @@ export interface ConfigureHabbit {
     name?: string;
     type?: "GENERAL" | "NUMBER" | "TEXT" | "TIME";
     hidden?: boolean;
+    scheduleN?: number; // +
+
 }
 
 
