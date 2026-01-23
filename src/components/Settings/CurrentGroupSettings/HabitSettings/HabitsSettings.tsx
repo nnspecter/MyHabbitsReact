@@ -14,8 +14,8 @@ const HabitsSettings = ({habits, groupId}:{habits: Habit[], groupId: number}) =>
         {habits.map((habit, index) => (
           <div className={styles.habit} key={`habitssetting ${index}`}>
             <div className="settingsTruncated smallFont2">{habit.name}</div> 
-            <div></div>
-            <div className="settingsTruncated smallFont2">{habit.type}</div>
+            
+            <div className="settingsTypeTruncated smallFont2">{habit.type}</div>
             <HabitSettingsButton habit={habit} groupId={groupId}/>
             <div><DeleteHabitButton habitId={habit.id}/></div>
           </div>

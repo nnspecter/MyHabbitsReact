@@ -70,7 +70,7 @@ html, body, #__next {
 }
 
 // Ограничение текста 
-.truncated, .setTruncated, .wrapTruncated {
+.truncated, .wrapTruncated {
   width: var(--truncatedWidth);              
   overflow: hidden;       
   text-overflow: ellipsis; 
@@ -82,12 +82,15 @@ html, body, #__next {
 .wrapTruncated{
   white-space: wrap;    
 }
-.settingsTruncated{
+.settingsTruncated, .settingsTypeTruncated{
   width: calc(var(--truncatedWidth) * 1.2);              
   white-space: wrap; 
   overflow: hidden;       
   text-overflow: ellipsis; 
 
+}
+.settingsTypeTruncated{
+  width: calc(var(--truncatedWidth) * 0.9);              
 }
 //------------------------
 
@@ -279,6 +282,14 @@ html, body, #__next {
       }
     
   }
+  @media (max-width: 405px) {
+    :root{
+      --containerWidth: 90%;
+      --containersMargin: 5%;
+      --itemsGap: 18px;
+      --padding: 2%;
+    }
+  }
 
   @media (max-width: 360px) {
     :root{
@@ -286,7 +297,7 @@ html, body, #__next {
       --mFontSize: 11pt;
       --sFontSize: 10pt;
       --truncatedWidth: 78px;
-      
+      --itemsGap: 10px;
     }
   }
 

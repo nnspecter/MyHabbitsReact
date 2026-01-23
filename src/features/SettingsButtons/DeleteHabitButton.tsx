@@ -7,9 +7,6 @@ import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton'
 
 const DeleteHabitButton = ({habitId}: {habitId: number}) => {
     const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-
     const deleteMutation = useDeleteHabit();
       
     const handleDelete = (id: number) => {
