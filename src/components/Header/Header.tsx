@@ -16,7 +16,7 @@ const Header = () => {
             <li ><Link href="/dashboard" ><PlaylistAddCheckCircleIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
             <li><Link href="/table"><TableRowsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
             <li><Link href="/settings"><SettingsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
-            <li><Link href="/analytics"><AnalyticsIcon style={{fontSize: "var(--headerFontSize)", color: "red"}}/></Link></li>
+            <li><Link href="/analytics"><AnalyticsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
             
             
           </ul>

@@ -6,10 +6,10 @@ const Analytics = () => {
   return (
 
 
-    <div>
+    
         <MetricsPanel/>
-        <GraphicsPanel/>
-    </div>
+        
+    
   )
 }
 

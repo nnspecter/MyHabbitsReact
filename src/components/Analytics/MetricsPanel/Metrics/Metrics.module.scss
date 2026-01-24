@@ -1,0 +1,29 @@
+.metricsSections{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--itemsGap);
+    justify-content: space-around;
+    .section{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        h2{
+            text-align: center;
+        }
+        .metrics{
+            
+            display: flex;
+            flex-direction: row;
+            gap: var(--itemsGap);
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        
+    }
+}
