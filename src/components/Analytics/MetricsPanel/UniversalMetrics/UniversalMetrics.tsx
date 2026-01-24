@@ -1,5 +1,5 @@
 import { useHabitStats } from "@/api/queries";
-import styles from "./Metrics.module.scss"
+import styles from "./UniversalMetrics.module.scss"
 import OneMetric from "./OneMetric/OneMetric";
 import { CircularProgress } from "@mui/material";
 
@@ -34,7 +34,8 @@ const Metrics = ({habitId}: {habitId: number}) => {
           </h2>
 
           <div className={styles.metrics}>
-            <OneMetric name="Всего" count={habitStats.data.completionCount}/>
+            <OneMetric name="Всего" count={`${habitStats.data.completion}%`}/>
+            <OneMetric name="Кол-во" count={habitStats.data.completionCount}/>
             <OneMetric name="За неделю" count={habitStats.data.weekCompletion}/>
           </div>
         </div>

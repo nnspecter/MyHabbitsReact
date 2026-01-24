@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./MetricsPanel.module.scss"
 import { useAllGroups} from '@/api/queries'
-import Metrics from './Metrics/Metrics';
+import Metrics from './UniversalMetrics/UniversalMetrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
 import { useStore } from '@/ZustandStore/store';
 
