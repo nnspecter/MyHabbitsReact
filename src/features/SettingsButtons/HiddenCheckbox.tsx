@@ -14,7 +14,7 @@ const HiddenCheckbox = ({id, hidden}: {id: number, hidden: boolean}) => {
     }
   return (
     <div style={{display: "flex", alignItems: "center"}}>
-       <div className='smallFont1'>Скрыть</div> 
+       <div className='smallFont2'>Скрыть</div> 
        <Checkbox 
         onChange={(e)=>handleChange(e)}
         checked={hidden}
