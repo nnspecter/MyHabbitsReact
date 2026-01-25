@@ -42,7 +42,7 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
 
 
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: 10}}>
+    <div style={{display: "flex", flexDirection: "column", gap: 20}}>
         <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Группа</InputLabel>
             <Select
@@ -58,15 +58,16 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
             </Select>
         </FormControl>
 
-        <div style={{display: "flex", flexDirection: "row", gap: 10, minHeight: "100px", flexWrap: "wrap", transition: "min-height 0.3s ease"}}>
+        <div style={{display: "flex", flexDirection: "row", gap: 10, minHeight: "100px", flexWrap: "wrap", justifyContent: "var(--amobileCenter)"}}>
             {selectedGroup.habits.map((e, index) => 
                 <Button 
+                    
                     key={`habitAInd${index}`}
                     variant='contained'
-                    sx={{background: selectedHabitId === e.id ? "#2b2b2bff" : "#454545", height: "50%"}}
+                    sx={{background: selectedHabitId === e.id ? "#287426ff" : "#454545", height: "50%"}}
                     onClick={() => handleHabitChange(e.id)}
                     >
-                    {e.name}
+                    <div className='smallFont1' style={{color: "#D9D9D9"}}>{e.name}</div>
                 </Button>)}
         </div>
         {/* <FormControl fullWidth style={{marginTop: "10px"}}>

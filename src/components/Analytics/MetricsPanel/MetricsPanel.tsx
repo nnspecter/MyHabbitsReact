@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./MetricsPanel.module.scss"
 import { useAllGroups} from '@/api/queries'
-import Metrics from './UniversalMetrics/UniversalMetrics';
+import UniversalMetrics from './UniversalMetrics/UniversalMetrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
 import { useStore } from '@/ZustandStore/store';
 
@@ -29,7 +29,7 @@ const MetricsPanel = () => {
         </div>
         {(!allGroupsPending && allGroups.data.length === 0) && <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>}
         {(!allGroupsPending && allGroups.data.length > 0) && <HabitSelector groups={allGroups.data}/>}
-        {selectedHabitId && <Metrics habitId={selectedHabitId}/>}
+        <div style={{minHeight: "175px"}}>{selectedHabitId && <UniversalMetrics habitId={selectedHabitId}/>}</div>
     </div>
   )
 }

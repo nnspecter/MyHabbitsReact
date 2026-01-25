@@ -157,6 +157,26 @@ export interface HabitStats {
     maxMiss: number,
     currentStreak: number,
     currentMiss: number,
+    timeData?: TimeData,
+    numData?: NumberData,
+    textData: TextData,
+  
+}
+interface TextData{
+     topValues: {[key: string]: number}
+} 
+interface NumberData{
+    max: number,
+    min: number,
+    avg: number,
+    summ: number,
+}
+
+interface TimeData{
+    max: string;
+    min: string;
+    avg: number;
+    summ: number
 }
 
 

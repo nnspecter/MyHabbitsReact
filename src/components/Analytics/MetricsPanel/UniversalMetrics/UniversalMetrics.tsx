@@ -3,7 +3,7 @@ import styles from "./UniversalMetrics.module.scss"
 import OneMetric from "./OneMetric/OneMetric";
 import { CircularProgress } from "@mui/material";
 
-const Metrics = ({habitId}: {habitId: number}) => {
+const UniversalMetrics = ({habitId}: {habitId: number}) => {
     const {data: habitStats, isLoading: habitStatsLoading, isError: habitStatsError} = useHabitStats(habitId); 
     
     if(habitStatsLoading){
@@ -38,9 +38,7 @@ const Metrics = ({habitId}: {habitId: number}) => {
             <OneMetric name="Кол-во" count={habitStats.data.completionCount}/>
             <OneMetric name="За неделю" count={habitStats.data.weekCompletion}/>
           </div>
-        </div>
-
-        
+        </div> 
     </div>
 
 
@@ -62,4 +60,4 @@ const Metrics = ({habitId}: {habitId: number}) => {
   )
 }
 
-export default Metrics
+export default UniversalMetrics
