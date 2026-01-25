@@ -1,6 +1,6 @@
 import { HabbitsAllGroups } from '@/api/api'
 import { useStore } from '@/ZustandStore/store'
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { use, useEffect, useRef, useState } from 'react'
 
 
@@ -42,7 +42,7 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
 
 
   return (
-    <div>
+    <div style={{display: "flex", flexDirection: "column", gap: 10}}>
         <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Группа</InputLabel>
             <Select
@@ -57,7 +57,19 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
                 ))}
             </Select>
         </FormControl>
-        <FormControl fullWidth style={{marginTop: "10px"}}>
+
+        <div style={{display: "flex", flexDirection: "row", gap: 10, minHeight: "100px", flexWrap: "wrap", transition: "min-height 0.3s ease"}}>
+            {selectedGroup.habits.map((e, index) => 
+                <Button 
+                    key={`habitAInd${index}`}
+                    variant='contained'
+                    sx={{background: selectedHabitId === e.id ? "#2b2b2bff" : "#454545", height: "50%"}}
+                    onClick={() => handleHabitChange(e.id)}
+                    >
+                    {e.name}
+                </Button>)}
+        </div>
+        {/* <FormControl fullWidth style={{marginTop: "10px"}}>
             <InputLabel id="demo-simple-select-label">Привычка</InputLabel>
             <Select
                 labelId="habit-label"
@@ -71,7 +83,7 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
                 ))}
             </Select>
 
-        </FormControl>
+        </FormControl> */}
     </div>
   )
 }

@@ -142,7 +142,8 @@ export interface NewRecord{
     value: number | string | boolean
 }
 
-//Аналитика-------------------------
+//Аналитика---------------------------------------------------------------------------------------
+//метрики
 export interface StatsResponse {
     data: HabitStats;
     meta: { status: string, description: string };

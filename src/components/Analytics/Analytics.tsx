@@ -8,8 +8,6 @@ const Analytics = () => {
         <MountAnimation>
           <MetricsPanel/>
         </MountAnimation>
-        
-    
   )
 }
 
