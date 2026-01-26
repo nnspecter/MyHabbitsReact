@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./MetricsPanel.module.scss"
 import { useAllGroups} from '@/api/queries'
 import UniversalMetrics from './UniversalMetrics/UniversalMetrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
 import { useStore } from '@/ZustandStore/store';
+import TypicalMetrics from './TypicalMetrics/TypicalMetrics';
+import { Habit } from '@/api/api';
 
 
 const MetricsPanel = () => {
@@ -20,7 +22,7 @@ const MetricsPanel = () => {
             </div>
             <div className={styles.right}>
                 <div className="date">
-                    Календарь аналитики
+                    -
                     <div className="medFont0">
                         {/*{date} {todayDate(date) && <>{"(сегодня)"}</>}}*/}
                     </div>
@@ -29,7 +31,9 @@ const MetricsPanel = () => {
         </div>
         {(!allGroupsPending && allGroups.data.length === 0) && <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>}
         {(!allGroupsPending && allGroups.data.length > 0) && <HabitSelector groups={allGroups.data}/>}
-        <div style={{minHeight: "175px"}}>{selectedHabitId && <UniversalMetrics habitId={selectedHabitId}/>}</div>
+        <div style={{minHeight: "var(--auniversalHeight)"}}>{selectedHabitId && <UniversalMetrics habitId={selectedHabitId}/>}</div>
+        {selectedHabitId && <div style={{minHeight: "175px"}}> <TypicalMetrics habitId={selectedHabitId}/></div>}
+
     </div>
   )
 }

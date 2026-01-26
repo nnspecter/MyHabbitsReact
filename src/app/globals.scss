@@ -44,7 +44,7 @@ html, body, #__next {
   //настройки
   //аналитика
   --amobileCenter: flex-start;
-
+  --auniversalHeight: 150px;
 }
 .headerDirection{
   display: flex;
@@ -198,6 +198,11 @@ html, body, #__next {
   }
 
   //Медиа запросы 
+  @media (max-width: 1125px) {
+    :root{
+      --auniversalHeight: 305px;
+    }
+  }
   @media (max-width: 1000px) {
     :root{
       --containersMargin: 13%;

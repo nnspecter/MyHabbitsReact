@@ -18,7 +18,7 @@ const SortableDashBoard = () => {
   const date = dayjs(selectedDate).format("DD.MM.YYYY");
   
   //реализую выдачу полям из родителя
-  const{data, isPending} = useDashboardHabbit(selectedDate);
+  const{data, isPending, isError, error} = useDashboardHabbit(selectedDate);
   
   useEffect(()=>{
     console.log("Дашборд",data)
@@ -29,10 +29,13 @@ const SortableDashBoard = () => {
   const todayDate = (date: string) => {
     const today = dayjs(new Date()).format("DD.MM.YYYY");
     
-    if(date === today) return true;
-    
+  if(date === today) return true;  
     else return false;
   }
+  if(isError){
+    console.log(error.message)
+  }
+
 
   return (
     <MountAnimation>
@@ -54,7 +57,9 @@ const SortableDashBoard = () => {
             </div>
           </div>
 
+          
           <div className={styles.habitBody}>
+            {isError && <div className="tableLoading">Возникла ошибка</div>}
             {isPending && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
             {!isPending && data?.data.groups.length === 0 && (
               <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>

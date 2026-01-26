@@ -11,6 +11,7 @@ export const useDeleteGroup = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });  
 };
@@ -21,6 +22,7 @@ export const useAddGroup = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });  
 };
@@ -31,6 +33,7 @@ export const useConfigureGroup = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }
@@ -42,6 +45,7 @@ export const useConfigureSettings = () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }
@@ -53,6 +57,7 @@ export const useAddHabit = () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }
@@ -64,6 +69,7 @@ export const useDeleteHabit = () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }
@@ -75,6 +81,7 @@ export const useConfigureHabit = () => {
       queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
       queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
     },
   });
 }

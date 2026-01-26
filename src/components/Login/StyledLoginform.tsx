@@ -91,8 +91,8 @@ const AuthentificationForm = () => {
                 placeholder="Введите логин" 
                 id="login-input"
                 type="text"
-                
               />
+
               <CssTextField 
                 label="Пароль" 
                 placeholder="Введите пароль" 

@@ -4,6 +4,7 @@ interface formatTimeFull{
   seconds: number;
 }
 
+
 export function formatTimeShort(timeStr: string): string {
   const [hStr, mStr, sStr] = timeStr.split(":");
   const hours = parseInt(hStr, 10);
@@ -21,6 +22,22 @@ export function formatTimeShort(timeStr: string): string {
 }
 
 
+export function formatTimeShortFromSeconds(totalSeconds: number): string {
+  if (!totalSeconds || totalSeconds <= 0) return "0с";
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const parts: string[] = [];
+  if (hours) parts.push(`${hours}ч`);
+  if (minutes) parts.push(`${minutes}м`);
+  if (seconds) parts.push(`${seconds}с`);
+
+  return parts.join(" ");
+}
+
+
 export function formatTimeFull(hours: number ,minutes: number ,seconds: number): string  {
     const hStr = hours < 10 ? `0${hours}` : `${hours}`;
     const mStr = minutes < 10 ? `0${minutes}` : `${minutes}`;
@@ -28,6 +45,7 @@ export function formatTimeFull(hours: number ,minutes: number ,seconds: number):
 
     return `${hStr}:${mStr}:${sStr}`;
 }
+
 
 export function UnFormatTime(time:string) : {hours: number; minutes: number; seconds: number} {
     const [hStr, mStr, sStr] = time.split(":");

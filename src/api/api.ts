@@ -159,7 +159,7 @@ export interface HabitStats {
     currentMiss: number,
     timeData?: TimeData,
     numData?: NumberData,
-    textData: TextData,
+    textData?: TextData,
   
 }
 interface TextData{
@@ -169,14 +169,14 @@ interface NumberData{
     max: number,
     min: number,
     avg: number,
-    summ: number,
+    sum: number,
 }
 
 interface TimeData{
     max: string;
     min: string;
     avg: number;
-    summ: number
+    sum: number
 }
 
 

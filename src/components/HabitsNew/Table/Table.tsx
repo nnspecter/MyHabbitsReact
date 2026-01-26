@@ -18,7 +18,7 @@ const CustomTable = () => {
     endDate: dateFormatter(selectedTableDate, +20),
   };
   
-  const {data: habbitsQuery, isPending} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
+  const {data: habbitsQuery, isPending, isError} = useHabbits({startDate: dateRange.startDate, endDate: dateRange.endDate});
   
   const tableContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollDirectionRef = useRef<'left' | 'right' | null>(null);
@@ -83,6 +83,13 @@ const CustomTable = () => {
       <CircularProgress sx={{color: "#454545"}}/>
     </div>)
   }
+  if(isError) { 
+    return(
+    <div className="tableLoading">
+      Возникла ошибка 
+    </div>)
+  }
+
   if(!isPending && groups.length === 0){
     return(
       <div className="tableLoading">
