@@ -33,7 +33,7 @@ const HabitField = ({habit}: {habit: Habit}) => {
 
     return (
         <div className={styles.habit}>
-            <div className="smallFont1">
+            <div className="smallFont1 truncated">
                 {habit.name}:
             </div>
             <div className={styles.habitField}>
