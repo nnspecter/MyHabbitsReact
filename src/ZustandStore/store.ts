@@ -18,6 +18,7 @@ interface ModeStore{
     setSelectedGroupId: (id: number) => void,
     setDate: (newDate: string) => void,
     setTableDate: (newDate: string) => void,
+    updateTableDate: (event: "left" | "right") => void,
     updateDateRange: (event: "left" | "right") => void,
     setSelectedHabitId: (habitId: number) => void,
 }
@@ -56,14 +57,28 @@ export const useStore = create<ModeStore>((set, get)=>({
         }))
         console.log("Дата дашборда установлена на ", newDate)
     },
+
     setTableDate: (newDate: string) => {
         set(()=>({
             selectedTableDate: newDate,
         }))
-        console.log("Дата таблицы установлена на ", newDate)
     },
 
-    updateDateRange: (event)=>{
+    updateTableDate: (event: "left" | "right") => {
+        if(event==="right"){
+            set(()=>({
+                selectedTableDate: dateFormatter(get().selectedTableDate, 7)
+            }))
+        }
+
+        if(event==="left"){
+            set(()=>({
+                selectedTableDate: dateFormatter(get().selectedTableDate, -7)
+            }))
+        }
+    },
+
+    updateDateRange: (event: "left" | "right")=>{
         if(event==="right"){
             set(()=>({
                 selectedTableDate: dateFormatter(get().selectedTableDate, 20)
@@ -77,6 +92,7 @@ export const useStore = create<ModeStore>((set, get)=>({
         }
 
     },
+
     setSelectedHabitId: (habitId: number)=>{
         set(()=>({
             selectedHabitId: habitId,

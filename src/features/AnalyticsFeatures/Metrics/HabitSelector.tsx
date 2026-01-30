@@ -26,8 +26,6 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
 
     }, [isFirstRender]);
 
-    
-    
     //handlers
     const handleGroupChange = (groupId: number) =>{ 
         const group = groups.find(g => g.id === groupId) || groups[0]
@@ -39,7 +37,6 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
     const handleHabitChange = (habitId: number) => {
         setSelectedHabitId(habitId);
     }
-
 
   return (
     <div style={{display: "flex", flexDirection: "column", gap: 20}}>
@@ -61,7 +58,6 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
         <div style={{display: "flex", flexDirection: "row", gap: 10, minHeight: "100px", flexWrap: "wrap", justifyContent: "var(--amobileCenter)"}}>
             {selectedGroup.habits.map((e, index) => 
                 <Button 
-                    
                     key={`habitAInd${index}`}
                     variant='contained'
                     sx={{background: selectedHabitId === e.id ? "#287426ff" : "#454545", height: "50%"}}
@@ -70,21 +66,6 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
                     <div className='smallFont1' style={{color: "#D9D9D9"}}>{e.name}</div>
                 </Button>)}
         </div>
-        {/* <FormControl fullWidth style={{marginTop: "10px"}}>
-            <InputLabel id="demo-simple-select-label">Привычка</InputLabel>
-            <Select
-                labelId="habit-label"
-                id="habit-select"
-                value={selectedHabitId || selectedGroup?.habits[0]?.id || ''}
-                label="Привычка"
-                onChange={e => handleHabitChange(Number(e.target.value))}
-                >
-                {selectedGroup.habits.map(habit => (
-                    <MenuItem value={habit.id}>{habit.name}</MenuItem>
-                ))}
-            </Select>
-
-        </FormControl> */}
     </div>
   )
 }

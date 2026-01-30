@@ -5,8 +5,11 @@ import { TablePopOver } from "./DatePicker/TablePopOver";
 import dayjs from "dayjs";
 import { MountAnimation } from "@/animations/MountAnimation";
 import { todayDate } from "@/features/TodayDate/TodayDate";
+import { Button } from "@mui/material";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 const HabbitsPreview = () => {
-  const {selectedTableDate} = useStore();
+  const {selectedTableDate, updateTableDate} = useStore();
   const date = dayjs(selectedTableDate).format("DD.MM.YYYY")
   return (
     <MountAnimation>
@@ -16,15 +19,19 @@ const HabbitsPreview = () => {
             <div className='medFont2'>Превью записей</div>
           </div>
           <div className={styles.right}>
+            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "#454545"}} onClick={() => updateTableDate("left")} ><KeyboardArrowLeftIcon/></Button>
             <div className="date">
               <TablePopOver/>
-              <div className="medFont0">
-                {date} {todayDate(date) && <>{"(сегодня)"}</>}
+              <div className="medFont0" >{/* style={{color: todayDate(date) && "rgb(57, 179, 84)" }} */}
+                {date} {todayDate(date) && "*"}
               </div>
             </div>
+            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "#454545"}} onClick={() => updateTableDate("right")} ><ChevronRightIcon/></Button>
           </div>
         </div>
-        <CustomTable/>
+        <div className={styles.table}>
+          <CustomTable/>
+        </div>
       </div>
     </MountAnimation>
   )

@@ -8,6 +8,7 @@ const TypicalMetrics = ({habitId}: {habitId: number}) => {
     const {data: habitStats, isLoading: habitStatsLoading, isError: habitStatsError} = useHabitStats(habitId);
     if(habitStatsLoading) return <></>
     const stats = habitStats.data
+    
   return (
     <div className={styles.main}>
         <h2 className="medFont1">Конкретные значения</h2>
