@@ -4,8 +4,8 @@ import styles from "./CurrentGroupSettings.module.scss"
 import CurrentSettings from './CurrentSettings/CurrentSettings'
 import HabitsSettings from './HabitSettings/HabitsSettings'
 import { Button, CircularProgress } from '@mui/material'
-import { useStore } from '@/ZustandStore/store'
-import { useAllGroups } from '@/api/queries'
+import { useStore } from '@/shared/ZustandStore/store'
+import { useAllGroups } from '@/shared/api/queries'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 

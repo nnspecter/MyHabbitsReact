@@ -1,4 +1,4 @@
-import { useHabitStats } from "@/api/queries";
+import { useHabitStats } from "@/shared/api/queries";
 import styles from "./TypicalMetrics.module.scss"
 import OneMetric from "@/shared/Analytics/OneMetric/OneMetric";
 import { formatTimeShort, formatTimeShortFromSeconds } from "@/features/TimeFormatter/TimeFormatter";

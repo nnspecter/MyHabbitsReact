@@ -1,4 +1,4 @@
-import { useHabitStats } from "@/api/queries";
+import { useHabitStats } from "@/shared/api/queries";
 import styles from "./UniversalMetrics.module.scss"
 import OneMetric from "../../../../shared/Analytics/OneMetric/OneMetric";
 import { CircularProgress } from "@mui/material";

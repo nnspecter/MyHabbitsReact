@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
-import { useDeleteHabit } from '@/api/mutations';
+import { useDeleteHabit } from '@/shared/api/mutations';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
 

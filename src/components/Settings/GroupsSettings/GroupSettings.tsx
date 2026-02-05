@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import styles from "./GroupSettings.module.scss"
-import { HabitsGroup } from '@/api/api'
+import { HabitsGroup } from '@/shared/api/api'
 import DeleteButton from '@/features/SettingsButtons/DeleteButton'
 import NewGroupButton from '@/features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'

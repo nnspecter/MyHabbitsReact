@@ -2,7 +2,7 @@
 import styles from "./StyledLoginForm.module.scss"
 import { Button, styled, TextField } from '@mui/material'
 import { useRouter } from 'next/navigation';
-import { RegistrationData, startRegistration } from "@/api/api";
+import { RegistrationData, startRegistration } from "@/shared/api/api";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import Link from "next/link";

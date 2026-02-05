@@ -1,5 +1,5 @@
-import { HabbitsAllGroups } from '@/api/api'
-import { useStore } from '@/ZustandStore/store'
+import { HabbitsAllGroups } from '@/shared/api/api'
+import { useStore } from '@/shared/ZustandStore/store'
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { use, useEffect, useRef, useState } from 'react'
 

@@ -1,8 +1,8 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, TextField, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react'
-import { useAddHabit} from '@/api/mutations';
+import { useAddHabit} from '@/shared/api/mutations';
 import InputLenght from '@/features/Input/InputLenght';
-import { NewHabbit } from '@/api/api';
+import { NewHabbit } from '@/shared/api/api';
 
 
 const NewHabitButton = ({groupId}: {groupId: number}) => {

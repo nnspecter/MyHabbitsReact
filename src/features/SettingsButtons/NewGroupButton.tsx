@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useState } from 'react'
-import { useAddGroup } from '@/api/mutations';
+import { useAddGroup } from '@/shared/api/mutations';
 import { HexColorPicker } from 'react-colorful';
 import InputLenght from '@/features/Input/InputLenght';
 

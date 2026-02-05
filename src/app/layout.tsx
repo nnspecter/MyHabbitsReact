@@ -3,8 +3,8 @@
 import { ReactNode, useEffect } from 'react';
 import "./globals.scss";
 import { QueryClientProvider } from '@tanstack/react-query';
-import { queryClient } from '@/api/queryCient';
-import { axiosApi } from '@/api/axiosApi';
+import { queryClient } from '@/shared/api/queryCient';
+import { axiosApi } from '@/shared/api/axiosApi';
 import { usePathname, useRouter } from 'next/navigation';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '@/features/muiThemes/theme';

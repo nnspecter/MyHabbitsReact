@@ -1,8 +1,8 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useConfigureHabit } from '@/api/mutations';
-import { ConfigureHabbit, Habit} from '@/api/api';
-import { useAllGroups } from '@/api/queries';
+import { useConfigureHabit } from '@/shared/api/mutations';
+import { ConfigureHabbit, Habit} from '@/shared/api/api';
+import { useAllGroups } from '@/shared/api/queries';
 import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';

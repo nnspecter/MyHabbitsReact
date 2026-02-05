@@ -1,8 +1,8 @@
 import { Input, InputAdornment } from '@mui/material';
 import { useState } from 'react'
-import { useNewRecord } from '@/api/mutations';
+import { useNewRecord } from '@/shared/api/mutations';
 import InputLenght from '@/features/Input/InputLenght';
-import { uiSettingsStore } from '@/ZustandStore/uiSettingsStore';
+import { uiSettingsStore } from '@/shared/ZustandStore/uiSettingsStore';
 
 interface Record {
   habitId: number;

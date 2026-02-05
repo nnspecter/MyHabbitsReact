@@ -1,6 +1,6 @@
 import { Input } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { useNewRecord } from '@/api/mutations';
+import { useNewRecord } from '@/shared/api/mutations';
 
 
 interface record {

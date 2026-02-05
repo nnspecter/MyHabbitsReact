@@ -2,10 +2,10 @@
 import styles from "./Settings.module.scss";
 import MainSettings from './MainSettings/MainSettings';
 import GroupSettings from './GroupsSettings/GroupSettings';
-import { useStore } from "@/ZustandStore/store";
+import { useStore } from "@/shared/ZustandStore/store";
 import CurrentGroupSettings from "./CurrentGroupSettings/CurrentGroupSettings";
 import { MountAnimation } from "@/animations/MountAnimation";
-import { useAllGroups, useSettingsConfig } from "@/api/queries";
+import { useAllGroups, useSettingsConfig } from "@/shared/api/queries";
 import { CircularProgress } from "@mui/material";
 
 const SettingsPreview = () => {

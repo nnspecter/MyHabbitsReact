@@ -1,8 +1,8 @@
 "use client"
 import {  Checkbox } from '@mui/material'
-import { useConfigureSettings } from '@/api/mutations'
+import { useConfigureSettings } from '@/shared/api/mutations'
 import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
-import { SettingsConfigData } from '@/api/api';
+import { SettingsConfigData } from '@/shared/api/api';
 
 const MainSettings = ({settings}:{settings: SettingsConfigData}) => {
   const useConfigureSettingsMutation = useConfigureSettings();

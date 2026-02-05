@@ -3,7 +3,7 @@ import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '@/features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '@/features/SettingsButtons/DeleteHabitButton'
 import HabitSettingsButton from '@/features/SettingsButtons/HabitSettingsButton'
-import { Habit } from "@/api/api"
+import { Habit } from "@/shared/api/api"
 
 
 const HabitsSettings = ({habits, groupId}:{habits: Habit[], groupId: number}) => {

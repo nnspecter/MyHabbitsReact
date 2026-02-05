@@ -1,7 +1,7 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useNewRecord } from '../../api/mutations';
-import { Habit, NewRecord} from '@/api/api'
+import { useNewRecord } from '../../shared/api/mutations';
+import { Habit, NewRecord} from '@/shared/api/api'
 
 interface NewRecordButtonProps {
   groupName: string;
