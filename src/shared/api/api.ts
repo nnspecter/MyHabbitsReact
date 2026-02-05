@@ -179,6 +179,11 @@ interface TimeData{
     sum: number
 }
 
+//Экспорт импорт---------------------------------------------------------------------------------
+export interface ExportResponse{
+    groups: HabitsGroup;
+}
+
 
 //Регистрация------------------------------------------------------------------------------------------
 
@@ -302,5 +307,11 @@ export const getDashboardHabbits = async (date: string) => {
 //Получение статистики привычки
 export const getHabitStats = async (id: number) => {
     const res =  await axiosApi.get(`/api/habits/${id}/stats`);
+    return res.data
+}
+
+//Экспорт данных-----------------------------------------------------------------------------------------
+export const startExport = async (): Promise<ExportResponse> => {
+    const res =  await axiosApi.get(`/api/export`);
     return res.data
 }

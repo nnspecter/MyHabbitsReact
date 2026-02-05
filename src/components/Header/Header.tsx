@@ -4,6 +4,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import PlaylistAddCheckCircleIcon from '@mui/icons-material/PlaylistAddCheckCircle';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
+import { LogOut } from '@/shared/api/api';
+import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
 const Header = () => {
   return (
     <header className={styles.header}>
@@ -17,7 +19,7 @@ const Header = () => {
             <li><Link href="/table"><TableRowsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
             <li><Link href="/settings"><SettingsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
             <li><Link href="/analytics"><AnalyticsIcon style={{fontSize: "var(--headerFontSize)"}}/></Link></li>
-            
+            <LogOutButton/>
             
           </ul>
         </nav>

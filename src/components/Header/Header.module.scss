@@ -42,13 +42,16 @@
       
 
       li {
+        display: flex;
+        align-items: center;
         a {
           color: #454545;
           text-decoration: none;
           font-weight: 600;
           transition: color 0.3s;
           font-size: var(--headerFontSize);
-
+          align-items: center;
+          display: flex;
           &:hover {
             color: #272727;
           }

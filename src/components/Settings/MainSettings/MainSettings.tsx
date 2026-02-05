@@ -3,6 +3,7 @@ import {  Checkbox } from '@mui/material'
 import { useConfigureSettings } from '@/shared/api/mutations'
 import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
 import { SettingsConfigData } from '@/shared/api/api';
+import { ExportButton } from '@/features/SettingsButtons/ExportImport/Buttons/ExportButton';
 
 const MainSettings = ({settings}:{settings: SettingsConfigData}) => {
   const useConfigureSettingsMutation = useConfigureSettings();
@@ -19,7 +20,8 @@ const MainSettings = ({settings}:{settings: SettingsConfigData}) => {
               checked={settings.showHidden}
               sx={{ color: '#454545','&.Mui-checked': {color: '#454545',}}}
               />
-              <LogOutButton/>
+              <ExportButton/>
+              
           </div>
   )
 }
