@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import { addGroup, deleteGroup, NewGroup, ConfigureGroup,  NewHabbit, ConfigureHabbit,  configureGroup, configureSettings, ConfigureSettings, addHabit, deleteHabit, configureHabit, NewRecord, newRecord, startExport } from "./api";
+import { addGroup, deleteGroup, NewGroup, ConfigureGroup,  NewHabbit, ConfigureHabbit,  configureGroup, configureSettings, ConfigureSettings, addHabit, deleteHabit, configureHabit, NewRecord, newRecord, startExport, ExportResponse, startImport } from "./api";
 import { queryClient } from "./queryCient";
 import { queryKeys } from "./queryKeys";
 
@@ -98,8 +98,21 @@ export const useNewRecord = () => {
   });
 }
 
-export function useExportData() {
+export const useExportData = () => {
   return useMutation({
     mutationFn: startExport,
+  });
+}
+
+export const useImportData = () => {
+  return useMutation({
+
+    mutationFn: (data: ExportResponse) => startImport(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.groups], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettings], exact: false });
+      queryClient.invalidateQueries({ queryKey: [queryKeys.GroupSettingsConfig], exact: false });
+      queryClient.invalidateQueries({ queryKey: ["groups", "byDate"], exact: false });
+    },
   });
 }

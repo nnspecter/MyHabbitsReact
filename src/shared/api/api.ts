@@ -185,6 +185,7 @@ export interface ExportResponse{
 }
 
 
+
 //Регистрация------------------------------------------------------------------------------------------
 
 
@@ -310,8 +311,17 @@ export const getHabitStats = async (id: number) => {
     return res.data
 }
 
-//Экспорт данных-----------------------------------------------------------------------------------------
+//Экспорт- импорт данных-----------------------------------------------------------------------------------------
+
+//Экспорт
 export const startExport = async (): Promise<ExportResponse> => {
     const res =  await axiosApi.get(`/api/export`);
     return res.data
 }
+//Импорт
+export const startImport = async (data: ExportResponse) => {
+    const res =  await axiosApi.post(`/api/import`, data);
+    return res.data
+}
+
+
