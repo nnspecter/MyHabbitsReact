@@ -1,6 +1,6 @@
 import { Checkbox, Input } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { useNewRecord } from '@/shared/api/mutations';
+import { useNewRecord } from '@/shared/api/mutations/mutations';
 
 
 interface record {

@@ -4,8 +4,9 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import PlaylistAddCheckCircleIcon from '@mui/icons-material/PlaylistAddCheckCircle';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
-import { LogOut } from '@/shared/api/api';
 import LogOutButton from '@/features/SettingsButtons/LogOutButton ';
+
+
 const Header = () => {
   return (
     <header className={styles.header}>

@@ -9,7 +9,7 @@ import { useEffect} from "react";
 import { useDashboardHabbit } from "@/shared/api/queries";
 import { MountAnimation } from "@/animations/MountAnimation";
 import { SortBoard } from "./SortBoard/SortBoard";
-import { HabitsGroup } from "@/shared/api/api";
+import { HabitsGroup } from "@/shared/api/types/dashboard";
 dayjs.extend(customParseFormat);
 
 
@@ -18,7 +18,7 @@ const SortableDashBoard = () => {
   const date = dayjs(selectedDate).format("DD.MM.YYYY");
   
   //реализую выдачу полям из родителя
-  const{data, isPending, isError, error} = useDashboardHabbit(selectedDate);
+  const{data, isPending, isFetching, isError, error} = useDashboardHabbit(selectedDate);
   
   useEffect(()=>{
     console.log("Дашборд",data)
@@ -60,12 +60,12 @@ const SortableDashBoard = () => {
           
           <div className={styles.habitBody}>
             {isError && <div className="tableLoading">Возникла ошибка</div>}
-            {isPending && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
+            {isPending && isFetching && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
             {!isPending && data?.data.groups.length === 0 && (
               <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
             )}
 
-            {data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
+            {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
                 <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff", position: "relative"}} defaultExpanded>
                   <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                     <div className="medFont1">{group.name}</div>

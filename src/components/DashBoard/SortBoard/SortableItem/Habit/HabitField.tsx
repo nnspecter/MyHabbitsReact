@@ -6,8 +6,9 @@ import TextField from './Fields/TextField';
 import NumberField from './Fields/NumberField';
 import GeneralCheckBox from './Fields/GeneralCheckBox';
 import TimeFields from './Fields/TimeFields';
-import { Habit } from '@/shared/api/api';
+
 import { useStore } from '@/shared/ZustandStore/store';
+import { Habit } from '@/shared/api/types/dashboard';
 dayjs.extend(customParseFormat);
 
 
@@ -23,7 +24,7 @@ const HabitField = ({habit}: {habit: Habit}) => {
         if (!selectedDate) return;
 
         const currentRecord = habit.records.find(el => el.date === selectedDate);
-        console.log("Current Record:", currentRecord);
+        
         if (currentRecord) {
             setRecord(prev => ({ ...prev, value: currentRecord.value, date: selectedDate }));
         } else {
@@ -33,7 +34,7 @@ const HabitField = ({habit}: {habit: Habit}) => {
 
     return (
         <div className={styles.habit}>
-            <div className="smallFont1 truncated">
+            <div className="smallFont1 truncated" >
                 {habit.name}:
             </div>
             <div className={styles.habitField}>
@@ -47,7 +48,6 @@ const HabitField = ({habit}: {habit: Habit}) => {
                 : habit.type === "TIME" &&
                     <TimeFields record={record}/>
                 }
-                
             </div>
         </div>
   )

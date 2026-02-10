@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { useExportData } from '@/shared/api/mutations';
+import { useExportData } from '@/shared/api/mutations/mutations';
 import { downloadJson } from '../Functions/downloadJSON';
 
 

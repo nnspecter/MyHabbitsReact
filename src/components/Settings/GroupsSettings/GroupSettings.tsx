@@ -1,29 +1,17 @@
 "use client"
-import React from 'react'
 import styles from "./GroupSettings.module.scss"
-import { HabitsGroup } from '@/shared/api/api'
 import DeleteButton from '@/features/SettingsButtons/DeleteButton'
 import NewGroupButton from '@/features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'
 import { ToGroupSettingsButton } from '@/features/SettingsButtons/ToGroupSettingsButton'
+import { HabitsGroup } from '@/shared/api/types/table'
 
 interface GroupSettingsProps {
   groups: HabitsGroup[];
+
 }
 
-const GroupSettings:React.FC<GroupSettingsProps> = ({groups}) => {
-  if(groups.length === 0){
-    return (
-      <div className={styles.GroupSettings}>
-        <div className={styles.emptyGroups}>
-          <div className='tableLoading'>Группы отсутствуют</div>
-          <NewGroupButton/>
-        </div>
-        
-
-      </div>
-    )
-  }
+const GroupSettings= ({groups}: GroupSettingsProps) => {
 
   return (
     <div className={styles.GroupSettings}>

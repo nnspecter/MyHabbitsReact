@@ -1,16 +1,16 @@
 .habit{
     height: auto;
     width: var(--dashboardWidth);
-    
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    
     
 
     .habitField{
         display: flex;
         justify-content: flex-start;
-        width: 85%;
+        width: 45%;
 
         
     }

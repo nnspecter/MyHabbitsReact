@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { ExportResponse } from "../api/api";
+import { ExportResponse } from "../api/types/settings/export";
+
 
 //хранилище экспортируемых данных
 interface FileDataStore{

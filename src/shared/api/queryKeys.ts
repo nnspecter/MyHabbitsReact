@@ -1,8 +1,13 @@
 export const queryKeys = {
     login: ["login"] as const,
-    groups: ["groups"] as const,
-    groupsByDate: (startDate: string, endDate: string) => ["groups", "byDate", startDate, endDate] as const,
-    groupsDashboard: (selectedDate: string) => ["groups", "dashboard", selectedDate] as const,
+    table: {
+        all: ["table"] as const,
+        byDate: (startDate: string, endDate: string) => ["table", startDate, endDate] as const,
+    },
+    dashboard: {
+        all: ["dashboard"] as const,
+        byDate: (selectedDate: string) => ["dashboard", selectedDate] as const,
+    },
     GroupSettings: ["GroupSettings"] as const,
     GroupSettingsConfig: ["GroupSettingsConfig"] as const,
     habitStats: (id: number) => ["habitStats", id] as const,  

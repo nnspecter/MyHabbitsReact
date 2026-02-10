@@ -5,8 +5,9 @@ import { useStore } from '@/shared/ZustandStore/store';
 import { useHabbits } from '@/shared/api/queries';
 import { dateFormatter } from "@/features/DateFormatters/DateFormatter";
 import dayjs from 'dayjs';
-import { Habit, HabitsGroup, Record } from '@/shared/api/api';
+
 import { isLight } from '@/features/ColorChanger/isLight';
+import { Record } from '@/shared/api/types/table';
 
 
 
@@ -137,8 +138,8 @@ const CustomTable = () => {
           {/* Тело таблицы */}
           <TableBody>
             {groups.map((group, gKey) => {
-              // Если у группы нет привычек, создаем "пустой" объект привычки
-              const habits: Habit[] = group.habits.length > 0 ? group.habits : [{ 
+              // Если у группы нет привычек,"пустой" объект привычки
+              const habits = group.habits.length > 0 ? group.habits : [{ 
                 id: -99,
                 name: 'Пустая группа',
                 type: "TEXT",

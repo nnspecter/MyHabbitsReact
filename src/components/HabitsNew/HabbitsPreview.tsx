@@ -8,6 +8,8 @@ import { todayDate } from "@/features/TodayDate/TodayDate";
 import { Button } from "@mui/material";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+
+
 const HabbitsPreview = () => {
   const {selectedTableDate, updateTableDate} = useStore();
   const date = dayjs(selectedTableDate).format("DD.MM.YYYY")

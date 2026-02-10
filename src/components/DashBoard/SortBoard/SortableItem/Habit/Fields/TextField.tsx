@@ -1,6 +1,6 @@
 import { Input, InputAdornment } from '@mui/material';
 import { useState } from 'react'
-import { useNewRecord } from '@/shared/api/mutations';
+import { useNewRecord } from '@/shared/api/mutations/mutations';
 import InputLenght from '@/features/Input/InputLenght';
 import { uiSettingsStore } from '@/shared/ZustandStore/uiSettingsStore';
 

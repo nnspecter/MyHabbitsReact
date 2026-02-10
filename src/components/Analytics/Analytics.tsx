@@ -1,5 +1,4 @@
 import { MountAnimation } from "@/animations/MountAnimation"
-import GraphicsPanel from "./GraphicsPanel/GraphicsPanel"
 import MetricsPanel from "./MetricsPanel/MetricsPanel"
 
 

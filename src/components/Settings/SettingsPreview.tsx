@@ -17,17 +17,24 @@ const SettingsPreview = () => {
   const currentGroups = allGroupsQuery?.data;
   const settingsConfig = settingsConfigQuery?.data;
 
-  if (isPendingAllGroups || isPendingSettingsConfig) {
-    return <div className="tableLoading"><CircularProgress/></div>;
-  }
+
+
   return (
     <MountAnimation>
     <div className={styles.settingsPreview}>
       <div className={styles.settings}>
         <div className={`medFont2 ${styles.title}`}>Настройки</div>
-        <MainSettings settings={settingsConfig} />
+
+          {isPendingSettingsConfig ? 
+            <div className="tableLoading">
+              <CircularProgress sx={{color: "#454545"}}/>
+            </div>
+          : <MainSettings settings={settingsConfig} />}
+
       </div>
-      
+
+
+
       {selectedGroupId ? (
         <MountAnimation key={"currentGroup"}>
           <CurrentGroupSettings />
@@ -36,7 +43,13 @@ const SettingsPreview = () => {
         <MountAnimation key={"GroupSettings"}>
           <div className={styles.settings}>
             <div className={`medFont2 ${styles.title}`}>Настройки групп</div>
-            <GroupSettings groups={currentGroups} />
+              
+              {isPendingAllGroups ?
+                <div className="tableLoading">
+                  <CircularProgress sx={{color: "#454545"}}/>
+                </div>
+                : <GroupSettings groups={currentGroups} />}
+          
           </div>
         </MountAnimation>
       )}

@@ -1,14 +1,15 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react'
-import { useConfigureGroup } from '@/shared/api/mutations';
+import { useConfigureGroup } from '@/shared/api/mutations/mutations';
 import { HexColorPicker } from 'react-colorful';
 import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
-import { HabitsGroup } from '@/shared/api/api';
+import { HabbitsAllGroups } from '@/shared/api/types/settings/allGroups';
 
 
-const GroupSetiingsButton = ({group}: {group: HabitsGroup}) => {
+
+const GroupSetiingsButton = ({group}: {group: HabbitsAllGroups}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const ConfigureMutation = useConfigureGroup();

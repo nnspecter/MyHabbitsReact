@@ -20,8 +20,9 @@ import {
 
 import {SortableItem} from './SortableItem';
 
-import { Habit } from '../../../shared/api/api';
-import { useConfigureGroup } from '../../../shared/api/mutations';
+
+import { useConfigureGroup } from '@/shared/api/mutations/mutations';
+import { Habit } from '@/shared/api/types/dashboard';
 
 interface SortBoardProps {
     habits: Habit[];

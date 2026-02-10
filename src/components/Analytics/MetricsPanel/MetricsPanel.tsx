@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
 import styles from "./MetricsPanel.module.scss"
 import { useAllGroups} from '@/shared/api/queries'
 import UniversalMetrics from './UniversalMetrics/UniversalMetrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
 import { useStore } from '@/shared/ZustandStore/store';
 import TypicalMetrics from './TypicalMetrics/TypicalMetrics';
-import { Habit } from '@/shared/api/api';
+
 
 
 const MetricsPanel = () => {
