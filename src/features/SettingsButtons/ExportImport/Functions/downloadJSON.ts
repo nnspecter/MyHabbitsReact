@@ -1,4 +1,5 @@
-import { ExportResponse } from "@/shared/api/api";
+import { ExportResponse } from "@/shared/api/types/settings/export";
+
 
 export const downloadJson = (data: ExportResponse, fileName: string) => {
   const json = JSON.stringify(data, null, 2);
