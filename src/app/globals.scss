@@ -4,7 +4,7 @@ html, body, #__next {
   font-family: Roboto, sans-serif;
   scrollbar-gutter: stable ;
   width: 100%;
-  background-color: #ACACAC;
+  background-color: #FBFBF8;//#ACACAC;
 }
 :root{
   //общие 
@@ -13,8 +13,12 @@ html, body, #__next {
   --containersMargin: 10%;
   --containersMarginBottom: 5%;
   --gap: 20px;
-  --background: #D9D9D9;
-  --textColor: #454545;
+  --background: #FBFBF8;//#D9D9D9;
+  --textColor: #454545dd;
+  --containerShadow: 
+    0px 10px 20px 3px rgba(41, 41, 41, 0.2),
+    0px -2px 20px 2px rgb(255, 255, 255);
+  --containerBorder: 1px solid rgba(213, 213, 213, 0.4);
   --sFontSize: 12pt;
   --mFontSize: 20pt;
   --itemsGap: 20px;
@@ -41,6 +45,10 @@ html, body, #__next {
   //дашборд - завершено
   --dashboardWidth: 90%;
   --dashboardJustify: space-between; 
+  --dashboardShadow: 
+    0px 5px 20px 3px rgba(41, 41, 41, 0.2),
+    0px -2px 20px 2px rgb(255, 255, 255);
+  --dashboardBorderRadius: 10px;
   //настройки
   //аналитика
   --amobileCenter: flex-start;
@@ -58,8 +66,11 @@ html, body, #__next {
   margin-top: var(--containersMargin);
   margin-bottom: var(--containersMarginBottom);
   height: auto;
-  background-color: #D9D9D9;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  background-color: var(--background);
+  border: var(--containerBorder);
+  box-shadow: 
+    0px 10px 20px 3px rgba(41, 41, 41, 0.2),
+    0px -2px 20px 2px rgb(255, 255, 255);
   border-radius: 10px;
   gap: var(--gap);
   padding: var(--padding);
@@ -100,7 +111,7 @@ html, body, #__next {
   display: flex;
   align-items: center;
   margin-left: auto;
-  color: #454545;
+  color: var(--textColor);
   text-decoration: none;
   font-weight: 700;
   font-size: calc(var(--mFontSize) - 6pt);

@@ -4,8 +4,8 @@
     justify-self: center;
     width: var(--containerWidth);
     height: auto;
-    background-color: #D9D9D9;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    background-color: var(--background);
+    box-shadow: var(--containerShadow);
     padding: 10px;
     border-radius: 10px;
     gap: var(--gap);

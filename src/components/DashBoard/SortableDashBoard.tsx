@@ -64,9 +64,15 @@ const SortableDashBoard = () => {
             {!isPending && data?.data.groups.length === 0 && (
               <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
             )}
-
+            <div className={styles.accordionWrapper}>
             {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
-                <Accordion key={`dashboardGroupAccordionKey-${groupKey}`} sx={{backgroundColor: "#e9e9e9ff", position: "relative"}} defaultExpanded>
+              <div className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
+                <Accordion  sx={{
+                  backgroundColor: "var(--background)",
+                  position: "relative",
+                  boxShadow: "var(--dashboardShadow) inset",
+                  
+                  borderRadius:"var(--dashboardBorderRadius)" }} defaultExpanded>
                   <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                     <div className="medFont1">{group.name}</div>
                   </AccordionSummary>
@@ -81,8 +87,9 @@ const SortableDashBoard = () => {
                     <SortBoard groupId={group.id} habits={group.habits}/>
                   </div>
                 </Accordion>
-              
+              </div>
             ))}
+            </div>
           </div>
           
           
