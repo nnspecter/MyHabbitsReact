@@ -41,7 +41,7 @@ const LogOutButton = () => {
           style={{ fontSize: "12pt", fontWeight: "700", padding: "0", margin: "0", minWidth: 'auto',}}
         >
           <div className='smallFont2' style={{color: "#AA3333", display: "flex", justifyContent:"center"}}>
-            <ExitToAppIcon style={{fontSize: "var(--headerFontSize)"}}/>
+            <ExitToAppIcon style={{fontSize: "var(--headerFontSize)", color: "var(--background)"}}/>
           </div>
         </Button>
       <Dialog

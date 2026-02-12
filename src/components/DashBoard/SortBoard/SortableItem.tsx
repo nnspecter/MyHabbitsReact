@@ -40,7 +40,9 @@ export const SortableItem = ({habit}:{habit: Habit}) =>  {
               sx={{
                 cursor: "grab",
                 mr: 1,
-                "&:active": { cursor: "grabbing" },
+                color: "#d5d5d5",
+                "&:active": { cursor: "grabbing", color: "var(--textColor)" },
+                "&:hover": { color: "var(--textColor)" },
                 touchAction: "none",
               }}
               style={{touchAction: "none"}}

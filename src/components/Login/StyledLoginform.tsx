@@ -104,7 +104,7 @@ const AuthentificationForm = () => {
               {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
             </div>
             <div className={styles.formButton}>
-              <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
+              <Button variant='contained' type="submit"  style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>
               <div className={styles.lowerText}>
                 Нет аккаунта? 
                 <Link href="/registration">Зарегистрироваться</Link>

@@ -34,10 +34,10 @@ export const ImportButton = () => {
         <Button 
           variant="text"
           onClick={handleClickOpen}
-          sx={{color: "#ACACAC", textTransform: 'none', background: "#454545", borderRadius: "10px"}}
+          sx={{color: "#ACACAC", textTransform: 'none', background: "var(--buttonColor)", borderRadius: "10px"}}
           style={{ fontSize: "12pt", fontWeight: "700", padding: "10px", margin: "0", minWidth: 'auto',}}
         >
-          <div className='smallFont2' style={{color: "#D9D9D9", display: "flex", justifyContent:"center"}}>
+          <div className='smallFont2' style={{color: "var(--background)", display: "flex", justifyContent:"center"}}>
             Импорт
             <FileUploadIcon style={{fontSize: "var(--headerFontSize)"}}/>
           </div>

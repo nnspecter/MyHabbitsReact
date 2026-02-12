@@ -103,7 +103,7 @@ const CustomTable = () => {
         component={Paper}
         sx={{
           overflowX: 'auto',
-          filter: isFetching ? 'blur(1px)' : 'none',
+          filter: isFetching ? 'blur(0px)' : 'none',
           pointerEvents: false ? 'none' : 'auto', }}
           ref={tableContainerRef}
         //onScroll={handlleScroll}

@@ -82,10 +82,10 @@ const NewHabitButton = ({groupId}: {groupId: number}) => {
         <Button 
           variant='contained'
           onClick={handleClickOpen}
-          sx={{maxWidth: "20px", background: "#454545"}}
+          sx={{maxWidth: "20px", background: "var(--buttonColor)"}}
           style={{ fontSize: "12pt", fontWeight: "bold", borderRadius: "5px", height: "30px"}}
         >
-          <div className='smallFont2' style={{color: "#ffff"}}>+</div>
+          <div className='smallFont2' style={{color: "var(--background)"}}>+</div>
         </Button>
       <Dialog
         open={open}

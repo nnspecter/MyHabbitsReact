@@ -50,6 +50,12 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            button{
+                background: var(--textColor);
+                box-shadow: var(--buttonShadow);
+                border: var(--containerBorder);
+                color: var(--background)
+            }
             .lowerText{
                 justify-self: center;
                 color: #454545;

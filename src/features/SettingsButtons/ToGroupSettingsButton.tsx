@@ -8,10 +8,10 @@ export const ToGroupSettingsButton = ({groupId} : {groupId: number}) => {
   return (
     <SettingsStyledButton
         variant="contained"
-        onClick={() => setSelectedGroupId(groupId)} sx={{background: "#454545"}}
+        onClick={() => setSelectedGroupId(groupId)} sx={{background: "var(--buttonColor)"}}
         
     >
-        <div className='smallFont1' style={{color: "#ffff", display: "flex"}}> 
+        <div className='smallFont1' style={{color: "var(--background)", display: "flex"}}> 
           <SettingsIcon/>
         </div>
     </SettingsStyledButton>

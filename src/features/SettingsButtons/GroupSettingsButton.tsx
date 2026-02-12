@@ -60,9 +60,9 @@ const GroupSetiingsButton = ({group}: {group: HabbitsAllGroups}) => {
         <SettingsStyledButton
           variant='contained'
           onClick={handleClickOpen}
-          sx={{background: "#454545"}}
+          sx={{background: "var(--buttonColor)"}}
         >
-          <div className='smallFont1' style={{color: "#ffff", display: "flex"}}><SettingsIcon/></div>
+          <div className='smallFont1' style={{color: "var(--background)", display: "flex"}}><SettingsIcon/></div>
         </SettingsStyledButton>
 
       <Dialog

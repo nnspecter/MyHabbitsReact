@@ -35,7 +35,7 @@ const CurrentGroupSettings = () => {
           <Button
             onClick={() => setSelectedGroupId(null)}
             variant="contained"
-            sx={{borderRadius: 2, padding: 0.5, minWidth: "30px", color: "#D9D9D9", backgroundColor: "#454545",}}
+            sx={{borderRadius: 2, padding: 0.5, minWidth: "30px", color: "var(--background)", backgroundColor: "var(--buttonColor)",}}
           ><ArrowBackIcon/>
           </Button>
           <div className="medFont2">Группа: {group.name}</div>

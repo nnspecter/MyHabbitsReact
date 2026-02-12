@@ -21,14 +21,14 @@ const HabbitsPreview = () => {
             <div className='medFont2'>Превью записей</div>
           </div>
           <div className={styles.right}>
-            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "#454545"}} onClick={() => updateTableDate("left")} ><KeyboardArrowLeftIcon/></Button>
+            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "var(--buttonColor)"}} onClick={() => updateTableDate("left")} ><KeyboardArrowLeftIcon/></Button>
             <div className="date">
               <TablePopOver/>
               <div className="medFont0" >{/* style={{color: todayDate(date) && "rgb(57, 179, 84)" }} */}
                 {date} {todayDate(date) && "*"}
               </div>
             </div>
-            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "#454545"}} onClick={() => updateTableDate("right")} ><ChevronRightIcon/></Button>
+            <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "var(--buttonColor)"}} onClick={() => updateTableDate("right")} ><ChevronRightIcon/></Button>
           </div>
         </div>
         <div className={styles.table}>
