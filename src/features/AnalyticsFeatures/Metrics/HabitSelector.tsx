@@ -56,9 +56,9 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
         </FormControl>
 
         <div style={{display: "flex", flexDirection: "row", gap: 10, minHeight: "100px", flexWrap: "wrap", justifyContent: "var(--amobileCenter)"}}>
-            {selectedGroup.habits.map((e, index) => 
+            {selectedGroup.habits.map((e) => 
                 <Button 
-                    key={`habitAInd${index}`}
+                    key={`habitAInd${e.id}`}
                     variant='contained'
                     sx={{background: selectedHabitId === e.id ? "#287426ff" : "#454545", height: "50%"}}
                     onClick={() => handleHabitChange(e.id)}
