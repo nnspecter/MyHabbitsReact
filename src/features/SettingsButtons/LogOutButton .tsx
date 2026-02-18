@@ -66,7 +66,7 @@ const LogOutButton = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
+          <Button onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
           <Button onClick={() => { handleClose(); handleLogOut();}} autoFocus sx={{color: "#AA3333"}}>

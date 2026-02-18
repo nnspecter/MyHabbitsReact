@@ -132,7 +132,7 @@ const NewRecordButton: React.FC<NewRecordButtonProps> = ({habit, groupName})   =
 
         </DialogContent>
         <DialogActions sx={{display: "flex", justifyContent: "space-between"}}>
-          <Button autoFocus onClick={handleClose}>
+          <Button onClick={handleClose}>
             Отмена
           </Button>
           <Button onClick={handleAccept} autoFocus>

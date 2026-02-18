@@ -97,7 +97,7 @@ const GroupSetiingsButton = ({group}: {group: HabbitsAllGroups}) => {
           <HexColorPicker color={newSettings.color} onChange={handleColorChange} style={{boxShadow: "0 4px 4px rgba(0,0,0,0.1)"}}/>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
+          <Button onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
           <Button onClick={handleAccept} autoFocus sx={{color: "#454545"}}>
