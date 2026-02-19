@@ -30,11 +30,6 @@ const GroupSetiingsButton = ({group}: {group: HabbitsAllGroups}) => {
     })
   }, [group])
 
-  const handleColorChange = useCallback((newColor: string) =>{
-    setNewSettings(prev => ({
-      ...prev, color: newColor
-    }))
-  }, []);
     
   const handleNameChange = (newName: string) =>{
     setNewSettings(prev => ({
@@ -94,7 +89,7 @@ const GroupSetiingsButton = ({group}: {group: HabbitsAllGroups}) => {
               </InputAdornment>
             }
          />
-          <HexColorPicker color={newSettings.color} onChange={handleColorChange} style={{boxShadow: "0 4px 4px rgba(0,0,0,0.1)"}}/>
+          <HexColorPicker color={newSettings.color} onChange={(newColor) => setNewSettings(prev => ({...prev, color: newColor }))} style={{boxShadow: "0 4px 4px rgba(0,0,0,0.1)"}}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} sx={{color: "#454545"}}>

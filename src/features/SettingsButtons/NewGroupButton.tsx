@@ -11,9 +11,7 @@ const NewGroupButton = () => {
     const [open, setOpen] = React.useState(false);
     const addMutation = useAddGroup();
 
-    const handleColorChange = useCallback(() =>{
-      setColor(color);
-    }, []);
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -65,7 +63,7 @@ const NewGroupButton = () => {
               </InputAdornment>
             }
           />
-          <HexColorPicker color={color} onChange={handleColorChange}/>
+          <HexColorPicker color={color} onChange={setColor}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} sx={{color: "#454545"}}>
