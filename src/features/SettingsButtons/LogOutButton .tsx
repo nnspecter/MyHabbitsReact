@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
@@ -66,7 +67,7 @@ const LogOutButton = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
+          <Button onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
           <Button onClick={() => { handleClose(); handleLogOut();}} autoFocus sx={{color: "#AA3333"}}>

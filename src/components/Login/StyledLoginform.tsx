@@ -56,7 +56,9 @@ const AuthentificationForm = () => {
   const LoginMutation = useMutation({
     mutationFn: (data: LoginData) => startLogin(data),  
     onSuccess: () => {
+      setTimeout(() => {
         router.push("/table");
+      }, 5000);
     },
     onError: (error) => {
         console.error(error);

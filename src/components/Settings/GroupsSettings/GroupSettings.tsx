@@ -17,8 +17,8 @@ const GroupSettings= ({groups}: GroupSettingsProps) => {
     <div className={styles.GroupSettings}>
       
         
-        {groups.map((group, index) => (
-            <div key= {`gsettings ${index}`} className={styles.group}>
+        {groups.map((group) => (
+            <div key= {`groupsSettings-${group.id}`} className={styles.group}>
                 <div>
                      <div className='settingsTruncated smallFont2'>{group.name} </div>
                 </div>
