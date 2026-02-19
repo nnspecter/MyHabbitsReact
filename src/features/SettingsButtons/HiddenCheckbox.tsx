@@ -1,20 +1,31 @@
 import { Checkbox } from '@mui/material'
 import { useConfigureGroup } from '@/shared/api/mutations/mutations';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 const HiddenCheckbox = ({id, hidden}: {id: number, hidden: boolean}) => {
     const[checked, setChecked] = useState(hidden);
     const hiddenMutation = useConfigureGroup();
+    const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    };
+    const timer = setTimeout(() => {
+      hiddenMutation.mutate({
+        groupId: id,
+        hidden: checked
+      });
+    }, 1000);
+    return () => clearTimeout(timer);
+    }, [checked]);
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(e.target.checked);
-        hiddenMutation.mutate({
-            groupId: id,
-            hidden: e.target.checked
-        });
-        console.log(id)
     }
+
   return (
     <div style={{display: "flex", alignItems: "center"}}>
       <label style={{display: "flex", alignItems: "center"}}>

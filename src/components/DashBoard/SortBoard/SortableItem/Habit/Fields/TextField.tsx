@@ -1,5 +1,5 @@
 import { Input, InputAdornment } from '@mui/material';
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNewRecord } from '@/shared/api/mutations/mutations';
 import InputLenght from '@/features/Input/InputLenght';
 import { uiSettingsStore } from '@/shared/ZustandStore/uiSettingsStore';
@@ -10,25 +10,28 @@ interface Record {
   value: string | null;
 }
 
-//Компонент с кастомизированным mui Input 
-//После монтирования отображает исходные данные если они есть
-//Добавлен кастомный ограничитель
-//запись происходит без кнопок при анфокусе инпута.
 
 const TextField = ({record}: {record: Record}) => {
     const {dashboardMaxLenght} = uiSettingsStore();
     const newRecordMutation = useNewRecord();
-    const[newRecord, setNewRecord] = useState({
-      habitId: record.habitId,
-      date: record.date,
-      value: record.value
-    });
-
-    const handleAccept = () => {        
+    const[newRecord, setNewRecord] = useState(record);
+    const isFirstRender = useRef(true);
+        
+    useEffect(() => {
+      if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+      };
+      
+      const timer = setTimeout(() => {
         if (record.value !== newRecord.value) {
             newRecordMutation.mutate(newRecord)
         }
-    };
+      }, 1000);
+    return () => clearTimeout(timer);
+    }, [newRecord]);
+
+    
 
   return (
     <Input
@@ -36,7 +39,6 @@ const TextField = ({record}: {record: Record}) => {
         fullWidth
         value={newRecord.value ?? ""}
         onChange={(e) => setNewRecord({...newRecord, value: e.target.value})}
-        onBlur={() => handleAccept()}
         inputProps={{ maxLength: dashboardMaxLenght }}
         endAdornment={
           <InputAdornment position="end">

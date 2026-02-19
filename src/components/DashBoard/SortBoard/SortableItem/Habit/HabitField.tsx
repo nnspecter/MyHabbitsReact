@@ -14,23 +14,13 @@ dayjs.extend(customParseFormat);
 
 const HabitField = ({habit}: {habit: Habit}) => {
     const {selectedDate} = useStore();
+    const currentRecord = habit.records.find(el => el.date === selectedDate);
     const [record, setRecord] = useState({
         habitId: habit.id,
         date: selectedDate,
-        value: null,
+        value: habit.records[0].value,
     });
     
-    useEffect(() => {
-        if (!selectedDate) return;
-
-        const currentRecord = habit.records.find(el => el.date === selectedDate);
-        
-        if (currentRecord) {
-            setRecord(prev => ({ ...prev, value: currentRecord.value, date: selectedDate }));
-        } else {
-            setRecord(prev => ({ ...prev, date: selectedDate }));
-        }
-    }, [selectedDate, habit.records]);
 
     return (
         <div className={styles.habit}>
@@ -40,13 +30,13 @@ const HabitField = ({habit}: {habit: Habit}) => {
             <div className={styles.habitField}>
                 {
                 habit.type === "TEXT" ?
-                    <TextField record={record}/>
+                    <TextField record={{...record, value: String(record.value)}}/>
                 : habit.type === "NUMBER" ?
-                    <NumberField record={record}/>
+                    <NumberField record={{...record, value: Number(record.value)}}/>
                 : habit.type === "GENERAL" ?
-                    <GeneralCheckBox record={record}/>
+                    <GeneralCheckBox record={{...record, value: Boolean(record.value)}}/>
                 : habit.type === "TIME" &&
-                    <TimeFields record={record}/>
+                    <TimeFields record={{...record, value: String(record.value)}}/>
                 }
             </div>
         </div>

@@ -1,5 +1,5 @@
-import { Checkbox, Input } from '@mui/material';
-import { useEffect, useState } from 'react'
+import { Checkbox} from '@mui/material';
+import { useEffect, useRef, useState } from 'react'
 import { useNewRecord } from '@/shared/api/mutations/mutations';
 
 
@@ -12,20 +12,25 @@ interface record {
 const GeneralCheckBox = ({record}: {record: record}) => {
 
     const newRecordMutation = useNewRecord();
-    const[newRecord, setNewRecord] = useState({
-      habitId: record.habitId,
-      date: record.date,
-      value: record.value
-    });
-
-    useEffect(() => {
-          setNewRecord(record);
-        }, [record]);
+    const[newRecord, setNewRecord] = useState(record);
+     const isFirstRender = useRef(true);
+    
+      useEffect(() => {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        };
+        if (newRecord.value === record.value) return;
+        const timer = setTimeout(() => {
+          newRecordMutation.mutate(newRecord);
+          console.log(record.habitId + "GeneralCheckBox ")
+        }, 1000);
+        return () => clearTimeout(timer);
+        }, [newRecord]);
 
     const handleAccept = (checked: boolean) => {
         console.log("Accepted value:", newRecord);
             setNewRecord({...newRecord, value: checked}); 
-            newRecordMutation.mutate({...newRecord, value: checked});
             console.log( "Новая запись создана");
         
     };

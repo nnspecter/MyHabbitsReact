@@ -47,7 +47,8 @@ export function formatTimeFull(hours: number ,minutes: number ,seconds: number):
 }
 
 
-export function UnFormatTime(time:string) : {hours: number; minutes: number; seconds: number} {
+export function UnFormatTime(time: string | null): { hours: number; minutes: number; seconds: number } {
+    if (!time) return { hours: 0, minutes: 0, seconds: 0 };
     const [hStr, mStr, sStr] = time.split(":");
     const hours = parseInt(hStr, 10);
     const minutes = parseInt(mStr, 10);

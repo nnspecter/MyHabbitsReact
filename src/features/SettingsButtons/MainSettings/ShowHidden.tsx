@@ -1,14 +1,27 @@
 import { useConfigureSettings } from '@/shared/api/mutations/mutations';
 import { Checkbox } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const ShowHidden = ({value}: {value: boolean}) => {    
     const [hideAll, setHideAll] = useState(value);
     const useConfigureSettingsMutation = useConfigureSettings();
-
+    const isFirstRender = useRef(true);
+    
+      useEffect(() => {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        };
+        const timer = setTimeout(() => {
+          useConfigureSettingsMutation.mutate({
+            showHidden: hideAll
+          });
+        }, 1000);
+        return () => clearTimeout(timer);
+        }, [hideAll]);
+        
     const handleShowHidden = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHideAll(e.target.checked);
-        useConfigureSettingsMutation.mutate({ showHidden: e.target.checked });
     }
 
     return (

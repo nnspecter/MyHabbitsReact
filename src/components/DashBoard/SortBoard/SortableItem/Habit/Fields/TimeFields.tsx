@@ -1,5 +1,5 @@
 import { Input } from '@mui/material';
-import { use, useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNewRecord } from '@/shared/api/mutations/mutations';
 import { formatTimeFull, UnFormatTime } from '@/features/TimeFormatter/TimeFormatter';
 
@@ -9,100 +9,95 @@ interface record {
   date: string;
   value: string | null;
 }
-//только мутирует
+
 const TimeFields = ({record}: {record: record}) => {
-
     const newRecordMutation = useNewRecord();
-    const[newRecord, setNewRecord] = useState({
-      habitId: record.habitId,
-      date: record.date,
-      value: record.value
-    });
-
-    useEffect(() => {
-      setNewRecord(record);
-    }, [record]);
-    
+    const { hours, minutes, seconds } = UnFormatTime(record.value);
     const [time, setTime] = useState({
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    })
-    
-    useEffect(()=>{
-        if(!record.value) return;
-        const { hours, minutes, seconds } = UnFormatTime(record.value);
-        setTime({
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds
-        })
-    },[record.value])
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+    });
+    const isFirstRender = useRef(true);
+        
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        };
+        const formattedTime = formatTimeFull(time.hours, time.minutes, time.seconds);
+        if (record.value === formattedTime) return;
+        const timer = setTimeout(() => {
+            newRecordMutation.mutate({
+                ...record,
+                value: formattedTime
+            });
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [time]);
 
-    useEffect(()=>{
-        setNewRecord({
-            ...newRecord,
-             value: formatTimeFull(time.hours, time.minutes, time.seconds)
-        })
-    },[time])
+
+    const HandleTimeChange=(e: React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement;
+        const value = Number(e.target.value);
+        if (!target.id) return;
+        switch (target.id) {
+            case "hours":
+                if (value <= 23 && value >= 0) {
+                    setTime(prev => ({ ...prev, hours: value }));
+                }
+                break;
+            case "minutes":
+                if (value <= 59 && value >= 0) {
+                    setTime(prev => ({ ...prev, minutes: value }));
+                }
+                break;
+            case "seconds":
+                if (value <= 59 && value >= 0) {
+                    setTime(prev => ({ ...prev, seconds: value }));
+                }
+                break;
+            default:
+                return;         
+        }
+
+    }
+    
     
     const handleValueDisplay = (value: number) => {
-        if (value===0) return ""
+        if (value===0) return "";
         return value;
     }
     
 
-    const handleAccept = () => {
-        console.log("Accepted value:", newRecord);
-        if (record.value !== newRecord.value) {
-            newRecordMutation.mutate(newRecord);
-            console.log( "Новая запись создана");
-        }
-    };
-
   return (
-    <div>
+    <form >
         <Input
+            id="hours"
             type="number"
             placeholder="Hours"
             value={handleValueDisplay(time.hours)}
-            onChange={(e) => {
-                const value = Number(e.target.value);
-                if (value <= 23 && value >= 0) {
-                setTime({ ...time, hours: value });
-                }
-            }}
-            onBlur={()=> handleAccept()}
+            onChange={HandleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
 
         />
         <Input
+            id="minutes"
             type="number"
             placeholder="Min"
             value={handleValueDisplay(time.minutes)}
-            onChange={(e) => {
-                const value = Number(e.target.value);
-                if (value <= 59 && value >= 0) {
-                setTime({ ...time, minutes: value });
-                }
-            }}
-            onBlur={()=> handleAccept()}
+            onChange={HandleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
         />
         <Input
+            id="seconds"
             type="number"
             placeholder="Sec"
             value={handleValueDisplay(time.seconds)}
-            onChange={(e) => {
-                const value = Number(e.target.value);
-                if (value <= 59 && value >= 0) {
-                setTime({ ...time, seconds: value });
-                }
-            }}
-            onBlur={()=> handleAccept()}
+            onChange={HandleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
         />
-    </div>
+    </form>
   )
 }
 
