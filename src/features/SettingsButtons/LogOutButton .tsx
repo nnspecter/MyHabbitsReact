@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
