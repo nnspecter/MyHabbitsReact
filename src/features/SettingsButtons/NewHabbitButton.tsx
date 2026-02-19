@@ -20,21 +20,7 @@ const NewHabitButton = ({groupId}: {groupId: number}) => {
     })
     const [maxScheduleN, setMaxScheduleN] = useState<number>(1)
 
-    useEffect(()=>{
-      switch(newHabit.schedule){
-        case "EVERYDAY": setMaxScheduleN(1);
-          setNewHabit((prev)=> ({...prev, scheduleN: 1 }));
-          break;
-        case "IN_DAY": setMaxScheduleN(1);
-          setNewHabit((prev)=> ({...prev, scheduleN: 1 }));
-          break;
-        case "N_WEEK": setMaxScheduleN(7);
-          break;
-        case "N_MONTH": setMaxScheduleN(30);
-          break;
-      };
-      console.log(maxScheduleN)
-    },[newHabit.schedule])
+    
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setNewHabit((prev)=>({...prev, name: event.target.value}))
@@ -47,10 +33,24 @@ const NewHabitButton = ({groupId}: {groupId: number}) => {
     const handleHiddenChange = (event: React.ChangeEvent<HTMLInputElement>) => { //+
       setNewHabit((prev)=> ({...prev, hidden: event.target.checked}))
     };
+    
     const handleScheduleChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
       const schedule = event.target.value as "EVERYDAY" | "IN_DAY" | "N_WEEK" | "N_MONTH"; 
       setNewHabit((prev)=> ({...prev, schedule: schedule }))
+      switch(schedule){
+        case "EVERYDAY": setMaxScheduleN(1);
+          setNewHabit((prev)=> ({...prev, scheduleN: 1 }));
+          break;
+        case "IN_DAY": setMaxScheduleN(1);
+          setNewHabit((prev)=> ({...prev, scheduleN: 1 }));
+          break;
+        case "N_WEEK": setMaxScheduleN(7);
+          break;
+        case "N_MONTH": setMaxScheduleN(30);
+          break;
+      };
     };
+
     const handleScheduleNChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setNewHabit((prev => ({...prev, scheduleN: Number(event.target.value)})))
       console.log(event.target.value)
