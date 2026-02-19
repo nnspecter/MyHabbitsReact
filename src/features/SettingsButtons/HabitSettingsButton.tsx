@@ -120,7 +120,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
               onChange={e => handleGroupChange(e.target.value as number)}
             >
               {allGroupsQuery?.data && allGroupsQuery.data.map(group => (
-                <MenuItem value={group.id}>{group.name}</MenuItem>
+                <MenuItem value={group.id} key={`habitSettingsGroupList-${group.id}`}>{group.name}</MenuItem>
               ))}
               
               
@@ -139,7 +139,7 @@ const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId
 
         </DialogContent>
         <DialogActions sx={{display: "flex", justifyContent: "space-between"}}>
-          <Button autoFocus onClick={handleClose} sx={{color: "#454545"}}>
+          <Button onClick={handleClose} sx={{color: "#454545"}}>
             Отмена
           </Button>
           <Button onClick={handleAccept} autoFocus sx={{color: "#454545"}}>

@@ -1,20 +1,12 @@
-'use client'
+import { redirect } from "next/navigation";
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+export default function Page() {
+  redirect("/login");
 
-
-const Page = () => {
-  const router = useRouter();
-  useEffect(()=>{
-    router.push("/login")
-  })
-  
+  // Этот код никогда не рендерится
   return (
     <div>
-      
+      Redirecting to login...
     </div>
-  )
+  );
 }
-
-export default Page

@@ -49,8 +49,8 @@ const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
                 label="Группа"
                 onChange={e => handleGroupChange(Number(e.target.value))}
                 >
-                {groups.map(group => (
-                    <MenuItem value={group.id}>{group.name}</MenuItem>
+                {groups.map((group )=> (
+                    <MenuItem key={`HabitSelectorItem-${group.id}`} value={group.id}>{group.name}</MenuItem>
                 ))}
             </Select>
         </FormControl>
