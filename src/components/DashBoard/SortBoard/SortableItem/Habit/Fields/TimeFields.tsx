@@ -37,7 +37,7 @@ const TimeFields = ({record}: {record: record}) => {
     }, [time]);
 
 
-    const HandleTimeChange=(e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleTimeChange=(e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target as HTMLInputElement;
         const value = Number(e.target.value);
         if (!target.id) return;
@@ -77,7 +77,7 @@ const TimeFields = ({record}: {record: record}) => {
             type="number"
             placeholder="Hours"
             value={handleValueDisplay(time.hours)}
-            onChange={HandleTimeChange}
+            onChange={handleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
 
         />
@@ -86,7 +86,7 @@ const TimeFields = ({record}: {record: record}) => {
             type="number"
             placeholder="Min"
             value={handleValueDisplay(time.minutes)}
-            onChange={HandleTimeChange}
+            onChange={handleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
         />
         <Input
@@ -94,7 +94,7 @@ const TimeFields = ({record}: {record: record}) => {
             type="number"
             placeholder="Sec"
             value={handleValueDisplay(time.seconds)}
-            onChange={HandleTimeChange}
+            onChange={handleTimeChange}
             sx={{ width: '60px', marginRight: '8px' }}
         />
     </form>
