@@ -54,5 +54,9 @@ export function UnFormatTime(time: string | null): { hours: number; minutes: num
     const minutes = parseInt(mStr, 10);
     const seconds = parseInt(sStr, 10);
 
-    return { hours, minutes, seconds };
+    return {
+      hours: isNaN(hours) ? 0 : hours,
+      minutes: isNaN(minutes) ? 0 : minutes,
+      seconds: isNaN(seconds) ? 0 : seconds
+    };
 }

@@ -39,7 +39,9 @@ const TimeFields = ({record}: {record: record}) => {
 
     const handleTimeChange=(e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target as HTMLInputElement;
-        const value = Number(e.target.value);
+        const value = e.target.value === "" ? 0 : Number(e.target.value)
+        if (isNaN(value)) return;
+
         if (!target.id) return;
         switch (target.id) {
             case "hours":
@@ -60,7 +62,6 @@ const TimeFields = ({record}: {record: record}) => {
             default:
                 return;         
         }
-
     }
     
     
