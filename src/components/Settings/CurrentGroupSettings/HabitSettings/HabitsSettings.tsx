@@ -3,7 +3,7 @@ import styles from "./HabitsSettings.module.scss"
 import NewHabitButton from '@/features/SettingsButtons/NewHabbitButton'
 import DeleteHabitButton from '@/features/SettingsButtons/DeleteHabitButton'
 import HabitSettingsButton from '@/features/SettingsButtons/HabitSettingsButton'
-import { Habit } from "@/shared/api/types/settings/allGroups"
+import { Habit } from "@/entities/api/types/settings/allGroups"
 
 
 

@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
-import { useFileDataStore } from '@/shared/ZustandStore/ImportStore';
+import { useFileDataStore } from '@/entities/ZustandStore/ImportStore';
 import { readJsonFile } from '../Functions/readJSON';
 
 

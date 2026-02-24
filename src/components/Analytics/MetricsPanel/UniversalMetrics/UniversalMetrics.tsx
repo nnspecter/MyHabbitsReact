@@ -1,6 +1,6 @@
-import { useHabitStats } from "@/shared/api/queries";
+import { useHabitStats } from "@/entities/api/queries";
 import styles from "./UniversalMetrics.module.scss"
-import OneMetric from "../../../../shared/Analytics/OneMetric/OneMetric";
+import OneMetric from "../../../../entities/Analytics/OneMetric/OneMetric";
 import { CircularProgress } from "@mui/material";
 
 const UniversalMetrics = ({habitId}: {habitId: number}) => {

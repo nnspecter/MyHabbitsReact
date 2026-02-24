@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
-import { useStore } from "@/shared/ZustandStore/store";
+import { useStore } from "@/entities/ZustandStore/store";
 import dayjs from 'dayjs';
 import { ru } from "date-fns/locale";
 

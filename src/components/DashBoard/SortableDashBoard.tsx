@@ -2,14 +2,14 @@ import { Accordion, AccordionSummary, CircularProgress } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./DashBoard.module.scss"
 import { PopOver } from "./DatePicker/PopOver";
-import { useStore } from "@/shared/ZustandStore/store";
+import { useStore } from "@/entities/ZustandStore/store";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useEffect} from "react";
-import { useDashboardHabbit } from "@/shared/api/queries";
+import { useDashboardHabbit } from "@/entities/api/queries";
 import { MountAnimation } from "@/animations/MountAnimation";
 import { SortBoard } from "./SortBoard/SortBoard";
-import { HabitsGroup } from "@/shared/api/types/dashboard";
+import { HabitsGroup } from "@/entities/api/types/dashboard";
 dayjs.extend(customParseFormat);
 
 

@@ -1,4 +1,4 @@
-import { ExportResponse } from "@/shared/api/types/settings/export";
+import { ExportResponse } from "@/entities/api/types/settings/export";
 
 
 export const downloadJson = (data: ExportResponse, fileName: string) => {

@@ -4,7 +4,7 @@ import DeleteButton from '@/features/SettingsButtons/DeleteButton'
 import NewGroupButton from '@/features/SettingsButtons/NewGroupButton'
 import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'
 import { ToGroupSettingsButton } from '@/features/SettingsButtons/ToGroupSettingsButton'
-import { HabitsGroup } from '@/shared/api/types/table'
+import { HabitsGroup } from '@/entities/api/types/table'
 
 interface GroupSettingsProps {
   groups: HabitsGroup[];

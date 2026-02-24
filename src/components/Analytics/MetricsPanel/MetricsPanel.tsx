@@ -1,8 +1,8 @@
 import styles from "./MetricsPanel.module.scss"
-import { useAllGroups} from '@/shared/api/queries'
+import { useAllGroups} from '@/entities/api/queries'
 import UniversalMetrics from './UniversalMetrics/UniversalMetrics';
 import HabitSelector from '@/features/AnalyticsFeatures/Metrics/HabitSelector';
-import { useStore } from '@/shared/ZustandStore/store';
+import { useStore } from '@/entities/ZustandStore/store';
 import TypicalMetrics from './TypicalMetrics/TypicalMetrics';
 
 

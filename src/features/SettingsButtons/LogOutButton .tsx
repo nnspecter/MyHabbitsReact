@@ -3,7 +3,7 @@ import React from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { LogOut } from '@/shared/api/api';
+import { LogOut } from '@/entities/api/api';
 import { useRouter } from 'next/navigation';
 
 

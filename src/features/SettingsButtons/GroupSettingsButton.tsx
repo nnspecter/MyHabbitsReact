@@ -1,11 +1,11 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Input, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react'
-import { useConfigureGroup } from '@/shared/api/mutations/mutations';
+import { useConfigureGroup } from '@/entities/api/mutations/mutations';
 import { HexColorPicker } from 'react-colorful';
 import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
-import { HabbitsAllGroups } from '@/shared/api/types/settings/allGroups';
+import { HabbitsAllGroups } from '@/entities/api/types/settings/allGroups';
 
 
 

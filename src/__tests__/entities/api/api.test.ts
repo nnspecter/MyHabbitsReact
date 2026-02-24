@@ -4,8 +4,8 @@ import {
   GetSettingsConfig, configureSettings, addHabit, deleteHabit, configureHabit,
   newRecord, getDashboardHabbits, getHabitStats,
   startExport, startImport
-} from "@/shared/api/api";
-import { axiosApi } from "../../../shared/api/axiosApi";
+} from "@/entities/api/api";
+import { axiosApi } from "../../../entities/api/axiosApi";
 
 jest.mock("../../../shared/api/axiosApi");
 

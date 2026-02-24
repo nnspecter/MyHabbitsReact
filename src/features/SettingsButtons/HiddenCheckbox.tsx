@@ -1,5 +1,5 @@
 import { Checkbox } from '@mui/material'
-import { useConfigureGroup } from '@/shared/api/mutations/mutations';
+import { useConfigureGroup } from '@/entities/api/mutations/mutations';
 import { useEffect, useRef, useState } from 'react';
 
 

@@ -1,5 +1,5 @@
 import styles from "./Habbits.module.scss"
-import { useStore } from '@/shared/ZustandStore/store';
+import { useStore } from '@/entities/ZustandStore/store';
 import CustomTable from './Table/Table';
 import { TablePopOver } from "./DatePicker/TablePopOver";
 import dayjs from "dayjs";

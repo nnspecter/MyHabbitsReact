@@ -3,7 +3,7 @@ import DeleteButton from '@/features/SettingsButtons/DeleteButton'
 import HiddenCheckbox from '@/features/SettingsButtons/HiddenCheckbox'
 import styles from "./CurrentSettings.module.scss"
 import GroupSetiingsButton from '@/features/SettingsButtons/GroupSettingsButton'
-import { HabbitsAllGroups } from '@/shared/api/types/settings/allGroups'
+import { HabbitsAllGroups } from '@/entities/api/types/settings/allGroups'
 
 
 

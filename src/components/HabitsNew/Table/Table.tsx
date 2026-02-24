@@ -1,13 +1,13 @@
 import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper, Button, CircularProgress, Skeleton } from '@mui/material';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { formatTimeShort } from '@/features/TimeFormatter/TimeFormatter';
-import { useStore } from '@/shared/ZustandStore/store';
-import { useHabbits } from '@/shared/api/queries';
+import { useStore } from '@/entities/ZustandStore/store';
+import { useHabbits } from '@/entities/api/queries';
 import { dateFormatter } from "@/features/DateFormatters/DateFormatter";
 import dayjs from 'dayjs';
 
 import { isLight } from '@/features/ColorChanger/isLight';
-import { Record } from '@/shared/api/types/table';
+import { Record } from '@/entities/api/types/table';
 
 
 

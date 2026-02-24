@@ -1,4 +1,4 @@
-import { useStore } from '@/shared/ZustandStore/store';
+import { useStore } from '@/entities/ZustandStore/store';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
 

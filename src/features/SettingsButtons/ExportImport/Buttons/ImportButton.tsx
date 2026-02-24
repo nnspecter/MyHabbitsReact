@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from '@mui/material';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import { useImportData } from '@/shared/api/mutations/mutations';
+import { useImportData } from '@/entities/api/mutations/mutations';
 import { downloadJson } from '../Functions/downloadJSON';
 import { Dropzone } from '../Dropzone/Dropzone';
-import { useFileDataStore } from '@/shared/ZustandStore/ImportStore';
+import { useFileDataStore } from '@/entities/ZustandStore/ImportStore';
 
 
 export const ImportButton = () => {

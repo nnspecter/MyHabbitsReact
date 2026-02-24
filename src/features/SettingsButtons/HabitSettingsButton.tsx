@@ -1,12 +1,12 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useConfigureHabit } from '@/shared/api/mutations/mutations';
-import { useAllGroups } from '@/shared/api/queries';
+import { useConfigureHabit } from '@/entities/api/mutations/mutations';
+import { useAllGroups } from '@/entities/api/queries';
 import InputLenght from '@/features/Input/InputLenght';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { SettingsStyledButton } from '@/features/muiThemes/SettingsStyledButton';
-import { ConfigureHabbit } from '@/shared/api/types/settings/groupSettings';
-import { Habit } from '@/shared/api/types/settings/allGroups';
+import { ConfigureHabbit } from '@/entities/api/types/settings/groupSettings';
+import { Habit } from '@/entities/api/types/settings/allGroups';
 
 
 interface HabitSettingsButtonProps {

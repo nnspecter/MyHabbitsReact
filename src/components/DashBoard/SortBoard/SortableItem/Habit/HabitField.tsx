@@ -7,8 +7,8 @@ import NumberField from './Fields/NumberField';
 import GeneralCheckBox from './Fields/GeneralCheckBox';
 import TimeFields from './Fields/TimeFields';
 
-import { useStore } from '@/shared/ZustandStore/store';
-import { Habit } from '@/shared/api/types/dashboard';
+import { useStore } from '@/entities/ZustandStore/store';
+import { Habit } from '@/entities/api/types/dashboard';
 dayjs.extend(customParseFormat);
 
 

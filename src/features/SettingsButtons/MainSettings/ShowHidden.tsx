@@ -1,4 +1,4 @@
-import { useConfigureSettings } from '@/shared/api/mutations/mutations';
+import { useConfigureSettings } from '@/entities/api/mutations/mutations';
 import { Checkbox } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 

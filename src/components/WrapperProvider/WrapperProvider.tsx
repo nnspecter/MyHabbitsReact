@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/features/muiThemes/theme";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/shared/api/queryCient";
+import { queryClient } from "@/entities/api/queryCient";
 import Header from "@/components/Header/Header";
 
 interface WrapperProviderProps {

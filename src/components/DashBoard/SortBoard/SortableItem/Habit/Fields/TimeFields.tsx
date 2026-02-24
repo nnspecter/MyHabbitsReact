@@ -1,6 +1,6 @@
 import { Input } from '@mui/material';
 import { useEffect, useRef, useState } from 'react'
-import { useNewRecord } from '@/shared/api/mutations/mutations';
+import { useNewRecord } from '@/entities/api/mutations/mutations';
 import { formatTimeFull, UnFormatTime } from '@/features/TimeFormatter/TimeFormatter';
 
 

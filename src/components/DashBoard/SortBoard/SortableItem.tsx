@@ -3,7 +3,7 @@ import {CSS} from '@dnd-kit/utilities';
 import { IconButton, Box, AccordionDetails } from "@mui/material";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import HabitField from './SortableItem/Habit/HabitField';
-import { Habit } from '@/shared/api/types/dashboard';
+import { Habit } from '@/entities/api/types/dashboard';
 
 
 

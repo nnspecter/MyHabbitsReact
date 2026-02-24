@@ -1,8 +1,8 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useNewRecord } from '../../shared/api/mutations/mutations';
-import { Habit } from '@/shared/api/types/settings/allGroups';
-import { NewRecord } from '@/shared/api/types/dashboard';
+import { useNewRecord } from '../../entities/api/mutations/mutations';
+import { Habit } from '@/entities/api/types/settings/allGroups';
+import { NewRecord } from '@/entities/api/types/dashboard';
 
 interface NewRecordButtonProps {
   groupName: string;
