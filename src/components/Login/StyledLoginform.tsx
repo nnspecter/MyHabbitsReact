@@ -1,80 +1,34 @@
 "use client"
 import styles from "./StyledLoginForm.module.scss"
-import { Button, styled, TextField } from '@mui/material'
+import { Button} from '@mui/material'
 import { useRouter } from 'next/navigation';
-import {startLogin } from "@/entities/api/api";
-import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { MountAnimation } from "@/animations/MountAnimation";
-import { LoginData } from "@/entities/api/types/login";
+import { useLogin } from "@/entities/api/mutations/mutations";
+import { useEffect } from "react";
+import { CssTextField } from "@/shared/customComponents/LoginField";
 
 
 
 const AuthentificationForm = () => {
-  const CssTextField = styled(TextField)({
-    width: '300px',
-    
-    '& label': {
-      color: '#454545', // обычный цвет label
-    },
-    '& label.Mui-focused': {
-      color: '#454545', // цвет label при фокусе
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#454545', // для standard варианта
-    },
-    
-    '& .MuiOutlinedInput-root': {
-      '& input': {
-        color: '#454545', // **текст, который вводит пользователь**
-      },
-      '& input::placeholder': {
-        color: '#686868ff', // placeholder
-        opacity: 1,
-      },
-      // autofill
-      '& input:-webkit-autofill': {
-        WebkitBoxShadow: '0 0 0 1000px rgba(0,0,0,0) inset', // прозрачный
-        WebkitTextFillColor: '#454545', // цвет текста
-        transition: 'background-color 5000s ease-in-out 0s', // обманка для Chrome
-      }, 
-      '& fieldset': {
-        borderColor: '#454545', // обычная рамка
-        borderRadius: '10px',
-      },
-      '&:hover fieldset': {
-        borderColor: '#454545', // рамка при наведении
-        borderRadius: '10px',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#454545', // рамка при фокусе
-      },
-    },
-  });
-
   const router = useRouter();
-  const LoginMutation = useMutation({
-    mutationFn: (data: LoginData) => startLogin(data),  
-    onSuccess: () => {
-      setTimeout(() => {
-        router.push("/table");
-      }, 5000);
-    },
-    onError: (error) => {
-        console.error(error);
-    }
-});
+  const loginMutation = useLogin();
 
+  
+  useEffect (()=>{
+    if(!loginMutation.isSuccess) return;
+    router.push("/table"); 
+  },[loginMutation.isSuccess])
 
-    const handleSubmit = async (username: string, password: string) => {
+  const handleSubmit = (username: string, password: string) => {
 
-        if (!username || !password) {
-            return;
-        }
+      if (!username || !password) {
+          return;
+      }
 
-        console.log({username: username, password: password})
-        await LoginMutation.mutate({ username, password });
-    } 
+      console.log({username: username, password: password})
+      loginMutation.mutate({ username, password });
+  } 
 
   return (
     <MountAnimation key={"login"}>
@@ -89,7 +43,7 @@ const AuthentificationForm = () => {
           <div className={styles.formPanel}>
             <div className={styles.name}>Вход</div>
             <div className={styles.formLabels}>
-              <CssTextField 
+              <CssTextField
                 label="Логин или номер телефона" 
                 placeholder="Введите логин" 
                 id="login-input"
@@ -103,7 +57,7 @@ const AuthentificationForm = () => {
                 type="password"
                 
               />
-              {LoginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
+              {loginMutation.isError && <div className={styles.errorText}>Введены неверные данные</div>}
             </div>
             <div className={styles.formButton}>
               <Button variant='contained' type="submit"  style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Войти</Button>

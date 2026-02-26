@@ -8,12 +8,6 @@ import { GroupsSettings } from "./types/settings/allGroups"
 import { SettingsConfig } from "./types/settings/mainSettings"
 
 
-export const useLogin = (username: string, password: string) => {
-    return useQuery({
-        queryKey: [queryKeys.login],
-        queryFn: () => startLogin({username, password}),
-    })
-}
 
 // функция таблицы
 export const useHabbits = (data: HabitsData) => {

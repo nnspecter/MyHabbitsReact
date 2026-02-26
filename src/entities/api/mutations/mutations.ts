@@ -1,11 +1,25 @@
 import { useMutation } from "@tanstack/react-query"
-import { addGroup, deleteGroup, configureGroup, configureSettings, addHabit, deleteHabit, configureHabit, newRecord, startExport, startImport } from "../api";
+import { addGroup, deleteGroup, configureGroup, configureSettings, addHabit, deleteHabit, configureHabit, newRecord, startExport, startImport, startLogin, startRegistration } from "../api";
 import { invalidateAll, invalidateWithoutDashboard } from "./onSuccess";
 import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "../types/settings/groupSettings";
 import { ConfigureSettings } from "../types/settings/mainSettings";
 import { NewRecord } from "../types/dashboard";
 import { ExportResponse } from "../types/settings/export";
+import { LoginData, RegistrationData } from "../types/login";
 
+//login
+export const useLogin = () => {
+  return useMutation({
+    mutationFn: (data: LoginData) => startLogin(data),  
+  });
+};
+
+//registration
+export const useRegistration = () => {
+  return useMutation({
+    mutationFn: (data: RegistrationData) => startRegistration(data),  
+  });
+  };
 
 //Настройки-------------------------------------------------------------------------------
 export const useDeleteGroup = () => {
