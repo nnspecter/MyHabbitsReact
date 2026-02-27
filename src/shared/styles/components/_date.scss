@@ -1,0 +1,30 @@
+.date{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: var(--textColor);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: calc(var(--mFontSize) - 6pt);
+}
+
+// стили для календаря выбора даты
+@import "react-day-picker/dist/style.css";
+.rdp-root {
+    --rdp-background-color: #D9D9D9;
+
+    --rdp-accent-color: #39b354ff;
+    --rdp-accent-color-dark: #454545;
+
+    --rdp-text-color: #454545;
+
+    --rdp-day-selected-background-color: #454545;
+    --rdp-day-selected-color: #D9D9D9;
+
+    --rdp-day-hover-background-color: rgba(69, 69, 69, 0.15);
+
+    --rdp-day-today-color: #454545;
+    --rdp-day-disabled-color: rgba(69, 69, 69, 0.4);
+
+    --rdp-outline: 2px solid rgba(69, 69, 69, 0.4);
+  }

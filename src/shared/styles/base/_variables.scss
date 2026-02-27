@@ -1,0 +1,54 @@
+:root{
+  //общие 
+  --containerWidth: 80%;
+  --padding: 20px;
+  --containersMargin: 10%;
+  --containersMarginBottom: 5%;
+  --gap: 20px;
+  --background: #FBFBF8;//#D9D9D9;
+  --textColor: #454545dd;
+  --containerShadow: 
+    0px 2px 5px 2px rgba(34, 34, 34, 0.088),
+    0px -1px 2px 1px rgba(37, 37, 37, 0.078);
+    --buttonShadow: 
+    0px 6px 10px 3px rgba(41, 41, 41, 0.2),
+    0px -2px 20px 2px rgb(255, 255, 255);
+  --containerBorder: 0px solid rgba(193, 193, 193, 0.4);
+  --sFontSize: 12pt;
+  --mFontSize: 20pt;
+  --itemsGap: 20px;
+  --buttonColor: #454545dd;
+  //дата 
+  --dateDirection: row;
+  --dateJustify: space-between;
+  --dateCenterPosition: absolute;
+  --dateCenterTransform: translateX(-50%);
+  --dateMarginLeft: auto;
+  //хедер - завершено
+  --unSelectedColor: #454545dd;
+  --selectedColor: #303030f8;
+  --headerFontSize: var(--mFontSize);
+  --headerWidth: 90%;
+  --headerGap: 2rem;
+  --headerLogoSize: var(--mFontSize);
+  --headerCenter: space-between;
+  --headerTop: 0;
+  --headerBottom: auto;
+  --headerBorders: 0 0 10px 10px;
+  --headerShadow: 0 4px 4px rgba(0,0,0,0.1);
+  //таблица - завершено
+  --tablHWidth: var(--truncatedWidth);
+  --tableDWidth: 150px;
+  --truncatedWidth: 120px;
+  //дашборд - завершено
+  --dashboardWidth: 90%;
+  --dashboardJustify: space-between; 
+  --dashboardShadow: 
+    0px 2px 4px 1px rgba(41, 41, 41, 0.084),
+    0px -2px 4px 1px rgb(255, 255, 255);
+  --dashboardBorderRadius: 10px;
+  //настройки
+  //аналитика
+  --amobileCenter: flex-start;
+  --auniversalHeight: 150px;
+}

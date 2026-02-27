@@ -1,0 +1,59 @@
+// Ограничение текста 
+.truncated, .wrapTruncated {
+  width: var(--truncatedWidth);              
+  overflow: hidden;       
+  text-overflow: ellipsis; 
+}
+.truncated{
+  white-space: nowrap; 
+}
+
+.wrapTruncated{
+  white-space: wrap;    
+}
+.settingsTruncated, .settingsTypeTruncated{
+  width: calc(var(--truncatedWidth) * 1.2);              
+  white-space: wrap; 
+  overflow: hidden;       
+  text-overflow: ellipsis; 
+
+}
+.settingsTypeTruncated{
+  width: calc(var(--truncatedWidth) * 0.9);              
+}
+//------------------------
+
+//Размеры текста
+.medFont2{
+  color: var(--textColor);
+  font-size: var(--mFontSize);
+  font-weight: bold;
+}
+
+.medFont1{
+  color: var(--textColor);
+  font-size: calc(var(--mFontSize) * 0.80 );
+  font-weight: 700;
+}
+
+.medFont0{
+  color: var(--textColor);
+  font-size: calc(var(--mFontSize) * 0.80);
+  font-weight: 700;
+}
+
+.smallFont2{
+  color: var(--textColor);
+  font-size: var(--sFontSize );
+  font-weight: 600;
+}
+.smallFont1Table{
+  color: var(--textColor);
+  font-size: calc(var(--sFontSize) * 0.90);
+  font-weight: 600;
+}
+.smallFont1{
+  color: var(--textColor);
+  font-size: calc(var(--sFontSize) * 0.90);
+  font-weight: 500;
+}

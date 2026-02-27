@@ -1,0 +1,21 @@
+.container, .containerSkeleton {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: var(--containerWidth);
+  margin-top: var(--containersMargin);
+  margin-bottom: var(--containersMarginBottom);
+  height: auto;
+  background-color: var(--background);
+  border: var(--containerBorder);
+  box-shadow: var(--containerShadow);
+  border-radius: 10px;
+  gap: var(--gap);
+  padding: var(--padding);
+}
+.containerSkeleton{
+  
+  padding: 0;
+  box-shadow: none;
+  align-self: center;
+}

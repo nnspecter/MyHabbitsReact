@@ -2,7 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/components/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@types/*": ["src/types/*"],
+      "@shared/*": ["src/shared/*"],
+      "@styles/*": ["src/shared/styles/*"]
     },
     "target": "ES2017",
     "lib": [

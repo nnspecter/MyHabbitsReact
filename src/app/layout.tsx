@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "./globals.scss";
+import "@styles/globals.scss";
 import WrapperProvider from "@/components/WrapperProvider/WrapperProvider";
 
 
