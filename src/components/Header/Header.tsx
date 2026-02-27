@@ -6,17 +6,23 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import TableRowsIcon from "@mui/icons-material/TableRows";
 import PlaylistAddCheckCircleIcon from "@mui/icons-material/PlaylistAddCheckCircle";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-
 import { usePathname } from "next/navigation";
 import LogOutButton from "@/features/SettingsButtons/LogOutButton ";
+import { hover } from "framer-motion";
+
+
 
 const Header = () => {
-  const pathname = usePathname(); // NEXT.js хук для клиентских компонентов
+  const pathname = usePathname(); // Ааааа это же NEXT.js хук для клиентских компонентов
   const hideHeaderPaths = ["/dashboard", "/settings", "/table", "/analytics"];
   const showHeader = hideHeaderPaths.includes(pathname);
-
   if (!showHeader) return null;
-
+  const iconStyles = (path: string) => {
+    return { 
+      fontSize: "var(--headerFontSize)",
+      color: pathname == path && "var(--selectedColor)",
+      transition: "color 0.2s ease"}
+  }
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -26,23 +32,23 @@ const Header = () => {
             <li>
               <Link href="/dashboard">
                 <PlaylistAddCheckCircleIcon
-                  style={{ fontSize: "var(--headerFontSize)" }}
+                  style={iconStyles("/dashboard")}
                 />
               </Link>
             </li>
             <li>
               <Link href="/table">
-                <TableRowsIcon style={{ fontSize: "var(--headerFontSize)" }} />
+                <TableRowsIcon style={iconStyles("/table")} />
               </Link>
             </li>
             <li>
               <Link href="/settings">
-                <SettingsIcon style={{ fontSize: "var(--headerFontSize)" }} />
+                <SettingsIcon style={iconStyles("/settings")} />
               </Link>
             </li>
             <li>
               <Link href="/analytics">
-                <AnalyticsIcon style={{ fontSize: "var(--headerFontSize)" }} />
+                <AnalyticsIcon style={iconStyles("/analytics")} />
               </Link>
             </li>
             <LogOutButton />
