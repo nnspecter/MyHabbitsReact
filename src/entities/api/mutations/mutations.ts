@@ -10,7 +10,8 @@ import { LoginData, RegistrationData } from "../types/login";
 //login
 export const useLogin = () => {
   return useMutation({
-    mutationFn: (data: LoginData) => startLogin(data),  
+    mutationFn: (data: LoginData) => startLogin(data),
+    onSuccess: invalidateAll,  
   });
 };
 

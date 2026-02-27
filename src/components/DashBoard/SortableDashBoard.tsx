@@ -39,39 +39,38 @@ const SortableDashBoard = () => {
 
   return (
     <MountAnimation>
-      <div className="container">
-          <div className={styles.head}>
+      <section className="container">
+          <header className={styles.head}>
             <div className={styles.center}>
-              <div className="medFont2">
+              <h1 className="medFont2">
                   Запись привычек
-              </div>
+              </h1>
             </div>
             <div className={styles.right}>
               <div className="date">
-                
                   <PopOver/>
                   <div className="medFont0">
                     {date} {todayDate(date) && <>{"(сегодня)"}</>}
                   </div>
               </div> 
             </div>
-          </div>
+          </header>
 
           
-          <div className={styles.habitBody}>
+          <article className={styles.habitBody}>
             {isError && <div className="tableLoading">Возникла ошибка</div>}
             {isPending && isFetching && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
             {!isPending && data?.data.groups.length === 0 && (
               <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
             )}
-            <div className={styles.accordionWrapper}>
+
+            <section className={styles.accordionWrapper}>
             {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
-              <div className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
+              <article className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
                 <Accordion  sx={{
                   backgroundColor: "var(--background)",
                   position: "relative",
                   boxShadow: "var(--dashboardShadow) inset",
-                  
                   borderRadius:"var(--dashboardBorderRadius)" }} defaultExpanded>
                   <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
                     <div className="medFont1">{group.name}</div>
@@ -87,13 +86,11 @@ const SortableDashBoard = () => {
                     <SortBoard groupId={group.id} habits={group.habits}/>
                   </div>
                 </Accordion>
-              </div>
+              </article>
             ))}
-            </div>
-          </div>
-          
-          
-      </div>
+            </section>
+          </article>
+      </section>
     </MountAnimation>
   )
 }

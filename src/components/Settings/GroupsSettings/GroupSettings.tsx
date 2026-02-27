@@ -20,11 +20,10 @@ const GroupSettings= ({groups}: GroupSettingsProps) => {
         {groups.map((group) => (
             <div key= {`groupsSettings-${group.id}`} className={styles.group}>
                 <div>
-                     <div className='settingsTruncated smallFont2'>{group.name} </div>
+                     <h1 className='settingsTruncated smallFont2'>{group.name} </h1>
                 </div>
                 <HiddenCheckbox id={group.id} hidden={Boolean(group.hidden)}></HiddenCheckbox>
                 <ToGroupSettingsButton groupId={group.id} />
-
                 <DeleteButton groupId={group.id}/>
             </div>
         ))}

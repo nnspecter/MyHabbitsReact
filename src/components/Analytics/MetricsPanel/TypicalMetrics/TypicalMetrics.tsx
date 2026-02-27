@@ -10,8 +10,8 @@ const TypicalMetrics = ({habitId}: {habitId: number}) => {
     const stats = habitStats.data
     
   return (
-    <div className={styles.main}>
-        <h2 className="medFont1">Конкретные значения</h2>
+    <article className={styles.main}>
+        <h3 className="medFont1">Конкретные значения</h3>
         {habitStats.data?.numData && 
             <div className={styles.section}>
             <OneMetric name="Максимум" count={stats.numData.max}/>
@@ -44,7 +44,7 @@ const TypicalMetrics = ({habitId}: {habitId: number}) => {
                 />
             </div>
         }
-    </div>
+    </article>
   )
 }
 

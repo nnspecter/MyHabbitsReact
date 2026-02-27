@@ -25,14 +25,12 @@ const AuthentificationForm = () => {
       if (!username || !password) {
           return;
       }
-
-      console.log({username: username, password: password})
       loginMutation.mutate({ username, password });
   } 
 
   return (
     <MountAnimation key={"login"}>
-      <div className={styles.form}>
+      <section className={styles.form}>
         <form onSubmit ={(e:React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           const form = e.currentTarget;
@@ -41,7 +39,7 @@ const AuthentificationForm = () => {
           handleSubmit(login, password);
         }}>
           <div className={styles.formPanel}>
-            <div className={styles.name}>Вход</div>
+            <h1 className={styles.name}>Вход</h1>
             <div className={styles.formLabels}>
               <CssTextField
                 label="Логин или номер телефона" 
@@ -64,12 +62,11 @@ const AuthentificationForm = () => {
               <div className={styles.lowerText}>
                 Нет аккаунта? 
                 <Link href="/registration">Зарегистрироваться</Link>
-              </div>
-              
+              </div> 
             </div>
           </div>
         </form>
-      </div>
+      </section>
     </MountAnimation>
   )
 }

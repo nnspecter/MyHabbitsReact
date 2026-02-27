@@ -18,9 +18,10 @@
         border-radius: 10px;
         gap: var(--gap);
         padding: var(--padding);
-
-        .title{
-            text-align: center;
+        header{
+            .title{
+                text-align: center;
+            }
         }
 
     }

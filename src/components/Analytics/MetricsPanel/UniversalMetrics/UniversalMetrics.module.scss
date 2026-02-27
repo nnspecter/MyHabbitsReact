@@ -5,14 +5,14 @@
     align-items: center;
     gap: var(--itemsGap);
     justify-content: space-around;
-    .section{
+    .article{
         width: 400px;
         display: flex;
         flex-direction: column;
         justify-self: center;
         margin-left: 20px;
         margin-right: 20px;
-        h2{
+        h3{
             text-align: center;
         }
         .metrics{

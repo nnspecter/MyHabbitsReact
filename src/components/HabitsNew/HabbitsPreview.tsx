@@ -15,10 +15,10 @@ const HabbitsPreview = () => {
   const date = dayjs(selectedTableDate).format("DD.MM.YYYY")
   return (
     <MountAnimation>
-      <div className='container'>
-        <div className={styles.head}>
+      <section className='container'>
+        <header className={styles.head}>
           <div className={styles.center}> 
-            <div className='medFont2'>Превью записей</div>
+            <h1 className='medFont2'>Превью записей</h1>
           </div>
           <div className={styles.right}>
             <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "var(--buttonColor)"}} onClick={() => updateTableDate("left")} ><KeyboardArrowLeftIcon/></Button>
@@ -30,11 +30,11 @@ const HabbitsPreview = () => {
             </div>
             <Button sx={{padding: 0, margin: 0, minWidth: 0, width: "auto", color: "var(--buttonColor)"}} onClick={() => updateTableDate("right")} ><ChevronRightIcon/></Button>
           </div>
-        </div>
-        <div className={styles.table}>
+        </header>
+        <article className={styles.table}>
           <CustomTable/>
-        </div>
-      </div>
+        </article>
+      </section>
     </MountAnimation>
   )
 }

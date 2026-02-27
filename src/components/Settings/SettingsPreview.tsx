@@ -21,17 +21,19 @@ const SettingsPreview = () => {
 
   return (
     <MountAnimation>
-    <div className={styles.settingsPreview}>
-      <div className={styles.settings}>
-        <div className={`medFont2 ${styles.title}`}>Настройки</div>
-
+    <section className={styles.settingsPreview}>
+      <section className={styles.settings}>
+        <header>
+          <h1 className={`medFont2 ${styles.title}`}>Настройки</h1>
+        </header>
+        <article>
           {isPendingSettingsConfig ? 
             <div className="tableLoading">
               <CircularProgress sx={{color: "#454545"}}/>
             </div>
           : <MainSettings settings={settingsConfig} />}
-
-      </div>
+        </article>
+      </section>
 
 
 
@@ -41,19 +43,21 @@ const SettingsPreview = () => {
         </MountAnimation>
       ) : (
         <MountAnimation key={"GroupSettings"}>
-          <div className={styles.settings}>
-            <div className={`medFont2 ${styles.title}`}>Настройки групп</div>
-              
+          <section className={styles.settings}>
+            <header>
+              <h1 className={`medFont2 ${styles.title}`}>Настройки групп</h1>
+            </header>
+            <article>  
               {isPendingAllGroups ?
                 <div className="tableLoading">
                   <CircularProgress sx={{color: "#454545"}}/>
                 </div>
                 : <GroupSettings groups={currentGroups} />}
-          
-          </div>
+            </article>
+          </section>
         </MountAnimation>
       )}
-    </div>
+    </section>
     </MountAnimation>
   );
 };

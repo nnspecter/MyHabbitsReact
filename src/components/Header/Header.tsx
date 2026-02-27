@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.logo}>Habits</div>
+        <h1 className={styles.logo}>Habits</h1>
         <nav className={styles.nav}>
           <ul>
             <li>

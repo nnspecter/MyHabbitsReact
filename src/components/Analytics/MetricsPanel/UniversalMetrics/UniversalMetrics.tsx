@@ -15,32 +15,30 @@ const UniversalMetrics = ({habitId}: {habitId: number}) => {
     }
     console.log(habitStats.data)
   return (
-    <div className={styles.metricsSections}>
-        <div className={styles.section}>
-          <h2 className="medFont1 ">
+    <section className={styles.metricsSections}>
+        <article className={styles.article}>
+          <h3 className="medFont1 ">
             Серия выполнений
-          </h2>
-
+          </h3>
           <div className={styles.metrics}>
             <OneMetric name="Максимум" count={habitStats.data.maxStreak}/>
             <OneMetric name="Текущая" count={habitStats.data.currentStreak}/>
             <OneMetric name="Пропуски" count={habitStats.data.maxMiss}/>
           </div>
-        </div>
+        </article>
         
-        <div className={styles.section}>
-          <h2 className="medFont1 ">
+        <article className={styles.article}>
+          <h3 className="medFont1 ">
             Выполнения
-          </h2>
-
+          </h3>
           <div className={styles.metrics}>
             <OneMetric name="Всего" count={`${habitStats.data.completion}%`}/>
             <OneMetric name="Кол-во" count={habitStats.data.completionCount}/>
             <OneMetric name="За неделю" count={habitStats.data.weekCompletion}/>
           </div>
-        </div> 
+        </article> 
         
-    </div>
+    </section>
   )
 }
 

@@ -6,6 +6,10 @@ html, body, #__next {
   width: 100%;
   background-color: #FBFBF8;//#ACACAC;
 }
+h1{
+  padding: 0;
+  margin: 0;
+}
 :root{
   //общие 
   --containerWidth: 80%;

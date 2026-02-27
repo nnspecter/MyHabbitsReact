@@ -12,12 +12,12 @@ const MetricsPanel = () => {
     const{selectedHabitId} = useStore();  
     console.log("All Groups:", allGroups);
   return (
-    <div className='container'>
-        <div className={styles.head}>
+    <section className='container'>
+        <article className={styles.head}>
             <div className={styles.center}>
-                <div className="medFont2">
+                <h1 className="medFont2">
                     Метрики
-                </div>
+                </h1>
             </div>
             <div className={styles.right}>
                 <div className="date">
@@ -27,13 +27,14 @@ const MetricsPanel = () => {
                     </div>
                 </div> 
             </div>
-        </div>
-        {(!allGroupsPending && allGroups.data.length === 0) && <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>}
-        {(!allGroupsPending && allGroups.data.length > 0) && <HabitSelector groups={allGroups.data}/>}
-        <div style={{minHeight: "var(--auniversalHeight)"}}>{selectedHabitId && <UniversalMetrics habitId={selectedHabitId}/>}</div>
-        {selectedHabitId && <div style={{minHeight: "175px"}}> <TypicalMetrics habitId={selectedHabitId}/></div>}
-
-    </div>
+        </article>
+        <article>
+            {(!allGroupsPending && allGroups.data.length === 0) && <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>}
+            {(!allGroupsPending && allGroups.data.length > 0) && <HabitSelector groups={allGroups.data}/>}
+            <div style={{minHeight: "var(--auniversalHeight)"}}>{selectedHabitId && <UniversalMetrics habitId={selectedHabitId}/>}</div>
+            {selectedHabitId && <div style={{minHeight: "175px"}}> <TypicalMetrics habitId={selectedHabitId}/></div>}
+        </article>
+    </section>
   )
 }
 

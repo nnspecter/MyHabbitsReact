@@ -41,7 +41,7 @@ const AuthentificationForm = () => {
 
   return (
     <MountAnimation key={"registration"}> 
-        <div className={styles.form}>
+        <section className={styles.form}>
             <form onSubmit ={(e:React.FormEvent<HTMLFormElement>) => {
                 e.preventDefault();
                 const form = e.currentTarget;
@@ -51,7 +51,7 @@ const AuthentificationForm = () => {
                 handleSubmit(login, password, repeatPassword);
             }}>
                 <div className={styles.formPanel}>
-                    <div className={styles.name}>Регистрация</div>
+                    <h1 className={styles.name}>Регистрация</h1>
                     <div className={styles.formLabels}>
                         <CssTextField
                         label="Логин или номер телефона" 
@@ -87,7 +87,7 @@ const AuthentificationForm = () => {
                     </div>
                 </div>
             </form>
-        </div>
+        </section>
     </MountAnimation>
   )
 }
