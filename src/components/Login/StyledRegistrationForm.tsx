@@ -1,6 +1,6 @@
 "use client"
 import styles from "./StyledLoginForm.module.scss"
-import { Button } from '@mui/material'
+import { Button, Skeleton } from '@mui/material'
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -51,40 +51,43 @@ const AuthentificationForm = () => {
                 handleSubmit(login, password, repeatPassword);
             }}>
                 <div className={styles.formPanel}>
-                    <h1 className={styles.name}>Регистрация</h1>
-                    <div className={styles.formLabels}>
-                        <CssTextField
-                        label="Логин или номер телефона" 
-                        placeholder="Введите логин" 
-                        id="login-input"
-                        type="text"
-                        
-                        />
-                        <CssTextField 
-                        label="Пароль" 
-                        placeholder="Введите пароль" 
-                        id="password-input" 
-                        type="password"
-                        
-                        />
-                        <CssTextField 
-                        label="Повторите пароль" 
-                        placeholder="Введите пароль снова" 
-                        id="repeat-password-input" 
-                        type="password"
-                        
-                        />
-                        {regMutation.isError && <div className={styles.errorText}>Ошибка сервера</div>}
-                        {repeatPasswordError && <div className={styles.errorText}>Пароли не совпадают</div>}
-                        {regMutation.isSuccess && <div className={styles.successText}>Вы зарегистрировались</div>}
-                    </div>
-                        <div className={styles.formButton}>
-                            <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
-                            <div className={styles.lowerText}>
-                            Есть аккаунт?  
-                            <Link href="/login">Войти</Link>
+                    {regMutation.isPending && <Skeleton style={{position: "absolute", inset: "0", zIndex: "100", height: '100%'}} variant="rectangular" animation="wave" sx={{ bgcolor: '#30303023' }}></Skeleton>}
+                    <article className={styles.content}>
+                        <h1 className={styles.name}>Регистрация</h1>
+                        <div className={styles.formLabels}>
+                            <CssTextField
+                            label="Логин или номер телефона" 
+                            placeholder="Введите логин" 
+                            id="login-input"
+                            type="text"
+                            
+                            />
+                            <CssTextField 
+                            label="Пароль" 
+                            placeholder="Введите пароль" 
+                            id="password-input" 
+                            type="password"
+                            
+                            />
+                            <CssTextField 
+                            label="Повторите пароль" 
+                            placeholder="Введите пароль снова" 
+                            id="repeat-password-input" 
+                            type="password"
+                            
+                            />
+                            {regMutation.isError && <div className={styles.errorText}>Ошибка сервера</div>}
+                            {repeatPasswordError && <div className={styles.errorText}>Пароли не совпадают</div>}
+                            {regMutation.isSuccess && <div className={styles.successText}>Вы зарегистрировались</div>}
                         </div>
-                    </div>
+                            <div className={styles.formButton}>
+                                <Button variant='contained' type="submit" sx={{background: "#454545"}} style={{width: "300px", fontSize: "12pt", fontWeight: "bold", borderRadius: "10px"}}>Зарегистрироваться</Button>
+                                <div className={styles.lowerText}>
+                                Есть аккаунт?  
+                                <Link href="/login">Войти</Link>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </form>
         </section>

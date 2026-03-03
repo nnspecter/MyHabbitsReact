@@ -99,13 +99,13 @@ const CustomTable = () => {
 
   return (
     <article style={{position: "relative", width: "100%", height: "100%", display: 'flex'}}>
-      {isFetching && <Skeleton style={{position: "absolute", inset: "0", zIndex: "100", height: '100%'}} variant="rectangular" animation="wave" sx={{ bgcolor: '#30303023' }}></Skeleton>}
+      {isFetching && <Skeleton style={{position: "absolute", inset: "0", zIndex: "100", height: '100%'}} variant="rounded" animation="wave" sx={{ bgcolor: '#30303023', borderRadius: "20px" }}></Skeleton>}
       <TableContainer 
         component={Paper}
         sx={{
           overflowX: 'auto',
           filter: isFetching ? 'blur(0px)' : 'none',
-          pointerEvents: false ? 'none' : 'auto', }}
+          pointerEvents: isFetching ? 'none' : 'auto', }}
           ref={tableContainerRef}
         //onScroll={handlleScroll}
       >

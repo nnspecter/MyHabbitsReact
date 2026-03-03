@@ -3,76 +3,86 @@
     justify-content: center;
     align-items: center;
     font-size: 16pt;
-    
     .formPanel{
         display: flex;
         align-items: center;
         background-color: var(--background);
         width: 300px;
+        height: 100%;
         flex-direction: column;
         padding: 20px;
         border-radius: 20px;
         gap: 20px;
         box-shadow: var(--containerShadow);
-        .name{
-            color: #454545;
-            font-size: 24pt;
-            font-weight: bold;
-        }
-
-        .formLabels{
-            color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        .content{
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 20px;
-            .Input{
-                border-radius: 15px;
-            }
-            .Pass{
-                gap: 20px
-            }
+            width: 100%;
+            height: 100%;
             
-            .Number{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 5px;
-            }
-            .errorText{
-                
-                color: #AA3333;
-                font-size: 12pt;
-                text-align: center;
-            }
-            .successText{
-                
-                color: #37aa33;
-                font-size: 12pt;
-                text-align: center;
+            .name{
+                color: #454545;
+                font-size: 24pt;
+                font-weight: bold;
             }
 
-        }
-        .formButton{
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            button{
-                background: var(--textColor);
-                box-shadow: var(--buttonShadow);
-                border: var(--containerBorder);
-                color: var(--background)
-            }
-            .lowerText{
-                justify-self: center;
-                color: #454545;
-                font-size: 12pt;
-                text-align: center;
+            .formLabels{
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .Input{
+                    border-radius: 15px;
+                }
+                .Pass{
+                    gap: 20px
+                }
                 
-                a{
-                    color: #363636;
+                .Number{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+                }
+                .errorText{
+                    
+                    color: #AA3333;
+                    font-size: 12pt;
+                    text-align: center;
+                }
+                .successText{
+                    
+                    color: #37aa33;
+                    font-size: 12pt;
+                    text-align: center;
+                }
+
+            }
+            .formButton{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                button{
+                    background: var(--textColor);
+                    box-shadow: var(--buttonShadow);
+                    border: var(--containerBorder);
+                    color: var(--background)
+                }
+                .lowerText{
+                    justify-self: center;
+                    color: #454545;
+                    font-size: 12pt;
+                    text-align: center;
+                    
+                    a{
+                        color: #363636;
+                    }
                 }
             }
         }
-        
     }   
 }
