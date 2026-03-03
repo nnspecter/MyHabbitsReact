@@ -57,39 +57,40 @@ const SortableDashBoard = () => {
           </header>
 
           
-          <article className={styles.habitBody}>
-            {isError && <div className="tableLoading">Возникла ошибка</div>}
-            {isPending && isFetching && <div className="tableLoading"><CircularProgress sx={{color: "#454545"}}/></div>}
-            {!isPending && data?.data.groups.length === 0 && (
-              <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
-            )}
+          {isPending || isFetching ? <div className="tableLoading"><CircularProgress sx={{color: "var(--textColor)"}}/></div> :
+            <article className={styles.habitBody}>
+              {isError && <div className="tableLoading">Возникла ошибка</div>}
+              {!isPending && data?.data.groups.length === 0 && (
+                <div className="tableLoading">Нет данных для отображения. Создайте группы в настройках</div>
+              )}
 
-            <section className={styles.accordionWrapper}>
-            {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
-              <article className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
-                <Accordion  sx={{
-                  backgroundColor: "var(--background)",
-                  position: "relative",
-                  boxShadow: "var(--dashboardShadow) inset",
-                  borderRadius:"var(--dashboardBorderRadius)" }} defaultExpanded>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
-                    <div className="medFont1">{group.name}</div>
-                  </AccordionSummary>
-                  <div className={styles.accordionData}>
-                    {group.habits.length === 0 && 
-                      <div className={styles.noData}>
-                        <div className="smallFont2">
-                          В группе нет привычек
+              <section className={styles.accordionWrapper}>
+              {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
+                <article className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
+                  <Accordion  sx={{
+                    backgroundColor: "var(--background)",
+                    position: "relative",
+                    boxShadow: "var(--dashboardShadow) inset",
+                    borderRadius:"var(--dashboardBorderRadius)" }} defaultExpanded>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}>
+                      <div className="medFont1">{group.name}</div>
+                    </AccordionSummary>
+                    <div className={styles.accordionData}>
+                      {group.habits.length === 0 && 
+                        <div className={styles.noData}>
+                          <div className="smallFont2">
+                            В группе нет привычек
+                          </div>
                         </div>
-                      </div>
-                    }
-                    <SortBoard groupId={group.id} habits={group.habits}/>
-                  </div>
-                </Accordion>
-              </article>
-            ))}
-            </section>
-          </article>
+                      }
+                      <SortBoard groupId={group.id} habits={group.habits}/>
+                    </div>
+                  </Accordion>
+                </article>
+              ))}
+              </section>
+            </article>
+          }
       </section>
     </MountAnimation>
   )

@@ -78,7 +78,7 @@ const CustomTable = () => {
   if(isPending) { 
     return(
     <div className="tableLoading">
-      <CircularProgress sx={{color: "#454545"}}/>
+      <CircularProgress sx={{color: "var(--textColor)"}}/>
     </div>)
   }
 
