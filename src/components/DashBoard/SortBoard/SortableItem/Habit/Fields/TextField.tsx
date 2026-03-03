@@ -15,6 +15,8 @@ const TextField = ({record}: {record: Record}) => {
     const {dashboardMaxLenght} = uiSettingsStore();
     const newRecordMutation = useNewRecord();
     const[newRecord, setNewRecord] = useState(record);
+    console.log(newRecord)
+    
     const isFirstRender = useRef(true);
         
     useEffect(() => {
@@ -37,7 +39,7 @@ const TextField = ({record}: {record: Record}) => {
     <Input
         placeholder="Значение"
         fullWidth
-        value={newRecord.value ?? ""}
+        value={newRecord.value === null ? "" : newRecord.value}
         onChange={(e) => setNewRecord({...newRecord, value: e.target.value})}
         inputProps={{ maxLength: dashboardMaxLenght }}
         endAdornment={

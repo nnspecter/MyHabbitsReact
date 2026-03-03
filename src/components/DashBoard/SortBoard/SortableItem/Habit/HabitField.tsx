@@ -30,7 +30,7 @@ const HabitField = ({habit}: {habit: Habit}) => {
             <div className={styles.habitField}>
                 {
                 habit.type === "TEXT" ?
-                    <TextField record={{...record, value: String(record.value)}}/>
+                    <TextField record={{...record, value: record.value ? String(record.value) : ""}}/>
                 : habit.type === "NUMBER" ?
                     <NumberField record={{...record, value: Number(record.value)}}/>
                 : habit.type === "GENERAL" ?
