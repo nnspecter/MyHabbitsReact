@@ -26,7 +26,7 @@ const ShowHidden = ({value}: {value: boolean}) => {
 
     return (
         <label style={{display: "flex", alignItems: "center"}}>
-        <p className='smallFont2'>Показывать скрытыe</p>
+        <p className='smallFont2'>Скрывать</p>
             <Checkbox
             onChange={(e) => handleShowHidden(e)}
             checked={hideAll}

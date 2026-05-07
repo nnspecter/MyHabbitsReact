@@ -38,7 +38,6 @@ export const ImportButton = () => {
           style={{ fontSize: "12pt", fontWeight: "700", padding: "10px", margin: "0", minWidth: 'auto',}}
         >
           <div className='smallFont2' style={{color: "var(--background)", display: "flex", justifyContent:"center"}}>
-            Импорт
             <FileUploadIcon style={{fontSize: "var(--headerFontSize)"}}/>
           </div>
         </Button>

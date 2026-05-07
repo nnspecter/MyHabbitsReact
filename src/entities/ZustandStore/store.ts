@@ -30,7 +30,7 @@ interface Mode{
 
 export const useStore = create<ModeStore>((set, get)=>({
     mods: [],
-    selectedGroupId: null,
+    selectedGroupId: 1,
     selectedDate: dayjs(new Date()).format("YYYY-MM-DD"), //2024-10-05-DD
     selectedTableDate: dayjs(new Date()).format("YYYY-MM-DD"),
     selectedHabitId: null,
@@ -46,7 +46,8 @@ export const useStore = create<ModeStore>((set, get)=>({
 
     setSelectedGroupId: (id: number)=>{
         set(()=>({
-            selectedGroupId: id
+            selectedGroupId: id,
+            selectedHabitId: null
         }))
         console.log(`Выбранная группа: ${id}`);
     },
@@ -96,6 +97,7 @@ export const useStore = create<ModeStore>((set, get)=>({
     setSelectedHabitId: (habitId: number)=>{
         set(()=>({
             selectedHabitId: habitId,
+            selectedGroupId: null
         }))
         console.log("Выбранная привычка: ", habitId)
 }

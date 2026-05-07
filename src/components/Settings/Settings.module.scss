@@ -15,12 +15,21 @@
         background-color: var(--background);
         box-shadow: var(--containerShadow);
         padding: 10px;
-        border-radius: 10px;
         gap: var(--gap);
+        border-radius: 10px;
         padding: var(--padding);
+        .mainLine{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            .text{
+                max-width: 80%; 
+            }
+
+        }
         header{
             .title{
-                text-align: center;
+                text-align: left;
             }
         }
 

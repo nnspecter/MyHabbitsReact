@@ -36,4 +36,6 @@ export interface Habit {
     hidden: boolean;
     position: number;
     records: Record[];
+    schedule: "EVERYDAY" | "IN_DAY" | "N_WEEK" | "N_MONTH" //+
+    scheduleN: number;
 }

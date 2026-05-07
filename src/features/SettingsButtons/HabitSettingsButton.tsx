@@ -17,6 +17,7 @@ interface HabitSettingsButtonProps {
 
 const HabitSettingsButton: React.FC<HabitSettingsButtonProps> = ({habit, groupId})   => {
   const {data: allGroupsQuery} = useAllGroups();
+  console.log(allGroupsQuery);
   const [newHabit, setNewHabit] = useState<ConfigureHabbit>({
     habitId: habit.id,
     groupId: groupId,

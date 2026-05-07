@@ -24,16 +24,16 @@ const DeleteHabitButton = ({habitId}: {habitId: number}) => {
 
   return (
     <React.Fragment>
-        <SettingsStyledButton
+        <Button
           variant="contained"
           onClick={handleClickOpen}
-          sx={{background: "#AA3333"}}
+          sx={{background: "#b31b2563"}}
           
         >
-          <div className='smallFont1' style={{color: "#ffff", display: "flex"}}>
-            <DeleteForeverIcon/>
+          <div className='smallFont1' style={{color: "#e61717", display: "flex"}}>
+            Удалить привычку
           </div>
-        </SettingsStyledButton>
+        </Button>
       <Dialog
         open={open}
         onClose={handleClose}

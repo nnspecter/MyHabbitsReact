@@ -1,0 +1,45 @@
+
+.GroupSettings{
+    display: flex;
+    flex-direction: column;
+    gap: var(--itemsGap);
+    margin-top: 20px;
+    border-radius: 5;
+    
+    overflow: hidden;
+
+    .emptyGroups{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--itemsGap);
+    }
+    .group{
+        display:flex;
+        align-items: center;
+        padding: var(--padding);
+        background-color: rgb(255, 255, 255);
+        justify-items: center;
+        gap: 15;
+        
+    }   
+}
+.habits{
+    display: flex;
+    flex-direction: column;
+    gap: 20;
+    .habit{
+        display: flex;
+        padding: 10;
+        background-color: rgb(255, 255, 255);
+        justify-content: left;
+        box-shadow: var(--buttonShadow);
+        .inButton{
+            display: flex;
+            align-items: center;
+            color: var(--textColor);
+            gap: 10
+        }
+    }
+}

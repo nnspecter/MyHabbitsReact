@@ -39,6 +39,8 @@ export interface Habit {
     position: number;
     records: Record[];
     motivations: string[]; 
+    schedule: "EVERYDAY" | "IN_DAY" | "N_WEEK" | "N_MONTH" //+
+    scheduleN: number;
 }
 
 export interface Record {

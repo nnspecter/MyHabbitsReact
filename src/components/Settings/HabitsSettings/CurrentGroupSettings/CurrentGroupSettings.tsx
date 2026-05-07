@@ -2,7 +2,6 @@
 import  { useEffect } from 'react'
 import styles from "./CurrentGroupSettings.module.scss"
 import CurrentSettings from './CurrentSettings/CurrentSettings'
-import HabitsSettings from './HabitSettings/HabitsSettings'
 import { Button, CircularProgress } from '@mui/material'
 import { useStore } from '@/entities/ZustandStore/store'
 import { useAllGroups } from '@/entities/api/queries'
@@ -42,7 +41,7 @@ const CurrentGroupSettings = () => {
         </div>
         
           <CurrentSettings group={group}/>    
-          <HabitsSettings habits={group.habits} groupId={group.id}/>
+          
         </div>
         :
         <div className={styles.GroupSettings}> <div className="medFont1" style={{textAlign: "center"}}>Успешно удалено</div></div>}

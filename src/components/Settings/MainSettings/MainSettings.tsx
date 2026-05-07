@@ -11,7 +11,7 @@ interface MainSettingsProps {
 const MainSettings = ({settings}: MainSettingsProps) => {
   
   return (
-         <div style={{display:"flex", gap: "var(--gap)", flexWrap: "wrap"}}>
+         <div style={{display:"flex", gap: "var(--gap)", alignItems: "center" }}>
             <ShowHidden value={settings.showHidden}/>
               <div style={{display:"flex", gap: "var(--gap)"}}>
                 <ExportButton/>
