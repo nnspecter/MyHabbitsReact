@@ -1,8 +1,7 @@
 import { keepPreviousData, useQuery} from "@tanstack/react-query"
 import { queryKeys } from "./queryKeys"
-import { getAllGroups, getHabbits, startLogin, GetSettingsConfig, getDashboardHabbits, getHabitStats } from "./api"
+import { getAllGroups, getHabbits,  GetSettingsConfig, getDashboardHabbits } from "./api"
 import { DashboardResponse } from "./types/dashboard"
-import { StatsResponse } from "./types/analytics"
 import { HabitsData, HabitsResponse } from "./types/table"
 import { GroupsSettings } from "./types/settings/allGroups"
 import { SettingsConfig } from "./types/settings/mainSettings"
@@ -40,10 +39,4 @@ export const useSettingsConfig = () => {
     })
 }
 
-export const useHabitStats = (id: number) => {
-    return useQuery<StatsResponse>({
-        queryKey: queryKeys.habitStats(id),
-        queryFn: () => getHabitStats(id),
-    })
-}
 

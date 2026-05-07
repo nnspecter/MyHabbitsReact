@@ -1,6 +1,6 @@
-import { useHabitStats } from "@/entities/api/queries";
+import { useHabitStats } from "../../../model/analyticsQuery";
+import OneMetric from "../OneMetric/OneMetric";
 import styles from "./UniversalMetrics.module.scss"
-import OneMetric from "../../../../entities/Analytics/OneMetric/OneMetric";
 import { CircularProgress } from "@mui/material";
 
 const UniversalMetrics = ({habitId}: {habitId: number}) => {
@@ -13,7 +13,7 @@ const UniversalMetrics = ({habitId}: {habitId: number}) => {
         </div>
       )
     }
-    console.log(habitStats.data)
+  
   return (
     <section className={styles.metricsSections}>
         <article className={styles.article}>
@@ -37,7 +37,6 @@ const UniversalMetrics = ({habitId}: {habitId: number}) => {
             <OneMetric name="За неделю" count={habitStats.data.weekCompletion}/>
           </div>
         </article> 
-        
     </section>
   )
 }

@@ -104,12 +104,6 @@ export const getDashboardHabbits = async (date: string) => {
     return res.data
 }
 
-//Аналитика----------------------------------------------------------------------------------------------
-//Получение статистики привычки
-export const getHabitStats = async (id: number) => {
-    const res =  await axiosApi.get(`/api/habits/${id}/stats`);
-    return res.data
-}
 
 //Экспорт- импорт данных-----------------------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
-import { useHabitStats } from "@/entities/api/queries";
+import { useHabitStats } from "../../../model/analyticsQuery";
+import OneMetric from "../OneMetric/OneMetric";
 import styles from "./TypicalMetrics.module.scss"
-import OneMetric from "@/entities/Analytics/OneMetric/OneMetric";
 import { formatTimeShort, formatTimeShortFromSeconds } from "@/features/TimeFormatter/TimeFormatter";
 import { PieChart } from '@mui/x-charts/PieChart';
 

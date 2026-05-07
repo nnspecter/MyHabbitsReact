@@ -2,12 +2,10 @@ import { MountAnimation } from "@/animations/MountAnimation"
 import MetricsPanel from "./MetricsPanel/MetricsPanel"
 
 
-const Analytics = () => {
+export const Analytics = () => {
   return (
         <MountAnimation>
           <MetricsPanel/>
         </MountAnimation>
   )
 }
-
-export default Analytics

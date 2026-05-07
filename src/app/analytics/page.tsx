@@ -1,11 +1,10 @@
 "use client"
-import Analytics from "@/components/Analytics/Analytics"
-
+import { Analytics } from "@/components/Analytics"
 
 
 const page = () => {
   return ( 
-        <Analytics/>
+    <Analytics/>
   )
 }
 

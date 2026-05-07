@@ -1,7 +1,7 @@
 import { HabbitsAllGroups } from '@/entities/api/types/settings/allGroups';
 import { useStore } from '@/entities/ZustandStore/store'
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import { use, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 
 const HabitSelector = ({groups}: {groups: HabbitsAllGroups[]}) => {
