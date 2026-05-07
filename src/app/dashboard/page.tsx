@@ -1,12 +1,10 @@
 "use client"
-import SortableDashBoard from '@/components/DashBoard/SortableDashBoard'
-
+import { DashBoard } from "@/components/DashBoard"
 
 const page = () => {
   
-
   return ( 
-      <SortableDashBoard/>
+      <DashBoard/>
   )
 }
 

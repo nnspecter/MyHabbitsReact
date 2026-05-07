@@ -1,6 +1,6 @@
 import { Input, InputAdornment } from '@mui/material';
 import { useEffect, useRef, useState } from 'react'
-import { useNewRecord } from '@/entities/api/mutations/mutations';
+import { useNewRecord } from '../../../../../model/dashBoardMutations';
 import InputLenght from '@/features/Input/InputLenght';
 import { uiSettingsStore } from '@/entities/ZustandStore/uiSettingsStore';
 

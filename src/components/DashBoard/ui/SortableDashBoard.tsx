@@ -1,23 +1,21 @@
 import { Accordion, AccordionSummary, CircularProgress } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./DashBoard.module.scss"
-import { PopOver } from "./DatePicker/PopOver";
+
 import { useStore } from "@/entities/ZustandStore/store";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useEffect} from "react";
-import { useDashboardHabbit } from "@/entities/api/queries";
 import { MountAnimation } from "@/animations/MountAnimation";
 import { SortBoard } from "./SortBoard/SortBoard";
-import { HabitsGroup } from "@/entities/api/types/dashboard";
+import { useDashboardHabbit } from "../model/dashBoardQuery";
+import { PopOver } from "@/features/DatePicker/ui/PopOver";
+
 dayjs.extend(customParseFormat);
 
-
-const SortableDashBoard = () => {
+export const SortableDashBoard = () => {
   const {selectedDate} = useStore();
   const date = dayjs(selectedDate).format("DD.MM.YYYY");
-  
-  //реализую выдачу полям из родителя
   const{data, isPending, isFetching, isError, error} = useDashboardHabbit(selectedDate);
   
   useEffect(()=>{
@@ -25,7 +23,6 @@ const SortableDashBoard = () => {
     console.log("Дата для дашборда",selectedDate)
   },[data])
   
-
   const todayDate = (date: string) => {
     const today = dayjs(new Date()).format("DD.MM.YYYY");
     
@@ -35,7 +32,6 @@ const SortableDashBoard = () => {
   if(isError){
     console.log(error.message)
   }
-
 
   return (
     <MountAnimation>
@@ -65,7 +61,7 @@ const SortableDashBoard = () => {
               )}
 
               <section className={styles.accordionWrapper}>
-              {!isFetching && data?.data.groups.map((group: HabitsGroup, groupKey: number) => (
+              {!isFetching && data?.data.groups.map((group, groupKey) => (
                 <article className={styles.groupWrapper} key={`dashboardGroupAccordionKey-${groupKey}`}>
                   <Accordion  sx={{
                     backgroundColor: "var(--background)",
@@ -96,4 +92,3 @@ const SortableDashBoard = () => {
   )
 }
 
-export default SortableDashBoard

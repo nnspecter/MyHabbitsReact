@@ -1,6 +1,5 @@
 import  {useEffect, useState} from 'react';
 import { restrictToParentElement, restrictToVerticalAxis } from '@dnd-kit/modifiers';
-
 import {
   DndContext, 
   closestCenter,
@@ -17,12 +16,9 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
-
 import {SortableItem} from './SortableItem';
-
-
 import { useConfigureGroup } from '@/entities/api/mutations/mutations';
-import { Habit } from '@/entities/api/types/dashboard';
+import { Habit } from '../../api/types';
 
 interface SortBoardProps {
     habits: Habit[];

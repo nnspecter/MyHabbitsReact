@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DayPicker } from "react-day-picker";
-import { useStore } from "../../../entities/ZustandStore/store";
 import dayjs from 'dayjs';
 import { ru } from "date-fns/locale";
+import { useStore } from "@/entities/ZustandStore/store";
+
 export const DatePicker = () => {
   const [selected, setSelected] = useState<Date>();
   const{setDate, selectedDate} = useStore(); //
@@ -12,8 +13,6 @@ export const DatePicker = () => {
     const formatted = dayjs(date).format('YYYY-MM-DD'); 
     setDate(formatted);
   }
-
-
 
   return (
     <DayPicker

@@ -1,6 +1,6 @@
 import { Checkbox} from '@mui/material';
 import { useEffect, useRef, useState } from 'react'
-import { useNewRecord } from '@/entities/api/mutations/mutations';
+import { useNewRecord } from '../../../../../model/dashBoardMutations';
 
 
 interface record {

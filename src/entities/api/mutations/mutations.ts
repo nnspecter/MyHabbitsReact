@@ -1,9 +1,8 @@
 import { useMutation } from "@tanstack/react-query"
-import { addGroup, deleteGroup, configureGroup, configureSettings, addHabit, deleteHabit, configureHabit, newRecord, startExport, startImport } from "../api";
-import { invalidateAll, invalidateWithoutDashboard } from "./onSuccess";
+import { addGroup, deleteGroup, configureGroup, configureSettings, addHabit, deleteHabit, configureHabit, startExport, startImport } from "../api";
+import { invalidateAll } from "./onSuccess";
 import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "../types/settings/groupSettings";
 import { ConfigureSettings } from "../types/settings/mainSettings";
-import { NewRecord } from "../types/dashboard";
 import { ExportResponse } from "../types/settings/export";
 
 
@@ -25,7 +24,7 @@ export const useAddGroup = () => {
 export const useConfigureGroup = () => {
   return useMutation({
     mutationFn: (data: ConfigureGroup) => configureGroup(data),
-    onSuccess: invalidateWithoutDashboard,
+    onSuccess: invalidateAll,
   });
 }
 
@@ -54,14 +53,6 @@ export const useConfigureHabit = () => {
   return useMutation({
     mutationFn: (data: ConfigureHabbit) => configureHabit(data),
     onSuccess: invalidateAll,
-  });
-}
-
-//Дашборд-------------------------------------------------------------------------------
-export const useNewRecord = () => {
-  return useMutation({
-    mutationFn: (data: NewRecord) => newRecord(data),
-    onSuccess: invalidateWithoutDashboard,
   });
 }
 

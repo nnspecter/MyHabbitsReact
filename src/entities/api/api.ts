@@ -3,7 +3,6 @@ import { HabitsData } from "./types/table";
 import { ExportResponse } from "./types/settings/export";
 import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "./types/settings/groupSettings";
 import { ConfigureSettings } from "./types/settings/mainSettings";
-import { NewRecord } from "./types/dashboard";
 
 
 export const LogOut = async () =>{
@@ -91,18 +90,7 @@ export const configureHabit = async (data: ConfigureHabbit) => {
     return res.data;
 }
 
-//Дэшборд-------------------------------------------------------------------------------------------------
 
-//Создать запись
-export const newRecord = async (data: NewRecord) => {
-    const res =  await axiosApi.put(`/api/records`, data);
-    return res.data;
-}
-//получение по дате
-export const getDashboardHabbits = async (date: string) => {
-    const res =  await axiosApi.get(`/api/records/day?date=${date}`);
-    return res.data
-}
 
 
 //Экспорт- импорт данных-----------------------------------------------------------------------------------------

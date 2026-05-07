@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from "./HabitField.module.scss"
 import dayjs from 'dayjs';
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -6,9 +6,8 @@ import TextField from './Fields/TextField';
 import NumberField from './Fields/NumberField';
 import GeneralCheckBox from './Fields/GeneralCheckBox';
 import TimeFields from './Fields/TimeFields';
-
 import { useStore } from '@/entities/ZustandStore/store';
-import { Habit } from '@/entities/api/types/dashboard';
+import { Habit } from '../../../../api/types';
 dayjs.extend(customParseFormat);
 
 
