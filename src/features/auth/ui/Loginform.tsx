@@ -1,16 +1,16 @@
 "use client"
-import styles from "./StyledLoginForm.module.scss"
+import styles from "./AuthForm.module.scss"
 import { Button, Skeleton} from '@mui/material'
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import { MountAnimation } from "@/animations/MountAnimation";
-import { useLogin } from "@/entities/api/mutations/mutations";
 import { useEffect } from "react";
 import { CssTextField } from "@/shared/customComponents/LoginField";
+import { useLogin } from "../model/authMutations";
 
 
 
-const AuthentificationForm = () => {
+export const LoginForm = () => {
   const router = useRouter();
   const loginMutation = useLogin();
 
@@ -71,5 +71,3 @@ const AuthentificationForm = () => {
     </MountAnimation>
   )
 }
-
-export default AuthentificationForm

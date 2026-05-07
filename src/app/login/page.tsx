@@ -1,9 +1,10 @@
-import AuthentificationForm from '@/components/Login/StyledLoginform'
+import { LoginForm } from "@/features/auth"
+
 
 const page = () => {
   return (
     <div>
-        <AuthentificationForm/>
+        <LoginForm/>
     </div>
   )
 }

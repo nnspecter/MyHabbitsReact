@@ -1,10 +1,11 @@
+import { RegistrationForm } from '@/features/auth'
 import React from 'react'
-import StyledRegistrationForm from '@/components/Login/StyledRegistrationForm'
+
 
 const page = () => {
   return (
     <div>
-        <StyledRegistrationForm/>
+        <RegistrationForm/>
     </div>
   )
 }

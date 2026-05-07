@@ -1,15 +1,15 @@
 "use client"
-import styles from "./StyledLoginForm.module.scss"
+import styles from "./AuthForm.module.scss"
 import { Button, Skeleton } from '@mui/material'
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MountAnimation } from "@/animations/MountAnimation";
-import { useRegistration } from "@/entities/api/mutations/mutations";
 import { CssTextField } from "@/shared/customComponents/LoginField";
+import { useRegistration } from "../model/authMutations";
 
 
-const AuthentificationForm = () => {
+export const RegistrationForm = () => {
   const router = useRouter();
   const [repeatPasswordError, setRepeatPasswordError] = useState(false);
   const regMutation = useRegistration()
@@ -36,7 +36,7 @@ const AuthentificationForm = () => {
       setRepeatPasswordError(false);
 
       console.log({username: username, password: password})
-      regMutation.mutate({ name: username, password });
+      regMutation.mutate({ username: username, password });
   } 
 
   return (
@@ -94,5 +94,3 @@ const AuthentificationForm = () => {
     </MountAnimation>
   )
 }
-
-export default AuthentificationForm

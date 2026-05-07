@@ -1,6 +1,4 @@
 import { axiosApi } from "./axiosApi"
-import qs from "qs";
-import { LoginData, RegistrationData } from "./types/login";
 import { HabitsData } from "./types/table";
 import { ExportResponse } from "./types/settings/export";
 import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "./types/settings/groupSettings";
@@ -8,17 +6,6 @@ import { ConfigureSettings } from "./types/settings/mainSettings";
 import { NewRecord } from "./types/dashboard";
 
 
-//Функция логина пользователя
-export const startLogin = async (data: LoginData) => {
-    const res =  await axiosApi.post('/login', qs.stringify(data),
-    {headers: {"Content-Type": "application/x-www-form-urlencoded"}})
-    return res.data
-}
-//Функция регистрации пользователя
-export const startRegistration = async (data: RegistrationData) => {
-    const res =  await axiosApi.post('/api/users/add', data)
-    return res.data
-}
 export const LogOut = async () =>{
     const res = await axiosApi.post("/logout");
     return res.data 
