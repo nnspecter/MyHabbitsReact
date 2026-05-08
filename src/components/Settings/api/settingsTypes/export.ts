@@ -1,5 +1,5 @@
 //Типы для экспорта/импорта данных
-import { HabitsGroup } from "../table";
+import { HabitsGroup } from "../../../../components/TablePanel/api/tableTypes";
 
 export interface ExportResponse{
     groups: HabitsGroup[];

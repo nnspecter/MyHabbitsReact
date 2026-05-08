@@ -1,5 +1,3 @@
-import { useAllGroups } from '@/entities/api/queries';
-import { ConfigureHabbit } from '@/entities/api/types/settings/groupSettings';
 import InputLenght from '@/features/Input/InputLenght';
 import { Button, FormControl, Input, InputAdornment, InputLabel, MenuItem, Select, TextField, ToggleButton } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -10,6 +8,8 @@ import CheckIcon from '@mui/icons-material/Check';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Filter1Icon from '@mui/icons-material/Filter1';
 import EditNoteIcon from '@mui/icons-material/EditNote';
+import { useAllGroups } from '@/components/Settings/models/settingsQueryes';
+import { ConfigureHabbit } from '@/components/Settings/api/settingsTypes/groupSettings';
 
 interface HabitEditorProps {
   habitId: number;

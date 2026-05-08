@@ -10,7 +10,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 
-const HabbitsPreview = () => {
+export const HabbitsPreview = () => {
   const {selectedTableDate, updateTableDate} = useStore();
   const date = dayjs(selectedTableDate).format("DD.MM.YYYY")
   return (
@@ -38,5 +38,3 @@ const HabbitsPreview = () => {
     </MountAnimation>
   )
 }
-
-export default HabbitsPreview

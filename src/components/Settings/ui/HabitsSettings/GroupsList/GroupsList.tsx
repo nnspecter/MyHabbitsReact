@@ -1,6 +1,6 @@
 "use client"
 import styles from "./GroupSettings.module.scss"
-import { HabitsGroup } from '@/entities/api/types/table'
+import { HabitsGroup } from '@/components/TablePanel/api/tableTypes'
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useStore } from "@/entities/ZustandStore/store"

@@ -3,9 +3,9 @@ import { useStore } from '@/entities/ZustandStore/store';
 import CurrentGroupSettings from './CurrentGroupSettings/CurrentGroupSettings';
 import { CircularProgress } from '@mui/material';
 import GroupsList from './GroupsList/GroupsList';
-import { useAllGroups } from '@/entities/api/queries';
 import styles from "./HabitsControlPanel.module.scss" 
 import SettingsPanel from './SettingsPanel/SettingsPanel';
+import { useAllGroups } from '../../models/settingsQueryes';
 
 const HabitsControlPanel = () => {
   const { selectedHabitId, selectedGroupId } = useStore();

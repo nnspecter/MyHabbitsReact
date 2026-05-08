@@ -9,6 +9,7 @@ import { CssTextField } from "@/shared/customComponents/LoginField";
 import { useRegistration } from "../model/authMutations";
 
 
+
 export const RegistrationForm = () => {
   const router = useRouter();
   const [repeatPasswordError, setRepeatPasswordError] = useState(false);

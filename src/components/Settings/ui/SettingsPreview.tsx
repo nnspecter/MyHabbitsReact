@@ -5,9 +5,9 @@ import GroupsList from './HabitsSettings/GroupsList/GroupsList';
 import { useStore } from "@/entities/ZustandStore/store";
 import CurrentGroupSettings from "./HabitsSettings/CurrentGroupSettings/CurrentGroupSettings";
 import { MountAnimation } from "@/animations/MountAnimation";
-import { useAllGroups, useSettingsConfig } from "@/entities/api/queries";
 import { CircularProgress } from "@mui/material";
 import HabitsControlPanel from "./HabitsSettings/HabitsControlPanel";
+import { useSettingsConfig } from "../models/settingsQueryes";
 
 const SettingsPreview = () => {
   

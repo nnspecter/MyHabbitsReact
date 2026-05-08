@@ -1,5 +1,4 @@
-import { RegistrationForm } from '@/features/auth'
-import React from 'react'
+import { RegistrationForm } from '@/features/Auth'
 
 
 const page = () => {

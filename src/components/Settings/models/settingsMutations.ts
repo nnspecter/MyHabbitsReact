@@ -1,12 +1,10 @@
-import { useMutation } from "@tanstack/react-query"
-import { addGroup, deleteGroup, configureGroup, configureSettings, addHabit, deleteHabit, configureHabit, startExport, startImport } from "../api";
-import { invalidateAll } from "./onSuccess";
-import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "../types/settings/groupSettings";
-import { ConfigureSettings } from "../types/settings/mainSettings";
-import { ExportResponse } from "../types/settings/export";
+import { useMutation } from "@tanstack/react-query";
+import { addGroup, addHabit, configureGroup, configureHabit, configureSettings, deleteGroup, deleteHabit, startExport, startImport } from "../api/settingsApi";
+import { invalidateAll } from "@/entities/api/mutations/onSuccess";
+import { ConfigureGroup, ConfigureHabbit, NewGroup, NewHabbit } from "../api/settingsTypes/groupSettings";
+import { ConfigureSettings } from "../api/settingsTypes/mainSettings";
+import { ExportResponse } from "../api/settingsTypes/export";
 
-
-//Настройки-------------------------------------------------------------------------------
 export const useDeleteGroup = () => {
   return useMutation({
     mutationFn: (id: number) => deleteGroup(id),

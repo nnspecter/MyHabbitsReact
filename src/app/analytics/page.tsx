@@ -1,7 +1,6 @@
 "use client"
 import { Analytics } from "@/components/Analytics"
 
-
 const page = () => {
   return ( 
     <Analytics/>

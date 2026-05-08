@@ -2,12 +2,12 @@ import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table, Paper
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { formatTimeShort } from '@/features/TimeFormatter/TimeFormatter';
 import { useStore } from '@/entities/ZustandStore/store';
-import { useHabbits } from '@/entities/api/queries';
 import { dateFormatter } from "@/features/DateFormatters/DateFormatter";
 import dayjs from 'dayjs';
 
 import { isLight } from '@/features/ColorChanger/isLight';
-import { Record } from '@/entities/api/types/table';
+import { Record } from '@/components/TablePanel/api/tableTypes';
+import { useHabbits } from '../../model/tableQuery';
 
 
 

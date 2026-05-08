@@ -1,8 +1,8 @@
 "use client"
 import { ExportButton } from '@/features/SettingsButtons/ExportImport/Buttons/ExportButton';
 import { ImportButton } from '@/features/SettingsButtons/ExportImport/Buttons/ImportButton';
-import { SettingsConfigData } from '@/entities/api/types/settings/mainSettings';
 import ShowHidden from '@/features/SettingsButtons/MainSettings/ShowHidden';
+import { SettingsConfigData } from '../../api/settingsTypes/mainSettings';
 
 interface MainSettingsProps {
   settings: SettingsConfigData;

@@ -1,12 +1,9 @@
 "use client"
-import HabbitsPreview from '@/components/HabitsNew/HabbitsPreview'
-
+import { TablePanel } from "@/components/TablePanel"
 
 const page = () => {
-  
-  
   return ( 
-      <HabbitsPreview/>
+      <TablePanel/>
   )
 }
 

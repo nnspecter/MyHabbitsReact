@@ -15,7 +15,6 @@ export default function WrapperProvider({ children }: WrapperProviderProps) {
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <div className="headerDirection">
-          
           <div className="mobileCenter">
             {children}
           </div>
